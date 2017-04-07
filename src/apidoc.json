@@ -1,0 +1,12 @@
+{
+  "name": "fudao-apidoc",
+  "version": "2.0.0",
+  "description": "福道健康环",
+  "title": "fudao-apidoc",
+  "url": "http://192.168.10.69:9090/api",
+  "sampleUrl": "http://192.168.10.69:9090/api",
+  "template": {
+    "withCompare": true,
+    "withGenerator": true
+  }
+}
