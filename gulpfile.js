@@ -40,4 +40,6 @@ gulp.task('apidoc:watch', function () {
 });
 
 //运行Gulp时，默认的Task
-gulp.task('default', ['apidoc', 'apidoc:watch', 'server']);
+gulp.task('dev', ['apidoc', 'apidoc:watch', 'server']);
+
+gulp.task('build', ['apidoc']);
