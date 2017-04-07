@@ -32,14 +32,15 @@ gulp.task('apidoc', function (done) {
 
 // apidoc:watch
 gulp.task('apidoc:watch', function () {
-	watch('src/**/*.*', function (event) {
+	watch('src/**/*.*', function () {
 		gulp.run('apidoc', function () {
 			browserSync.reload(); // 刷新浏览器
 		});
 	});
 });
 
-//运行Gulp时，默认的Task
+// dev mode
 gulp.task('dev', ['apidoc', 'apidoc:watch', 'server']);
 
+// build mode
 gulp.task('build', ['apidoc']);
