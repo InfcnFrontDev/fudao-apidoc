@@ -29,12 +29,9 @@
 // Current Permissions.
 // ------------------------------------------------------------------------------------------
 /**
- * @apiDefine admin Admin access rights needed.
- * Optionally you can write here further Informations about the permission.
- *
- * An "apiDefinePermission"-block can have an "apiVersion", so you can attach the block to a specific version.
- *
- * @apiVersion 0.3.0
+ * @apiDefine login 访问权限
+ * 需要登录用户才有访问权限。
+ * @apiVersion 2.0.0
  */
 
 

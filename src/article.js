@@ -3,97 +3,76 @@
  * @apiVersion 2.0.0
  * @apiName getArticleColumnList
  * @apiGroup Article
- * @apiPermission admin
+ * @apiPermission login
  *
- * @apiDescription 根据人群ID，获取人群的资讯栏目。
+ * @apiDescription 获取所有资讯栏目。
  *
- * @apiParam {String} renqun 人群ID
+ * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiSuccess {Number}   id            The Users-ID.
- * @apiSuccess {Date}     registered    Registration Date.
- * @apiSuccess {Date}     name          Fullname of the User.
- * @apiSuccess {String[]} nicknames     List of Users nicknames (Array of Strings).
- * @apiSuccess {Object}   profile       Profile data (example for an Object)
- * @apiSuccess {Number}   profile.age   Users age.
- * @apiSuccess {String}   profile.image Avatar-Image.
- * @apiSuccess {Object[]} options       List of Users options (Array of Objects).
- * @apiSuccess {String}   options.name  Option Name.
- * @apiSuccess {String}   options.value Option Value.
+ * @apiSuccess {Boolean}    success   是否成功
+ * @apiSuccess {Object[]}   obj       资讯栏目列表
+ * @apiSuccess {String}     obj.id    栏目ID
+ * @apiSuccess {String}     obj.name  栏目名称
  *
- * @apiError NoAccessRight Only authenticated Admins can access the data.
- * @apiError UserNotFound   The <code>id</code> of the User was not found.
- *
- * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
- *     {
- *       "error": "NoAccessRight"
- *     }
  */
 function getArticleColumnList() { return; }
 
 /**
- * @api {get} /Article/getArticleList 获取资讯列表
+ * @api {get} /ArticleApi/getArticleList 获取资讯列表
  * @apiVersion 2.0.0
  * @apiName getArticleList
  * @apiGroup Article
- * @apiPermission admin
+ * @apiPermission login
  *
- * @apiDescription Compare Verison 0.3.0 with 0.2.0 and you will see the green markers with new items in version 0.3.0 and red markers with removed items since 0.2.0.
+ * @apiDescription 通过资讯栏目ID， 获取指定栏目下资讯列表。
  *
- * @apiParam {Number} id The Users-ID.
+ * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiExample Example usage:
- * curl -i http://localhost/user/4711
+ * @apiParam {String} renqunId 			人群ID
+ * @apiParam {String} columnId 			栏目ID
+ * @apiParam {Integer} [page=1] 		当前页码
+ * @apiParam {Integer} [pageSize=10] 	每页大小
  *
- * @apiSuccess {Number}   id            The Users-ID.
- * @apiSuccess {Date}     registered    Registration Date.
- * @apiSuccess {Date}     name          Fullname of the User.
- * @apiSuccess {String[]} nicknames     List of Users nicknames (Array of Strings).
- * @apiSuccess {Object}   profile       Profile data (example for an Object)
- * @apiSuccess {Number}   profile.age   Users age.
- * @apiSuccess {String}   profile.image Avatar-Image.
- * @apiSuccess {Object[]} options       List of Users options (Array of Objects).
- * @apiSuccess {String}   options.name  Option Name.
- * @apiSuccess {String}   options.value Option Value.
+ * @apiSuccess {Boolean}    success               是否成功
+ * @apiSuccess {Object}     obj                   资讯列表分页
+ * @apiSuccess {Object[]}   obj.list              资讯列表
+ * @apiSuccess {String}     obj.list.id           ID
+ * @apiSuccess {String}     obj.list.title        标题
+ * @apiSuccess {String}     obj.list.img          图片
+ * @apiSuccess {String}     obj.list.source       来源
+ * @apiSuccess {Long}       obj.list.createTime   发表时间
+ * @apiSuccess {Integer}    obj.page              当前页码
+ * @apiSuccess {Integer}    obj.pageSize          每页大小
+ * @apiSuccess {Integer}    obj.pageCount         总页数
  *
- * @apiError NoAccessRight Only authenticated Admins can access the data.
- * @apiError UserNotFound   The <code>id</code> of the User was not found.
- *
- * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
- *     {
- *       "error": "NoAccessRight"
- *     }
  */
 function getArticleList() { return; }
 
 /**
- * @api {get} /Article/getArticle 获取资讯详细
+ * @api {get} /ArticleApi/getArticle 获取资讯详细
  * @apiVersion 2.0.0
  * @apiName getArticle
  * @apiGroup Article
- * @apiPermission admin
+ * @apiPermission login
  *
- * @apiDescription Compare Verison 0.3.0 with 0.2.0 and you will see the green markers with new items in version 0.3.0 and red markers with removed items since 0.2.0.
+ * @apiDescription 获取资讯详细。
  *
- * @apiParam {Number} id The Users-ID.
+ * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiExample Example usage:
- * curl -i http://localhost/user/4711
+ * @apiParam {String} articleId 资讯ID
  *
- * @apiSuccess {Number}   id            The Users-ID.
- * @apiSuccess {Date}     registered    Registration Date.
- * @apiSuccess {Date}     name          Fullname of the User.
- * @apiSuccess {String[]} nicknames     List of Users nicknames (Array of Strings).
- * @apiSuccess {Object}   profile       Profile data (example for an Object)
- * @apiSuccess {Number}   profile.age   Users age.
- * @apiSuccess {String}   profile.image Avatar-Image.
- * @apiSuccess {Object[]} options       List of Users options (Array of Objects).
- * @apiSuccess {String}   options.name  Option Name.
- * @apiSuccess {String}   options.value Option Value.
+ * @apiSuccess {Boolean}    success         是否成功
+ * @apiSuccess {Object}     obj             资讯
+ * @apiSuccess {String}     obj.id        	ID
+ * @apiSuccess {String}     obj.title     	标题
+ * @apiSuccess {String}     obj.img       	图片
+ * @apiSuccess {String}     obj.content   	内容
+ * @apiSuccess {String}     obj.source    	来源
+ * @apiSuccess {Date}       obj.createTime	发表时间
+ * @apiSuccess {Boolean}    obj.isCollection	是否已收藏
  *
- * @apiError NoAccessRight Only authenticated Admins can access the data.
- * @apiError UserNotFound   The <code>id</code> of the User was not found.
+ * @apiError NoAccessRight 只有授权的用户可以访问数据。
+ * @apiError UserNotFound   用户不存在。
  *
  * @apiErrorExample Response (example):
  *     HTTP/1.1 401 Not Authenticated
@@ -102,36 +81,3 @@ function getArticleList() { return; }
  *     }
  */
 function getArticle() { return; }
-
-/**
- * @api {post} /user Create a new User
- * @apiVersion 0.3.0
- * @apiName PostUser
- * @apiGroup User
- * @apiPermission none
- *
- * @apiDescription In this case "apiErrorStructure" is defined and used.
- * Define blocks with params that will be used in several functions, so you dont have to rewrite them.
- *
- * @apiParam {String} name Name of the User.
- *
- * @apiSuccess {Number} id         The new Users-ID.
- *
- * @apiUse CreateUserError
- */
-function postUser() { return; }
-
-/**
- * @api {put} /user/:id Change a User
- * @apiVersion 0.3.0
- * @apiName PutUser
- * @apiGroup User
- * @apiPermission none
- *
- * @apiDescription This function has same errors like POST /user, but errors not defined again, they were included with "apiErrorStructure"
- *
- * @apiParam {String} name Name of the User.
- *
- * @apiUse CreateUserError
- */
-function putUser() { return; }
