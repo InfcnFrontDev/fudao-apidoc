@@ -38,8 +38,8 @@ function getArticleColumnList() { return; }
  *
  * @apiParam {String} renqunId 			人群ID
  * @apiParam {String} columnId 			栏目ID
- * @apiParam {Integer} [page=1] 		当前页码
- * @apiParam {Integer} [pageSize=10] 	每页大小
+ * @apiParam {Number} [page=1] 		当前页码
+ * @apiParam {Number} [pageSize=10] 	每页大小
  *
  * @apiSuccess {Boolean}    success               是否成功
  * @apiSuccess {Object}     obj                   资讯列表分页
@@ -49,9 +49,9 @@ function getArticleColumnList() { return; }
  * @apiSuccess {String}     obj.list.img          图片
  * @apiSuccess {String}     obj.list.source       来源
  * @apiSuccess {Long}       obj.list.createTime   发表时间
- * @apiSuccess {Integer}    obj.page              当前页码
- * @apiSuccess {Integer}    obj.pageSize          每页大小
- * @apiSuccess {Integer}    obj.pageCount         总页数
+ * @apiSuccess {Number}    obj.page              当前页码
+ * @apiSuccess {Number}    obj.pageSize          每页大小
+ * @apiSuccess {Number}    obj.pageCount         总页数
  *
  * @apiError NoAccessRight  只有授权的用户可以访问数据。
  * @apiError UserNotFound   用户不存在。
