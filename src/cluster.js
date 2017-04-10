@@ -1,11 +1,11 @@
 /**
- * @api {get} /CollectionApi/getCollectionList 获取收藏列表
+ * @api {get} /ClusterApi/getClusterList 获取收藏列表
  * @apiVersion 2.0.0
- * @apiName getCollectionList
- * @apiGroup Collection
+ * @apiName getClusterList
+ * @apiGroup Cluster
  * @apiPermission login
  *
- * @apiDescription 用户获取我的收藏列表。
+ * @apiDescription 获取我的收藏列表。
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
@@ -49,16 +49,16 @@
  *         ]
  *     }
  */
-function getMyCollectionList() { return; }
+function getMyClusterList() { return; }
 
 /**
- * @api {get} /CollectionApi/deleteCollection 删除收藏
+ * @api {get} /ClusterApi/deleteCluster 删除收藏
  * @apiVersion 2.0.0
- * @apiName deleteCollection
- * @apiGroup Collection
+ * @apiName deleteCluster
+ * @apiGroup Cluster
  * @apiPermission login
  *
- * @apiDescription 用户从我的收藏中删除指定的收藏。
+ * @apiDescription 删除指定的收藏。
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
@@ -66,25 +66,13 @@ function getMyCollectionList() { return; }
  *
  * @apiSuccess {Boolean}    success         是否成功
  *
+ * @apiError NoAccessRight 只有授权的用户可以访问数据。
+ * @apiError UserNotFound   用户不存在。
+ *
+ * @apiErrorExample Response (example):
+ *     HTTP/1.1 401 Not Authenticated
+ *     {
+ *       "error": "NoAccessRight"
+ *     }
  */
-function deleteCollection() { return; }
-
-
-/**
- * @api {get} /CollectionApi/addCollection 添加收藏
- * @apiVersion 2.0.0
- * @apiName addCollection
- * @apiGroup Collection
- * @apiPermission login
- *
- * @apiDescription 用户添加资讯/动态等到我的收藏。
- *
- * @apiHeader {String} access-key Users unique access-key.
- *
- * @apiParam {Number} type 类型，1：资讯，...
- * @apiParam {String} sourceId 对象ID
- *
- * @apiSuccess {Boolean}    success         是否成功
- *
- */
-function addCollection() { return; }
+function deleteCluster() { return; }

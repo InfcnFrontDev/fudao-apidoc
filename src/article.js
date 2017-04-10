@@ -14,6 +14,14 @@
  * @apiSuccess {String}     obj.id    栏目ID
  * @apiSuccess {String}     obj.name  栏目名称
  *
+ * @apiError NoAccessRight  只有授权的用户可以访问数据。
+ * @apiError UserNotFound   用户不存在。
+ *
+ * @apiErrorExample Response (example):
+ *     HTTP/1.1 401 Not Authenticated
+ *     {
+ *       "error": "NoAccessRight"
+ *     }
  */
 function getArticleColumnList() { return; }
 
@@ -45,6 +53,14 @@ function getArticleColumnList() { return; }
  * @apiSuccess {Integer}    obj.pageSize          每页大小
  * @apiSuccess {Integer}    obj.pageCount         总页数
  *
+ * @apiError NoAccessRight  只有授权的用户可以访问数据。
+ * @apiError UserNotFound   用户不存在。
+ *
+ * @apiErrorExample Response (example):
+ *     HTTP/1.1 401 Not Authenticated
+ *     {
+ *       "error": "NoAccessRight"
+ *     }
  */
 function getArticleList() { return; }
 
@@ -71,7 +87,7 @@ function getArticleList() { return; }
  * @apiSuccess {Date}       obj.createTime	发表时间
  * @apiSuccess {Boolean}    obj.isCollection	是否已收藏
  *
- * @apiError NoAccessRight 只有授权的用户可以访问数据。
+ * @apiError NoAccessRight  只有授权的用户可以访问数据。
  * @apiError UserNotFound   用户不存在。
  *
  * @apiErrorExample Response (example):
