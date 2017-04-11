@@ -19,6 +19,7 @@
  * @apiSuccess {String}      obj.content  内容
  * @apiSuccess {String}      obj.type     附件类型，1：图片，2：视频，3：音频
  * @apiSuccess {String}      obj.path     图片、音乐路径
+
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
