@@ -17,8 +17,8 @@
  * @apiSuccess {Object[]}   obj.list              收藏列表
  * @apiSuccess {String}     obj.list.id           收藏ID
  * @apiSuccess {String}     obj.list.type         收藏类型，1：资讯，...
- * @apiSuccess {Date}       obj.list.createTime   收藏时间
- * @apiSuccess {Object}     obj.list.data         资讯
+ * @apiSuccess {String}       obj.list.createTime   收藏时间
+ * @apiSuccess {Date}     obj.list.data         资讯
  * @apiSuccess {String}     obj.list.data.id           资讯ID
  * @apiSuccess {String}     obj.list.data.title        资讯标题
  * @apiSuccess {String}     obj.list.data.img          资讯图片
