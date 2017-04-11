@@ -1,17 +1,17 @@
 /**
- * @api {get} /MedicalExaminationApi/getMedicalExamination 获取体检项
+ * @api {get} /MedicalExaminationApi/updataMedicalInformation 更新体检信息
  * @apiVersion 2.0.0
- * @apiName getMedicalExamination
+ * @apiName updataMedicalInformation
  * @apiGroup MedicalExamination
  * @apiPermission login
  *
- * @apiDescription 获取体检项
+ * @apiDescription 更新体检信息
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
  * @apiParam {String} jsonStr  修改后的josn数据如{'体重指数':'低','体重':'60',...}
  *
- * @apiSuccess {Boolean}    success          是否成功
+ * @apiSuccess {Boolean}    ok          是否成功
  * @apiSuccess {object[]}    obj             信息
  * @apiSuccess {String}  obj.typeName             分类名称
  * @apiSuccess {object[]}  obj.typeItems             分类力列表
@@ -28,18 +28,18 @@
  * @apiErrorExample Response (example):
  *     HTTP/1.1 401 Not Authenticated
  *     {
- *         success:true,
- *         obj:[
+ *         "ok":true,
+ *         "obj":[
  *             {
- *                 typeName:'基本信息'
- *                 typeItems:[
+ *                 "typeName":'基本信息'
+ *                 "typeItems":[
  *                    {
- *                         name:'体重指数',
- *                         medicalExaminationTypeId:'ebb8bd60-0f0f-11e7-9b59-000c293e6828',
- *                         type:'数值型',
- *                         nuit:'升'，
- *                         orderNum:55,
- *                         value:'低'
+ *                         "name":'体重指数',
+ *                         "medicalExaminationTypeId":'ebb8bd60-0f0f-11e7-9b59-000c293e6828',
+ *                         "type":'数值型',
+ *                         "nuit":'升'，
+ *                         "orderNum":55,
+ *                         "value":'低'
  *                    },
  *                    ...
  *                 ]
@@ -50,7 +50,7 @@
  */
 
 
-function getMedicalExamination() { return; }
+function updataMedicalInformation() { return; }
 
 /**
  * @api {get} /MedicalExaminationApi/getMedicalInformation 获取体检信息
@@ -65,7 +65,7 @@ function getMedicalExamination() { return; }
  *
  * @apiParam {String} appID  当前登录用户的ID
  *
- * @apiSuccess {Boolean}    success          是否成功
+ * @apiSuccess {Boolean}    ok          是否成功
  * @apiSuccess {object[]}   obj             信息
  * @apiSuccess {String}    obj.name          名称
  * @apiSuccess {String}    obj.medicalExaminationTypeId          分类ID
@@ -80,15 +80,15 @@ function getMedicalExamination() { return; }
  * @apiErrorExample Response (example):
  *     HTTP/1.1 401 Not Authenticated
  *     {
- *         success:true,
- *         obj:[
+ *         "ok":true,
+ *         "obj":[
  *             {
- *                 name:'体重指数',
- *                 medicalExaminationTypeId:'ebb8bd60-0f0f-11e7-9b59-000c293e6828',
- *                 type:'数值型',
- *                 nuit:'升'，
- *                 orderNum:55,
- *                 value:'低'
+ *                 "name":'体重指数',
+ *                 "medicalExaminationTypeId":'ebb8bd60-0f0f-11e7-9b59-000c293e6828',
+ *                 "type":'数值型',
+ *                 "nuit":'升'，
+ *                 "orderNum":55,
+ *                 "value":'低'
  *             },
  *             ...
  *         ]
@@ -96,19 +96,19 @@ function getMedicalExamination() { return; }
  */
 function getMedicalInformation() { return; }
 /**
- * @api {get} /MedicalExaminationApi/updataMedicalInformation 更新体检信息
+ * @api {get} /MedicalExaminationApi/getMedicalExamination 获取体检项
  * @apiVersion 2.0.0
- * @apiName updataMedicalInformation
+ * @apiName getMedicalExamination
  * @apiGroup MedicalExamination
  * @apiPermission login
  *
- * @apiDescription 更新体检信息
+ * @apiDescription 获取体检项
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
  * @apiParam {String} appID  当前登录用户的ID
  *
- * @apiSuccess {Boolean}    success          是否成功
+ * @apiSuccess {Boolean}    ok          是否成功
  * @apiSuccess {object[]}   obj             信息
  * @apiSuccess {String}    obj.name          名称
  * @apiSuccess {String}    obj.medicalExaminationTypeId          分类ID
@@ -123,15 +123,15 @@ function getMedicalInformation() { return; }
  * @apiErrorExample Response (example):
  *     HTTP/1.1 401 Not Authenticated
  *     {
- *         success:true,
- *         obj:[
+ *         "ok":true,
+ *         "obj":[
  *             {
- *                 name:'体重指数',
- *                 medicalExaminationTypeId:'ebb8bd60-0f0f-11e7-9b59-000c293e6828',
- *                 type:'数值型',
- *                 nuit:'升'，
- *                 orderNum:55,
- *                 items:['低','中','高']
+ *                 "name":'体重指数',
+ *                 "medicalExaminationTypeId":'ebb8bd60-0f0f-11e7-9b59-000c293e6828',
+ *                 "type":'数值型',
+ *                 "nuit":'升'，
+ *                 "orderNum":55,
+ *                 "items":['低','中','高']
  *
  *             },
  *             ...
@@ -141,4 +141,4 @@ function getMedicalInformation() { return; }
 
 
 
-function updataMedicalInformation() { return; }
+function getMedicalExamination() { return; }

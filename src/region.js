@@ -13,7 +13,7 @@
  *
  *
  * @apiSuccess {Boolean}    ok                  是否成功
- * @apiSuccess {Object}     obj                 区域列表
+ * @apiSuccess {Object[]}     obj                 区域列表
  *
  *
  * @apiError NoAccessRight 只有授权的用户可以访问数据。
@@ -66,7 +66,7 @@ function getMyRegionList() { return; }
  *     {
  *         "ok": true,
  *         "obj": {
- *            cityName:[
+ *            "cityName":[
  *                "北京",
  *                "上海",
  *                "深圳",
@@ -75,9 +75,9 @@ function getMyRegionList() { return; }
  *                "武汉",
  *                ...
  *            ],
- *            page:1,
- *            pageSize:10,
- *            pageCount:5,
+ *            "page":1,
+ *            "pageSize":10,
+ *            "pageCount":5,
  *         }
  *     }
  */

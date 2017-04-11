@@ -147,7 +147,7 @@ function modificationFriendName() { return; }
  *     HTTP/1.1 401 Not Authenticated
  *      {
  *         "ok": true,
- *         obj:{
+ *         "obj":{
  *              "appid":"867200022156895,86720002215690393791782",
  *              "img":"/uploader/00/00/00/00/00/00/00/62.jpg",
  *              "sex":"0",
