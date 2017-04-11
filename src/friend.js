@@ -1,50 +1,42 @@
 /**
- * @api {get} /FriendApi/getFriendList 获取收藏列表
+ * @api {get} /FriendApi/getFriendList 我的好友列表
  * @apiVersion 2.0.0
  * @apiName getFriendList
  * @apiGroup Friend
  * @apiPermission login
  *
- * @apiDescription 获取我的收藏列表。
+ * @apiDescription 获取我的好友列表。
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {Integer} [page=1] 		当前页码
- * @apiParam {Integer} [pageSize=10] 	每页大小
+ * @apiParam {Integer} userId 		用户id
  *
- * @apiSuccess {Boolean}    success               是否成功
- * @apiSuccess {Object}     obj                   资讯列表分页
- * @apiSuccess {Object[]}   obj.list              收藏列表
- * @apiSuccess {String}     obj.list.id           收藏ID
- * @apiSuccess {String}     obj.list.type         收藏类型，1：资讯，...
- * @apiSuccess {Date}       obj.list.createTime   收藏时间
- * @apiSuccess {Object}     obj.list.data         资讯
- * @apiSuccess {String}     obj.list.data.id           资讯ID
- * @apiSuccess {String}     obj.list.data.title        资讯标题
- * @apiSuccess {String}     obj.list.data.img          资讯图片
- * @apiSuccess {String}     obj.list.data.source       资讯来源
- * @apiSuccess {Date}       obj.list.data.createTime   资讯发表时间
- * @apiSuccess {Integer}    obj.page              当前页码
- * @apiSuccess {Integer}    obj.pageSize          每页大小
- * @apiSuccess {Integer}    obj.pageCount         总页数
+ * @apiSuccess {Boolean}    ok               是否成功
+ * @apiSuccess {Object[]}     obj                   好友列表分页
+ * @apiSuccess {String}   obj.createTime        加好友时间
+ * @apiSuccess {String}     obj.friendId          好友用户ID
+ * @apiSuccess {String}     obj.friendNick        好友备注
+ * @apiSuccess {String}       obj.id                信息id
+ * @apiSuccess {String}     obj.img               好友头像
+ * @apiSuccess {String}     obj.phone             好友电话
+ * @apiSuccess {String}     obj.isRead            是否读取
+ * @apiSuccess {String}     obj.userId            我的用户id
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
- *         "success": true,
+ *         "ok": true,
  *         "obj": [
  *             {
- *                 "id": "473a39e9-0fba-11e7-9b59-000c293e6828",
- *                 "type": 1,
- *                 "createTime": 1460651070000,
- *                 "data": {
- *                     "id": "473a39e9-0fba-11e7-9b59-000c293e6828",
- *                     "title": "日用品过期会引来一身病，99%的人不知道！",
- *                     "img": "zixun/1.1.jpg,zixun/1.2.jpg,zixun/1.3.jpg",
- *                     "source": "养生堂",
- *                     "createTime": 1460651070000
- *                 }
- *             },
+ *                 "createTime":1489215938000,
+ *                 "friendId":"867200022156895,86720002215690321000493",
+ *                 "friendNick":"杨可",
+ *                 "id":"0eb39b076c1448b6b139a151cbb38924",
+ *                 "img":"/uploader/00/00/00/00/00/00/00/60.jpg",
+ *                 "phone":"15901097191",
+ *                 "isRead":"0",
+ *                 "userId":"867516022307943,86751602230794397042005"
+ *             }
  *             ...
  *         ]
  *     }
@@ -52,27 +44,169 @@
 function getMyFriendList() { return; }
 
 /**
- * @api {get} /FriendApi/deleteFriend 删除收藏
+ * @api {get} /FriendApi/FriendApplyList 好友申请列表
  * @apiVersion 2.0.0
- * @apiName deleteFriend
+ * @apiName FriendApplyList
  * @apiGroup Friend
  * @apiPermission login
  *
- * @apiDescription 删除指定的收藏。
+ * @apiDescription 好友申请列表。
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {String} collectionId 收藏ID
+ * @apiParam {String}        userId 		      我的用户id
  *
- * @apiSuccess {Boolean}    success         是否成功
+ * @apiSuccess {Boolean}    ok                    是否成功
+ * @apiSuccess {Object[]}   obj                   资讯列表分页
+ * @apiSuccess {String}     obj.friendId          好友用户ID
+ * @apiSuccess {String}     obj.friendNick        好友备注
+ * @apiSuccess {String}     obj.id                信息id
+ * @apiSuccess {String}     obj.img               好友头像
+ * @apiSuccess {String}     obj.phone             好友电话
+ * @apiSuccess {String}     obj.isRead            是否读取
+ * @apiSuccess {String}     obj.state             我的id
+ * @apiSuccess {String}     obj.tip               好友信息
  *
  * @apiError NoAccessRight 只有授权的用户可以访问数据。
  * @apiError UserNotFound   用户不存在。
  *
  * @apiErrorExample Response (example):
  *     HTTP/1.1 401 Not Authenticated
- *     {
- *       "error": "NoAccessRight"
+ *      {
+ *         "ok": true,
+ *         "obj": [
+ *             {
+ *                 "state":0,
+ *                 'tip'："我叫杨可",
+ *                 "friendId":"867200022156895,86720002215690321000493",
+ *                 "friendNick":"杨可",
+ *                 "id":"57",
+ *                 "img":"/uploader/00/00/00/00/00/00/00/60.jpg",
+ *                 "phone":"15901097191",
+ *                 "isRead":"0",
+ *             }
+ *             ...
+ *         ]
+ *     }
+ */
+function FriendApplyList() { return; }
+
+/**
+ * @api {get} /FriendApi/modificationFriendName 修改好友备注
+ * @apiVersion 2.0.0
+ * @apiName modificationFriendName
+ * @apiGroup Friend
+ * @apiPermission login
+ *
+ * @apiDescription 修改好友备注。
+ *
+ * @apiHeader {String} access-key Users unique access-key.
+ *
+ * @apiParam {String} userId 		我的用户id
+ * @apiParam {String} passiveAppid 		好友的用户ID
+ * @apiParam {String} passiveName 		好友的昵称
+ *
+ * @apiSuccess {Boolean}    ok               是否成功
+ *
+ * @apiError NoAccessRight 只有授权的用户可以访问数据。
+ * @apiError UserNotFound   用户不存在。
+ *
+ * @apiErrorExample Response (example):
+ *     HTTP/1.1 401 Not Authenticated
+ *      {
+ *         "ok": true,
+ *     }
+ */
+function modificationFriendName() { return; }
+
+
+/**
+ * @api {get} /FriendApi/searchFriend 搜索好友
+ * @apiVersion 2.0.0
+ * @apiName searchFriend
+ * @apiGroup Friend
+ * @apiPermission login
+ *
+ * @apiDescription 搜索好友
+ *
+ * @apiHeader {String} access-key Users unique access-key.
+ *
+ * @apiParam {String} phone 		用户电话
+ *
+ * @apiSuccess {Boolean}    ok               是否成功
+ * @apiSuccess {Object}    obj                    搜索信息列表
+ * @apiSuccess {String}    obj.appid              用户id
+ * @apiSuccess {String}    obj.img                用户头像
+ * @apiSuccess {String}    obj.sex                用户性别
+ * @apiSuccess {String}    obj.title              用户昵称
+ *
+ * @apiError NoAccessRight 只有授权的用户可以访问数据。
+ * @apiError UserNotFound   用户不存在。
+ *
+ * @apiErrorExample Response (example):
+ *     HTTP/1.1 401 Not Authenticated
+ *      {
+ *         "ok": true,
+ *         obj:{
+ *              "appid":"867200022156895,86720002215690393791782",
+ *              "img":"/uploader/00/00/00/00/00/00/00/62.jpg",
+ *              "sex":"0",
+ *              "title":"王朋"
+ *         }
+ *     }
+ */
+function searchFriend() { return; }
+
+/**
+ * @api {get} /FriendApi/agreePlusFriend 同意加好友
+ * @apiVersion 2.0.0
+ * @apiName agreePlusFriend
+ * @apiGroup Friend
+ * @apiPermission login
+ *
+ * @apiDescription 同意加好友
+ *
+ * @apiHeader {String} access-key Users unique access-key.
+ *
+ * @apiParam {String} id 		用户信息id
+ * @apiParam {String} passiveName 	修改的用户备注
+ *
+ * @apiSuccess {Boolean}    ok               是否成功
+ *
+ * @apiError NoAccessRight 只有授权的用户可以访问数据。
+ * @apiError UserNotFound   用户不存在。
+ *
+ * @apiErrorExample Response (example):
+ *     HTTP/1.1 401 Not Authenticated
+ *      {
+ *         "ok": true,
+ *     }
+ */
+function agreePlusFriend() { return; }
+
+/**
+ * @api {get} /FriendApi/deleteFriend 删除好友
+ * @apiVersion 2.0.0
+ * @apiName deleteFriend
+ * @apiGroup Friend
+ * @apiPermission login
+ *
+ * @apiDescription 删除好友
+ *
+ * @apiHeader {String} access-key Users unique access-key.
+ *
+ * @apiParam {String} userId 		我的用户id
+ * @apiParam {String} friendId 	    好友用户id
+ *
+ * @apiSuccess {Boolean}    ok               是否成功
+ *
+ * @apiError NoAccessRight 只有授权的用户可以访问数据。
+ * @apiError UserNotFound   用户不存在。
+ *
+ * @apiErrorExample Response (example):
+ *     HTTP/1.1 401 Not Authenticated
+ *      {
+ *         "ok": true,
  *     }
  */
 function deleteFriend() { return; }

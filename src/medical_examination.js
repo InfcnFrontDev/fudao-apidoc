@@ -1,70 +1,26 @@
 /**
- * @api {get} /MedicalExaminationApi/getMedicalExaminationList 获取收藏列表
+ * @api {get} /MedicalExaminationApi/getMedicalExamination 获取体检项
  * @apiVersion 2.0.0
- * @apiName getMedicalExaminationList
+ * @apiName getMedicalExamination
  * @apiGroup MedicalExamination
  * @apiPermission login
  *
- * @apiDescription 获取我的收藏列表。
+ * @apiDescription 获取体检项
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {Integer} [page=1] 		当前页码
- * @apiParam {Integer} [pageSize=10] 	每页大小
+ * @apiParam {String} jsonStr  修改后的josn数据如{'体重指数':'低','体重':'60',...}
  *
- * @apiSuccess {Boolean}    success               是否成功
- * @apiSuccess {Object}     obj                   资讯列表分页
- * @apiSuccess {Object[]}   obj.list              收藏列表
- * @apiSuccess {String}     obj.list.id           收藏ID
- * @apiSuccess {String}     obj.list.type         收藏类型，1：资讯，...
- * @apiSuccess {Date}       obj.list.createTime   收藏时间
- * @apiSuccess {Object}     obj.list.data         资讯
- * @apiSuccess {String}     obj.list.data.id           资讯ID
- * @apiSuccess {String}     obj.list.data.title        资讯标题
- * @apiSuccess {String}     obj.list.data.img          资讯图片
- * @apiSuccess {String}     obj.list.data.source       资讯来源
- * @apiSuccess {Date}       obj.list.data.createTime   资讯发表时间
- * @apiSuccess {Integer}    obj.page              当前页码
- * @apiSuccess {Integer}    obj.pageSize          每页大小
- * @apiSuccess {Integer}    obj.pageCount         总页数
- *
- * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *         "success": true,
- *         "obj": [
- *             {
- *                 "id": "473a39e9-0fba-11e7-9b59-000c293e6828",
- *                 "type": 1,
- *                 "createTime": 1460651070000,
- *                 "data": {
- *                     "id": "473a39e9-0fba-11e7-9b59-000c293e6828",
- *                     "title": "日用品过期会引来一身病，99%的人不知道！",
- *                     "img": "zixun/1.1.jpg,zixun/1.2.jpg,zixun/1.3.jpg",
- *                     "source": "养生堂",
- *                     "createTime": 1460651070000
- *                 }
- *             },
- *             ...
- *         ]
- *     }
- */
-function getMyMedicalExaminationList() { return; }
-
-/**
- * @api {get} /MedicalExaminationApi/deleteMedicalExamination 删除收藏
- * @apiVersion 2.0.0
- * @apiName deleteMedicalExamination
- * @apiGroup MedicalExamination
- * @apiPermission login
- *
- * @apiDescription 删除指定的收藏。
- *
- * @apiHeader {String} access-key Users unique access-key.
- *
- * @apiParam {String} collectionId 收藏ID
- *
- * @apiSuccess {Boolean}    success         是否成功
+ * @apiSuccess {Boolean}    success          是否成功
+ * @apiSuccess {object[]}    obj             信息
+ * @apiSuccess {String}  obj.typeName             分类名称
+ * @apiSuccess {object[]}  obj.typeItems             分类力列表
+ * @apiSuccess {String}    obj.typeItems.name          名称
+ * @apiSuccess {String}    obj.typeItems.medicalExaminationTypeId          分类ID
+ * @apiSuccess {String}    obj.typeItems.type          输入类型，1：数值型，2：文本型，3：选择型，4：A/B型
+ * @apiSuccess {String}    obj.typeItems.nuit          单位
+ * @apiSuccess {String}    obj.typeItems.orderNum      排序号
+ * @apiSuccess {String}    obj.typeItems.value         选项值
  *
  * @apiError NoAccessRight 只有授权的用户可以访问数据。
  * @apiError UserNotFound   用户不存在。
@@ -72,7 +28,117 @@ function getMyMedicalExaminationList() { return; }
  * @apiErrorExample Response (example):
  *     HTTP/1.1 401 Not Authenticated
  *     {
- *       "error": "NoAccessRight"
+ *         success:true,
+ *         obj:[
+ *             {
+ *                 typeName:'基本信息'
+ *                 typeItems:[
+ *                    {
+ *                         name:'体重指数',
+ *                         medicalExaminationTypeId:'ebb8bd60-0f0f-11e7-9b59-000c293e6828',
+ *                         type:'数值型',
+ *                         nuit:'升'，
+ *                         orderNum:55,
+ *                         value:'低'
+ *                    },
+ *                    ...
+ *                 ]
+ *             }
+ *             ...
+ *         ]
  *     }
  */
-function deleteMedicalExamination() { return; }
+
+
+function getMedicalExamination() { return; }
+
+/**
+ * @api {get} /MedicalExaminationApi/getMedicalInformation 获取体检信息
+ * @apiVersion 2.0.0
+ * @apiName getMedicalInformation
+ * @apiGroup MedicalExamination
+ * @apiPermission login
+ *
+ * @apiDescription 获取用户体检信息
+ *
+ * @apiHeader {String} access-key Users unique access-key.
+ *
+ * @apiParam {String} appID  当前登录用户的ID
+ *
+ * @apiSuccess {Boolean}    success          是否成功
+ * @apiSuccess {object[]}   obj             信息
+ * @apiSuccess {String}    obj.name          名称
+ * @apiSuccess {String}    obj.medicalExaminationTypeId          分类ID
+ * @apiSuccess {String}    obj.type          输入类型，1：数值型，2：文本型，3：选择型，4：A/B型
+ * @apiSuccess {String}    obj.nuit          单位
+ * @apiSuccess {String}    obj.orderNum      排序号
+ * @apiSuccess {String}    obj.value         选项值
+ *
+ * @apiError NoAccessRight 只有授权的用户可以访问数据。
+ * @apiError UserNotFound   用户不存在。
+ *
+ * @apiErrorExample Response (example):
+ *     HTTP/1.1 401 Not Authenticated
+ *     {
+ *         success:true,
+ *         obj:[
+ *             {
+ *                 name:'体重指数',
+ *                 medicalExaminationTypeId:'ebb8bd60-0f0f-11e7-9b59-000c293e6828',
+ *                 type:'数值型',
+ *                 nuit:'升'，
+ *                 orderNum:55,
+ *                 value:'低'
+ *             },
+ *             ...
+ *         ]
+ *     }
+ */
+function getMedicalInformation() { return; }
+/**
+ * @api {get} /MedicalExaminationApi/updataMedicalInformation 更新体检信息
+ * @apiVersion 2.0.0
+ * @apiName updataMedicalInformation
+ * @apiGroup MedicalExamination
+ * @apiPermission login
+ *
+ * @apiDescription 更新体检信息
+ *
+ * @apiHeader {String} access-key Users unique access-key.
+ *
+ * @apiParam {String} appID  当前登录用户的ID
+ *
+ * @apiSuccess {Boolean}    success          是否成功
+ * @apiSuccess {object[]}   obj             信息
+ * @apiSuccess {String}    obj.name          名称
+ * @apiSuccess {String}    obj.medicalExaminationTypeId          分类ID
+ * @apiSuccess {String}    obj.type          输入类型，1：数值型，2：文本型，3：选择型，4：A/B型
+ * @apiSuccess {String}    obj.nuit          单位
+ * @apiSuccess {String}    obj.orderNum      排序号
+ * @apiSuccess {String}    [obj.items]         选项
+ *
+ * @apiError NoAccessRight 只有授权的用户可以访问数据。
+ * @apiError UserNotFound   用户不存在。
+ *
+ * @apiErrorExample Response (example):
+ *     HTTP/1.1 401 Not Authenticated
+ *     {
+ *         success:true,
+ *         obj:[
+ *             {
+ *                 name:'体重指数',
+ *                 medicalExaminationTypeId:'ebb8bd60-0f0f-11e7-9b59-000c293e6828',
+ *                 type:'数值型',
+ *                 nuit:'升'，
+ *                 orderNum:55,
+ *                 items:['低','中','高']
+ *
+ *             },
+ *             ...
+ *         ]
+ *     }
+ */
+
+
+
+function updataMedicalInformation() { return; }

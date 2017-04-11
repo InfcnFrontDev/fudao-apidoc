@@ -4,11 +4,11 @@ emotion.js（情绪）guoxm                   ok
 energy.js（能量场）guoxm                  ok
 disease.js（疾病）chenxx
 zixiu.js（自修）chenxx
-friend.js（好友）wangp
+friend.js（好友）wangp                    ok
 dynamic.js（动态）chenxx                  ok
 ingredient.js（食材）guoxm                ok
 cookbook.js（菜品）guoxm                  ok
-medical_examination.js（体检）(wangp)
-time_period.js（时段）wangp
+medical_examination.js（体检）(wangp)     ok
+time_period.js（时段）wangp               ok
 user.js（用户）guoxm
 region.js（行政区划）wangp
