@@ -41,7 +41,7 @@ function updataMedicalInformationResult() { return; }
  * @apiSuccess {String}    obj.unit          单位
  *
  * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
+ *     HTTP/1.1 200 OK
  *     {
  *         "ok":true,
  *         "obj":[
