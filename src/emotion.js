@@ -62,10 +62,11 @@ function getMyEmotionList() { return; }
  * @apiParam {String}   renqun   人群
  *
  * @apiSuccess {Boolean}     ok       是否成功
- * @apiSuccess {String}      title    标题
- * @apiSuccess {String}      content  内容
- * @apiSuccess {String}      type     附件类型，1：图片，2：视频，3：音频
- * @apiSuccess {String}      path     图片、音乐路径
+ * @apiSuccess {Object}      obj      情绪干预内容
+ * @apiSuccess {String}      obj.title    标题
+ * @apiSuccess {String}      obj.content  内容
+ * @apiSuccess {String}      obj.type     附件类型，1：图片，2：视频，3：音频
+ * @apiSuccess {String}      obj.path     图片、音乐路径
  *
  * @apiError NoAccessRight 只有授权的用户可以访问数据。
  * @apiError UserNotFound   用户不存在。
@@ -74,10 +75,12 @@ function getMyEmotionList() { return; }
  *     HTTP/1.1 200 OK
  *     {
  *         "ok": true,
+ *         "obj":{
  *         "title":"开心一笑",
  *         "content":"有一天小明。。。。。",
  *         "type":"1",
- *         "path":"1.5.jpg",
+ *         "path":"1.5.jpg"
+ *
  *     }
  */
 function 	getEmotionIntervene() { return; }
