@@ -147,7 +147,7 @@ function modificationFriendName() { return; }
  *     HTTP/1.1 401 Not Authenticated
  *      {
  *         "ok": true,
- *         obj:{
+ *         "obj":{
  *              "appid":"867200022156895,86720002215690393791782",
  *              "img":"/uploader/00/00/00/00/00/00/00/62.jpg",
  *              "sex":"0",
@@ -183,3 +183,30 @@ function searchFriend() { return; }
  *     }
  */
 function agreePlusFriend() { return; }
+
+/**
+ * @api {get} /FriendApi/deleteFriend 删除好友
+ * @apiVersion 2.0.0
+ * @apiName deleteFriend
+ * @apiGroup Friend
+ * @apiPermission login
+ *
+ * @apiDescription 删除好友
+ *
+ * @apiHeader {String} access-key Users unique access-key.
+ *
+ * @apiParam {String} userId 		我的用户id
+ * @apiParam {String} friendId 	    好友用户id
+ *
+ * @apiSuccess {Boolean}    ok               是否成功
+ *
+ * @apiError NoAccessRight 只有授权的用户可以访问数据。
+ * @apiError UserNotFound   用户不存在。
+ *
+ * @apiErrorExample Response (example):
+ *     HTTP/1.1 401 Not Authenticated
+ *      {
+ *         "ok": true,
+ *     }
+ */
+function deleteFriend() { return; }
