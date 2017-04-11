@@ -183,93 +183,93 @@ function deleteMyZixiu() {   return; }
  *
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
- *   {
-        "obj": {
-           "dailyMethods": [
-            {
-                "datas": {
-                    "dailyMethods": {
-                        "id": "4",
-                        "suitable": "寒凉性的食物/豆类及豆制品/含微量元素的食物"
-                        "fasting": "辛辣刺激性食物/温热性食物/油炸类食物",
-                        "renqunId": "aged",
-                        "type": "1",
-                    },
-                    "timePeriod": [
-                        {
-                            "timePeriod": "早餐",
-                            "suitable": [
-                                {
-                                    "id": "71",
-                                    "name": "牛奶"
-                                },
-                                ...
-                            ]
-                        },
-                        {
-                            "timePeriod": "午餐",
-                            "suitable": {
-                                "staple": [.....],
-                                "dishes": [....]
-                            },
-                            "fasting": [....]
-                        },
-                        {
-                            下午茶，格式同早餐（本数组第一项）
-                        },
-                        {
-                            晚餐，格式同午餐（本数组第二项）
-                        }
-                    ]
-                },
-                "type": "1",
-                "type_value": "饮食"
-            },
-            {
-                "datas": {
-                    "datas": [
-                        {
-                            "dailyMethods": [
-                                {
-                                    "details": "1、晚餐最好是睡前4个小时吃。除了晚餐，最好不要吃夜宵。\n2、睡前大吃大喝向来是减肥的大忌，水也要少喝。\n3、除此之外，一些坏习惯也要改改，比如上网看电视时喜欢吃东西，这是很容易堆积脂肪的，而且入睡前吃掉太多东西，很容易让人兴奋，更加不容易睡眠，这会直接影响到睡眠减肥的效果哦!",
-                                    "id": "36",
-                                    "img": "/photo/shuiqianbuchidongxi.jpg",
-                                    "name": "睡前不要吃东西",
-                                    "principle": "保证充足高质量的睡眠，可以减少热量摄入和脂肪囤积。",
-                                    "renqunId": "aged",
-                                    "timePeriod": "睡前",
-                                    "type": "2"
-                                }
-                            ],
-                            "timePeriod": "睡前"
-                        }
-                    ],
-                    "principle": "保证充足高质量的睡眠，可以减少热量摄入和脂肪囤积。"
-                },
-                "type": "2",
-                "type_value": "起居"
-            },
-            ...格式类型同type：2
-        ],
-        "professionalMethods": [
-            {
-                "methods": [
-                    {
-                        "id": "ff5d9908-149b-11e7-9b59-000c293e6828",
-                        "makingMethod": "上药用水煎。",
-                        "material": "茉莉花10克，玫瑰花10克，荷叶10克，草决明10克，枳壳10克，泽兰12克，泽泻12克，桑葚15克，补骨脂15克，何首乌15克。",
-                        "name": "茉莉花茶",
-                        "type": "药用奇方",
-                        "usageMethod": "\\t每日1剂，每剂分2次代茶饮。"
-                    }
-                ],
-                "type": "食疗药膳"
-            },
-            ...
-        ]
-    },
-    "ok": true
-    }
+ {
+     "obj": {
+         "dailyMethods": [
+             {
+                 "datas": {
+                     "dailyMethods": {
+                         "id": "4",
+                         "suitable": "寒凉性的食物/豆类及豆制品/含微量元素的食物"
+                         "fasting": "辛辣刺激性食物/温热性食物/油炸类食物",
+                         "renqunId": "aged",
+                         "type": "1",
+                     },
+                     "timePeriod": [
+                         {
+                             "timePeriod": "早餐",
+                             "suitable": [
+                                 {
+                                     "id": "71",
+                                     "name": "牛奶"
+                                 },
+                                 ...
+                             ]
+                         },
+                         {
+                             "timePeriod": "午餐",
+                             "suitable": {
+                                 "staple": [.....],
+                                 "dishes": [....]
+                             },
+                             "fasting": [....]
+                         },
+                         {
+                             下午茶，格式同早餐（本数组第一项）
+                         },
+                         {
+                             晚餐，格式同午餐（本数组第二项）
+                         }
+                     ]
+                 },
+                 "type": "1",
+                 "type_value": "饮食"
+             },
+             {
+                 "datas": {
+                     "datas": [
+                         {
+                             "dailyMethods": [
+                                 {
+                                     "details": "1、晚餐最好是睡前4个小时吃。除了晚餐，最好不要吃夜宵。\n2、睡前大吃大喝向来是减肥的大忌，水也要少喝。\n3、除此之外，一些坏习惯也要改改，比如上网看电视时喜欢吃东西，这是很容易堆积脂肪的，而且入睡前吃掉太多东西，很容易让人兴奋，更加不容易睡眠，这会直接影响到睡眠减肥的效果哦!",
+                                     "id": "36",
+                                     "img": "/photo/shuiqianbuchidongxi.jpg",
+                                     "name": "睡前不要吃东西",
+                                     "principle": "保证充足高质量的睡眠，可以减少热量摄入和脂肪囤积。",
+                                     "renqunId": "aged",
+                                     "timePeriod": "睡前",
+                                     "type": "2"
+                                 }
+                             ],
+                             "timePeriod": "睡前"
+                         }
+                     ],
+                     "principle": "保证充足高质量的睡眠，可以减少热量摄入和脂肪囤积。"
+                 },
+                 "type": "2",
+                 "type_value": "起居"
+             },
+             ...格式类型同type：2
+         ],
+         "professionalMethods": [
+             {
+                 "methods": [
+                     {
+                         "id": "ff5d9908-149b-11e7-9b59-000c293e6828",
+                         "makingMethod": "上药用水煎。",
+                         "material": "茉莉花10克，玫瑰花10克，荷叶10克，草决明10克，枳壳10克，泽兰12克，泽泻12克，桑葚15克，补骨脂15克，何首乌15克。",
+                         "name": "茉莉花茶",
+                         "type": "药用奇方",
+                         "usageMethod": "\\t每日1剂，每剂分2次代茶饮。"
+                     }
+                 ],
+                 "type": "食疗药膳"
+             },
+             ...
+         ]
+     },
+     "ok": true
+ }
  *
  */
 function getZixiuMethod() {   return; }

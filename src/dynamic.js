@@ -78,7 +78,6 @@
         ],
         "page": 0,
         "rows": 0,
-        "total": 0,
         "totalPages": 0
     }
  */
