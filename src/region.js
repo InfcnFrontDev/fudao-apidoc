@@ -14,7 +14,7 @@
  * @apiSuccess {Boolean}    ok                  是否成功
  * @apiSuccess {Object[]}     obj                 区县列表
  * @apiSuccess {number}     obj.id                区县id
- * @apiSuccess {Object[]}     obj.name            区县名称
+ * @apiSuccess {String}     obj.name            区县名称
  *
  *
  *
