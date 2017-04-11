@@ -24,7 +24,6 @@
  * @apiSuccess {String}     obj.dietaryFiber     膳食纤维
  * @apiSuccess {String}     obj.cholesterol      胆固醇
  *
- *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
