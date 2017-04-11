@@ -111,40 +111,7 @@ function FriendApplyList() { return; }
 function modificationFriendName() { return; }
 
 
-/**
- * @api {get} /FriendApi/searchUser 搜索用户
- * @apiVersion 2.0.0
- * @apiName searchUser
- * @apiGroup Friend
- * @apiPermission login
- *
- * @apiDescription 搜索用户
- *
- * @apiHeader {String} access-key Users unique access-key.
- *
- * @apiParam {String} phone 		手机号
- *
- * @apiSuccess {Boolean}    ok               是否成功
- * @apiSuccess {Object}    obj                    搜索信息列表
- * @apiSuccess {String}    obj.id              用户id
- * @apiSuccess {String}    obj.photo                用户头像
- * @apiSuccess {String}    obj.phone                手机号
- * @apiSuccess {String}    obj.nickName              用户昵称
- *
- *
- * @apiErrorExample Response (example):
- *     HTTP/1.1 200 OK
- *      {
- *         "ok": true,
- *         "obj":{
- *              "id":"867200022156895,86720002215690393791782",
- *              "photo":"/uploader/00/00/00/00/00/00/00/62.jpg",
- *              "phone":"15901097191",
- *              "nickName":"王朋"
- *         }
- *     }
- */
-function searchUser() { return; }
+
 
 /**
  * @api {get} /FriendApi/agreePlusFriend 同意加好友
