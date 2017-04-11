@@ -1,78 +1,83 @@
 /**
- * @api {get} /EmotionApi/getEmotionList 获取收藏列表
+ * @api {get} /EmotionApi/getEmotionList 获取情绪列表
  * @apiVersion 2.0.0
  * @apiName getEmotionList
  * @apiGroup Emotion
  * @apiPermission login
  *
- * @apiDescription 获取我的收藏列表。
+ * @apiDescription 获取情绪列表。
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {Integer} [page=1] 		当前页码
- * @apiParam {Integer} [pageSize=10] 	每页大小
  *
- * @apiSuccess {Boolean}    success               是否成功
- * @apiSuccess {Object}     obj                   资讯列表分页
- * @apiSuccess {Object[]}   obj.list              收藏列表
- * @apiSuccess {String}     obj.list.id           收藏ID
- * @apiSuccess {String}     obj.list.type         收藏类型，1：资讯，...
- * @apiSuccess {Date}       obj.list.createTime   收藏时间
- * @apiSuccess {Object}     obj.list.data         资讯
- * @apiSuccess {String}     obj.list.data.id           资讯ID
- * @apiSuccess {String}     obj.list.data.title        资讯标题
- * @apiSuccess {String}     obj.list.data.img          资讯图片
- * @apiSuccess {String}     obj.list.data.source       资讯来源
- * @apiSuccess {Date}       obj.list.data.createTime   资讯发表时间
- * @apiSuccess {Integer}    obj.page              当前页码
- * @apiSuccess {Integer}    obj.pageSize          每页大小
- * @apiSuccess {Integer}    obj.pageCount         总页数
+ * @apiSuccess {Boolean}   ok               是否成功
+ * @apiSuccess {Object[]}  good             情绪分类1
+ * @apiSuccess {String}    good.name        情绪名称
+ * @apiSuccess {String}    good.img         情绪图片
+
+
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
- *         "success": true,
- *         "obj": [
- *             {
- *                 "id": "473a39e9-0fba-11e7-9b59-000c293e6828",
- *                 "type": 1,
- *                 "createTime": 1460651070000,
- *                 "data": {
- *                     "id": "473a39e9-0fba-11e7-9b59-000c293e6828",
- *                     "title": "日用品过期会引来一身病，99%的人不知道！",
- *                     "img": "zixun/1.1.jpg,zixun/1.2.jpg,zixun/1.3.jpg",
- *                     "source": "养生堂",
- *                     "createTime": 1460651070000
- *                 }
- *             },
- *             ...
- *         ]
+ *         "ok": true,
+ *         "good":[
+ *               {
+                     name: '开心',
+                     img: "15xianmu.png"，
+	              },
+                 ...
+ *          ],
+ *         "calm":[
+ *               {
+                     name: '平静',
+                     img: "15xianmu.png"
+	              }
+	              ...
+ *          ],
+ *          "bad":[
+ *               {
+                     name: '羡慕',
+                     img: "15xianmu.png"
+	              },
+                 ...
+ *          ],
+ *          ...
  *     }
  */
 function getMyEmotionList() { return; }
 
 /**
- * @api {get} /EmotionApi/deleteEmotion 删除收藏
+ * @api {get} /EmotionApi/getEmotionIntervene 获取情绪干预详细
  * @apiVersion 2.0.0
- * @apiName deleteEmotion
+ * @apiName getEmotionIntervene
  * @apiGroup Emotion
  * @apiPermission login
  *
- * @apiDescription 删除指定的收藏。
+ * @apiDescription 获取情绪干预详细。
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {String} collectionId 收藏ID
+ * @apiParam {String}   name   情绪名称
+ * @apiParam {String}   renqun   人群
  *
- * @apiSuccess {Boolean}    success         是否成功
+ * @apiSuccess {Boolean}     ok       是否成功
+ * @apiSuccess {String}      title    标题
+ * @apiSuccess {String}      content  内容
+ * @apiSuccess {String}      type     附件类型，1：图片，2：视频，3：音频
+ * @apiSuccess {String}      path     图片、音乐路径
  *
  * @apiError NoAccessRight 只有授权的用户可以访问数据。
  * @apiError UserNotFound   用户不存在。
  *
- * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
  *     {
- *       "error": "NoAccessRight"
+ *         "ok": true,
+ *         "title":"开心一笑",
+ *         "content":"有一天小明。。。。。",
+ *         "type":"1",
+ *         "path":"1.5.jpg",
  *     }
  */
-function deleteEmotion() { return; }
+function 	getEmotionIntervene() { return; }
