@@ -3,7 +3,6 @@
  * @apiVersion 2.0.0
  * @apiName getMyRegionList
  * @apiGroup Region
- * @apiPermission login
  *
  * @apiDescription 获取区域列表
  *
@@ -43,7 +42,6 @@ function getMyRegionList() { return; }
  * @apiVersion 2.0.0
  * @apiName getCityList
  * @apiGroup Region
- * @apiPermission login
  *
  * @apiDescription 获取城市列表
  *
@@ -88,7 +86,6 @@ function getCityList() { return; }
  * @apiVersion 2.0.0
  * @apiName getHotCityList
  * @apiGroup Region
- * @apiPermission login
  *
  * @apiDescription 获取热门城市列表
  *
