@@ -1,81 +1,44 @@
 /**
- * @api {get} /MedicalExaminationApi/updataMedicalInformation 更新体检信息
+ * @api {get} /MedicalExaminationApi/updataMedicalInformationResult 修改体检结果
  * @apiVersion 2.0.0
- * @apiName updataMedicalInformation
+ * @apiName updataMedicalInformationResult
  * @apiGroup MedicalExamination
  * @apiPermission login
  *
- * @apiDescription 更新体检信息
+ * @apiDescription 用户修改某项体检结果
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {String} jsonStr  修改后的josn数据如{'体重指数':'低','体重':'60',...}
+ * @apiParam {String} medicalInformationId  体检项ID
+ * @apiParam {String} value 体检结果值
  *
  * @apiSuccess {Boolean}    ok          是否成功
- * @apiSuccess {object[]}    obj             信息
- * @apiSuccess {String}  obj.typeName             分类名称
- * @apiSuccess {object[]}  obj.typeItems             分类力列表
- * @apiSuccess {String}    obj.typeItems.name          名称
- * @apiSuccess {String}    obj.typeItems.medicalExaminationTypeId          分类ID
- * @apiSuccess {String}    obj.typeItems.type          输入类型，1：数值型，2：文本型，3：选择型，4：A/B型
- * @apiSuccess {String}    obj.typeItems.nuit          单位
- * @apiSuccess {String}    obj.typeItems.orderNum      排序号
- * @apiSuccess {String}    obj.typeItems.value         选项值
- *
- * @apiError NoAccessRight 只有授权的用户可以访问数据。
- * @apiError UserNotFound   用户不存在。
- *
- * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
- *     {
- *         "ok":true,
- *         "obj":[
- *             {
- *                 "typeName":'基本信息'
- *                 "typeItems":[
- *                    {
- *                         "name":'体重指数',
- *                         "medicalExaminationTypeId":'ebb8bd60-0f0f-11e7-9b59-000c293e6828',
- *                         "type":'数值型',
- *                         "nuit":'升'，
- *                         "orderNum":55,
- *                         "value":'低'
- *                    },
- *                    ...
- *                 ]
- *             }
- *             ...
- *         ]
- *     }
  */
 
 
-function updataMedicalInformation() { return; }
+function updataMedicalInformationResult() { return; }
 
 /**
- * @api {get} /MedicalExaminationApi/getMedicalInformation 获取体检信息
+ * @api {get} /MedicalExaminationApi/getMedicalInformationList 获取体检项列表
  * @apiVersion 2.0.0
- * @apiName getMedicalInformation
+ * @apiName getMedicalInformationList
  * @apiGroup MedicalExamination
  * @apiPermission login
  *
- * @apiDescription 获取用户体检信息
+ * @apiDescription 获取全部体检项列表
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {String} appID  当前登录用户的ID
- *
- * @apiSuccess {Boolean}    ok          是否成功
- * @apiSuccess {object[]}   obj             信息
- * @apiSuccess {String}    obj.name          名称
- * @apiSuccess {String}    obj.medicalExaminationTypeId          分类ID
+ * @apiSuccess {Boolean}   ok               是否成功
+ * @apiSuccess {object[]}  obj              体检项对象
+ * @apiSuccess {String}    obj.id           ID
+ * @apiSuccess {String}    obj.name         名称
+ * @apiSuccess {String}    obj.medicalExaminationType          体检项分类对象
+ * @apiSuccess {String}    obj.medicalExaminationType.id       分类ID
+ * @apiSuccess {String}    obj.medicalExaminationType.name     分类名称
  * @apiSuccess {String}    obj.type          输入类型，1：数值型，2：文本型，3：选择型，4：A/B型
- * @apiSuccess {String}    obj.nuit          单位
- * @apiSuccess {String}    obj.orderNum      排序号
- * @apiSuccess {String}    obj.value         选项值
- *
- * @apiError NoAccessRight 只有授权的用户可以访问数据。
- * @apiError UserNotFound   用户不存在。
+ * @apiSuccess {String}    obj.items         选择项
+ * @apiSuccess {String}    obj.unit          单位
  *
  * @apiErrorExample Response (example):
  *     HTTP/1.1 401 Not Authenticated
@@ -83,62 +46,29 @@ function updataMedicalInformation() { return; }
  *         "ok":true,
  *         "obj":[
  *             {
- *                 "name":'体重指数',
- *                 "medicalExaminationTypeId":'ebb8bd60-0f0f-11e7-9b59-000c293e6828',
+ *                 "name":'1',
+ *                 "name":'体重',
+ *                 "medicalExaminationType": {
+ *                     "id": "ebb8bd60-0f0f-11e7-9b59-000c293e6828",
+ *                     "name": "基本信息"
+ *                 },
  *                 "type":'数值型',
- *                 "nuit":'升'，
- *                 "orderNum":55,
- *                 "value":'低'
+ *                 "items": null,
+ *                 "unit":'kg'
+ *             },
+ *             {
+ *                 "name":'2',
+ *                 "name":'身高',
+ *                 "medicalExaminationType": {
+ *                     "id": "ebb8bd60-0f0f-11e7-9b59-000c293e6828",
+ *                     "name": "基本信息"
+ *                 },
+ *                 "type":'数值型',
+ *                 "items": null,
+ *                 "unit":'cm'
  *             },
  *             ...
  *         ]
  *     }
  */
-function getMedicalInformation() { return; }
-/**
- * @api {get} /MedicalExaminationApi/getMedicalExamination 获取体检项
- * @apiVersion 2.0.0
- * @apiName getMedicalExamination
- * @apiGroup MedicalExamination
- * @apiPermission login
- *
- * @apiDescription 获取体检项
- *
- * @apiHeader {String} access-key Users unique access-key.
- *
- * @apiParam {String} appID  当前登录用户的ID
- *
- * @apiSuccess {Boolean}    ok          是否成功
- * @apiSuccess {object[]}   obj             信息
- * @apiSuccess {String}    obj.name          名称
- * @apiSuccess {String}    obj.medicalExaminationTypeId          分类ID
- * @apiSuccess {String}    obj.type          输入类型，1：数值型，2：文本型，3：选择型，4：A/B型
- * @apiSuccess {String}    obj.nuit          单位
- * @apiSuccess {String}    obj.orderNum      排序号
- * @apiSuccess {String}    [obj.items]         选项
- *
- * @apiError NoAccessRight 只有授权的用户可以访问数据。
- * @apiError UserNotFound   用户不存在。
- *
- * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
- *     {
- *         "ok":true,
- *         "obj":[
- *             {
- *                 "name":'体重指数',
- *                 "medicalExaminationTypeId":'ebb8bd60-0f0f-11e7-9b59-000c293e6828',
- *                 "type":'数值型',
- *                 "nuit":'升'，
- *                 "orderNum":55,
- *                 "items":['低','中','高']
- *
- *             },
- *             ...
- *         ]
- *     }
- */
-
-
-
-function getMedicalExamination() { return; }
+function getMedicalInformationList() { return; }
