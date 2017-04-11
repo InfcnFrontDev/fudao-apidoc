@@ -1,11 +1,11 @@
 /**
- * @api {get} /FriendApi/getFriendList 我的好友列表
+ * @api {get} /FriendApi/getFriendList 当前用户的好友列表
  * @apiVersion 2.0.0
  * @apiName getFriendList
  * @apiGroup Friend
  * @apiPermission login
  *
- * @apiDescription 获取我的好友列表。
+ * @apiDescription 获取当前用户的好友列表。
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
@@ -13,14 +13,12 @@
  *
  * @apiSuccess {Boolean}    ok               是否成功
  * @apiSuccess {Object[]}     obj                   好友列表分页
- * @apiSuccess {String}   obj.createTime        加好友时间
- * @apiSuccess {String}     obj.friendId          好友用户ID
+ * @apiSuccess {String}       obj.id                好友id
+ * @apiSuccess {String}     obj.phone              手机号
  * @apiSuccess {String}     obj.friendNick        好友备注
- * @apiSuccess {String}       obj.id                信息id
- * @apiSuccess {String}     obj.img               好友头像
- * @apiSuccess {String}     obj.phone             好友电话
- * @apiSuccess {String}     obj.isRead            是否读取
- * @apiSuccess {String}     obj.userId            我的用户id
+ * @apiSuccess {String}     obj.photo             好友头像
+ * @apiSuccess {String}     obj.nickName          好友昵称
+ *
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
@@ -28,14 +26,11 @@
  *         "ok": true,
  *         "obj": [
  *             {
- *                 "createTime":1489215938000,
- *                 "friendId":"867200022156895,86720002215690321000493",
- *                 "friendNick":"杨可",
- *                 "id":"0eb39b076c1448b6b139a151cbb38924",
- *                 "img":"/uploader/00/00/00/00/00/00/00/60.jpg",
+ *                 "id":"867200022156895,86720002215690321000493",
  *                 "phone":"15901097191",
- *                 "isRead":"0",
- *                 "userId":"867516022307943,86751602230794397042005"
+ *                 "friendNick":"杨可",
+ *                 "nickName":"党中央"
+ *                 "photo":"/uploader/00/00/00/00/00/00/00/60.jpg",
  *             }
  *             ...
  *         ]
@@ -54,34 +49,34 @@ function getMyFriendList() { return; }
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {String}        userId 		      我的用户id
+ * @apiParam {String}        userId 		      当前用户id
  *
  * @apiSuccess {Boolean}    ok                    是否成功
  * @apiSuccess {Object[]}   obj                   资讯列表分页
- * @apiSuccess {String}     obj.friendId          好友用户ID
- * @apiSuccess {String}     obj.friendNick        好友备注
- * @apiSuccess {String}     obj.id                信息id
- * @apiSuccess {String}     obj.img               好友头像
- * @apiSuccess {String}     obj.phone             好友电话
- * @apiSuccess {String}     obj.isRead            是否读取
- * @apiSuccess {String}     obj.state             我的id
- * @apiSuccess {String}     obj.tip               好友信息
  *
  *
+ *
+ * @apiSuccess {String}     obj.id                用户id
+ * @apiSuccess {String}     obj.phone             手机号
+ * @apiSuccess {String}     obj.state             是否添加
+ * @apiSuccess {String}     obj.introduce         自我介绍
+ * @apiSuccess {String}     obj.nickName          好友昵称
+ * @apiSuccess {String}     obj.friendNick        好友姓名
+ * @apiSuccess {String}     obj.photo             好友头像
  * @apiErrorExample Response (example):
  *     HTTP/1.1 200 OK
  *      {
  *         "ok": true,
  *         "obj": [
  *             {
- *                 "state":0,
- *                 'tip'："我叫杨可",
- *                 "friendId":"867200022156895,86720002215690321000493",
- *                 "friendNick":"杨可",
- *                 "id":"57",
- *                 "img":"/uploader/00/00/00/00/00/00/00/60.jpg",
+ *
+ *                 "id":"867200022156895,86720002215690321000493",
  *                 "phone":"15901097191",
- *                 "isRead":"0",
+ *                 "friendNick":"杨可",
+ *                 "state":ture,
+ *                 'introduce'："我叫杨可",
+ *                 "nickName":"党中央"
+ *                 "photo":"/uploader/00/00/00/00/00/00/00/60.jpg",
  *             }
  *             ...
  *         ]
@@ -100,9 +95,9 @@ function FriendApplyList() { return; }
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {String} userId 		我的用户id
- * @apiParam {String} passiveAppid 		好友的用户ID
- * @apiParam {String} passiveName 		好友的昵称
+ * @apiParam {String} id 		当前用户id
+ * @apiParam {String} friendId 		好友ID
+ * @apiParam {String} friendRemark		好友的昵称
  *
  * @apiSuccess {Boolean}    ok               是否成功
  *
@@ -117,24 +112,24 @@ function modificationFriendName() { return; }
 
 
 /**
- * @api {get} /FriendApi/searchFriend 搜索好友
+ * @api {get} /FriendApi/searchUser 搜索用户
  * @apiVersion 2.0.0
- * @apiName searchFriend
+ * @apiName searchUser
  * @apiGroup Friend
  * @apiPermission login
  *
- * @apiDescription 搜索好友
+ * @apiDescription 搜索用户
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {String} phone 		用户电话
+ * @apiParam {String} phone 		手机号
  *
  * @apiSuccess {Boolean}    ok               是否成功
  * @apiSuccess {Object}    obj                    搜索信息列表
- * @apiSuccess {String}    obj.appid              用户id
- * @apiSuccess {String}    obj.img                用户头像
- * @apiSuccess {String}    obj.sex                用户性别
- * @apiSuccess {String}    obj.title              用户昵称
+ * @apiSuccess {String}    obj.id              用户id
+ * @apiSuccess {String}    obj.photo                用户头像
+ * @apiSuccess {String}    obj.phone                手机号
+ * @apiSuccess {String}    obj.nickName              用户昵称
  *
  *
  * @apiErrorExample Response (example):
@@ -142,14 +137,14 @@ function modificationFriendName() { return; }
  *      {
  *         "ok": true,
  *         "obj":{
- *              "appid":"867200022156895,86720002215690393791782",
- *              "img":"/uploader/00/00/00/00/00/00/00/62.jpg",
- *              "sex":"0",
- *              "title":"王朋"
+ *              "id":"867200022156895,86720002215690393791782",
+ *              "photo":"/uploader/00/00/00/00/00/00/00/62.jpg",
+ *              "phone":"15901097191",
+ *              "nickName":"王朋"
  *         }
  *     }
  */
-function searchFriend() { return; }
+function searchUser() { return; }
 
 /**
  * @api {get} /FriendApi/agreePlusFriend 同意加好友
@@ -162,8 +157,8 @@ function searchFriend() { return; }
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {String} id 		用户信息id
- * @apiParam {String} passiveName 	修改的用户备注
+ * @apiParam {String} id 		用户id
+ * @apiParam {String} friendRemark 	修改的用户备注
  *
  * @apiSuccess {Boolean}    ok               是否成功
  *
@@ -187,8 +182,8 @@ function agreePlusFriend() { return; }
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {String} userId 		我的用户id
- * @apiParam {String} friendId 	    好友用户id
+ * @apiParam {String} userId 		当前用户的id
+ * @apiParam {String} friendId 	    好友id
  *
  * @apiSuccess {Boolean}    ok               是否成功
  *
@@ -200,3 +195,31 @@ function agreePlusFriend() { return; }
  *     }
  */
 function deleteFriend() { return; }
+
+/**
+ * @api {get} /FriendApi/plusFriendApply 加好友申请
+ * @apiVersion 2.0.0
+ * @apiName plusFriendApply
+ * @apiGroup Friend
+ * @apiPermission login
+ *
+ * @apiDescription 加好友申请
+ *
+ * @apiHeader {String} access-key Users unique access-key.
+ *
+ * @apiParam {String} userId 		当前用户的id
+ * @apiParam {String} friendId 	    好友id
+ * @apiParam {String} introduce      自我介绍
+ * @apiParam {String} friendRemark    好友备注
+ * @apiParam {String} [dontAttentionHim=true] 是否让他关注朋友圈
+ *
+ * @apiSuccess {Boolean}    ok               是否成功
+ *
+ *
+ * @apiErrorExample Response (example):
+ *     HTTP/1.1 200 OK
+ *      {
+ *         "ok": true,
+ *     }
+ */
+function plusFriendApply() { return; }
