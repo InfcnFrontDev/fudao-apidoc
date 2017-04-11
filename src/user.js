@@ -15,7 +15,7 @@
  *
  * @apiSuccess {Boolean}    ok               是否成功
  * @apiSuccess {Object}     obj              返回信息
- * @apiSuccess {String}     obj.message      是否存在  （reg: existence:存在,notExistent:不存在,如果notExistent，则向用户发送验证码
+ * @apiSuccess {String}     obj.message      是否存在  （reg: existence:存在,notExistent:不存在,如果notExistent，则向用户发送验证码。
  *                                                        findPwd: existence:存在,notExistent:不存在,如果existence，则向用户发送验证码    ）
  *
  *
@@ -196,7 +196,7 @@ function findPassword() { return; }
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {Number}    sex        性别,男:1,女:2
+ * @apiParam {String}    sex        性别,男:1,女:2
  * @apiParam {String}    birthday   出生日期
  * @apiParam {String}    regionId   地区ID
  *

@@ -1,78 +1,275 @@
 /**
- * @api {get} /DiseaseApi/getDiseaseList 获取收藏列表
+ * @api {get} /DiseaseApi/getDiseaseList 获取疾病列表
  * @apiVersion 2.0.0
  * @apiName getDiseaseList
  * @apiGroup Disease
  * @apiPermission login
  *
- * @apiDescription 获取我的收藏列表。
+ * @apiDescription  根据人群ID查询疾病列表
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {Integer} [page=1] 		当前页码
- * @apiParam {Integer} [pageSize=10] 	每页大小
+ * @apiParam {String}  renqunId         人群ID
  *
- * @apiSuccess {Boolean}    success               是否成功
- * @apiSuccess {Object}     obj                   资讯列表分页
- * @apiSuccess {Object[]}   obj.list              收藏列表
- * @apiSuccess {String}     obj.list.id           收藏ID
- * @apiSuccess {String}     obj.list.type         收藏类型，1：资讯，...
- * @apiSuccess {Date}       obj.list.createTime   收藏时间
- * @apiSuccess {Object}     obj.list.data         资讯
- * @apiSuccess {String}     obj.list.data.id           资讯ID
- * @apiSuccess {String}     obj.list.data.title        资讯标题
- * @apiSuccess {String}     obj.list.data.img          资讯图片
- * @apiSuccess {String}     obj.list.data.source       资讯来源
- * @apiSuccess {Date}       obj.list.data.createTime   资讯发表时间
- * @apiSuccess {Integer}    obj.page              当前页码
- * @apiSuccess {Integer}    obj.pageSize          每页大小
- * @apiSuccess {Integer}    obj.pageCount         总页数
+ * @apiSuccess {Object[]}   obj             疾病类型列表
+ * @apiSuccess {String}     obj.id              疾病类型ID
+ * @apiSuccess {String}     obj.name            疾病类型名称
+ * @apiSuccess {String}     obj.orderNum        疾病类型名称
+ * @apiSuccess {Object[]}   obj.diseases        同一类型疾病排序号
+ * @apiSuccess {String}     obj.diseases.id                  疾病ID
+ * @apiSuccess {String}     obj.diseases.name                疾病名称
+ * @apiSuccess {String}     obj.diseases.title               疾病显示名称
+ * @apiSuccess {String}     obj.diseases.img                 疾病图片
+ * @apiSuccess {Number}     obj.diseases.orderNum            疾病排序号
+ * @apiSuccess {Boolean}    ok         是否成功
  *
  * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *         "success": true,
- *         "obj": [
- *             {
- *                 "id": "473a39e9-0fba-11e7-9b59-000c293e6828",
- *                 "type": 1,
- *                 "createTime": 1460651070000,
- *                 "data": {
- *                     "id": "473a39e9-0fba-11e7-9b59-000c293e6828",
- *                     "title": "日用品过期会引来一身病，99%的人不知道！",
- *                     "img": "zixun/1.1.jpg,zixun/1.2.jpg,zixun/1.3.jpg",
- *                     "source": "养生堂",
- *                     "createTime": 1460651070000
- *                 }
- *             },
- *             ...
- *         ]
- *     }
+ *   HTTP/1.1 200 OK
+ *   {
+        "obj": [
+            {
+                "diseases": [
+                    {
+                        "id": "17",
+                        "name": "跌倒",
+                        "title": "跌倒",
+                        "img": "/icons/disease/diedao.png",
+                        "orderNum": 17,
+                    },
+                    ...
+                ],
+                "id": "1",
+                "name": "意外伤害",
+                "orderNum": 1,
+            },
+            ...
+        ],
+        "ok": true
+    }
  */
-function getMyDiseaseList() { return; }
+function getDiseaseList() {   return; }
 
 /**
- * @api {get} /DiseaseApi/deleteDisease 删除收藏
+ * @api {get} /DiseaseApi/getMyDisease 获取我的问题
  * @apiVersion 2.0.0
- * @apiName deleteDisease
+ * @apiName getMyDisease
  * @apiGroup Disease
  * @apiPermission login
  *
- * @apiDescription 删除指定的收藏。
+ * @apiDescription  获取我的问题
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {String} collectionId 收藏ID
+ * @apiParam {String}  userId           用户ID
  *
- * @apiSuccess {Boolean}    success         是否成功
  *
- * @apiError NoAccessRight 只有授权的用户可以访问数据。
- * @apiError UserNotFound   用户不存在。
+ * @apiSuccess {Object[]}   obj             疾病类型列表
+ * @apiSuccess {String}     obj.id                  疾病ID
+ * @apiSuccess {String}     obj.name                疾病名称
+ * @apiSuccess {String}     obj.title               疾病显示名称
+ * @apiSuccess {String}     obj.img                 疾病图片
+ * @apiSuccess {Number}     obj.orderNum            疾病排序号
+ * @apiSuccess {Boolean}    ok              是否成功
  *
- * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
- *     {
- *       "error": "NoAccessRight"
- *     }
+ * @apiSuccessExample {json} Success-Response:
+ *   HTTP/1.1 200 OK
+ *   {
+        "obj": [
+            {
+                "id": "17",
+                "name": "跌倒",
+                "title": "跌倒",
+                "img": "/icons/disease/diedao.png",
+                "orderNum": 17,
+            },
+            ...
+        ],
+        "ok": true
+    }
+ *
  */
-function deleteDisease() { return; }
+function getMyDisease() {   return; }
+
+/**
+ * @api {get} /DiseaseApi/addMyDisease 添加我的问题
+ * @apiVersion 2.0.0
+ * @apiName addMyDisease
+ * @apiGroup Disease
+ * @apiPermission login
+ *
+ * @apiDescription  添加我的问题
+ *
+ * @apiHeader {String} access-key Users unique access-key.
+ *
+ * @apiParam {String}  userId           用户ID
+ * @apiParam {String}  diseaseId        疾病ID
+ *
+ * @apiSuccess {Boolean}    ok         是否成功
+ *
+ */
+function addMyDisease() {   return; }
+
+/**
+ * @api {get} /DiseaseApi/deleteMyDisease 删除我的问题
+ * @apiVersion 2.0.0
+ * @apiName deleteMyDisease
+ * @apiGroup Disease
+ * @apiPermission login
+ *
+ * @apiDescription  删除我的问题
+ *
+ * @apiHeader {String} access-key Users unique access-key.
+ *
+ * @apiParam {String}  userId           用户ID
+ * @apiParam {String}  diseaseId        疾病ID
+ *
+ * @apiSuccess {Boolean}    ok         是否成功
+ *
+ */
+function deleteMyDisease() {   return; }
+
+/**
+ * @api {get} /DiseaseApi/getDiseaseMethod 获取疾病疗法
+ * @apiVersion 2.0.0
+ * @apiName getDiseaseMethod
+ * @apiGroup Disease
+ * @apiPermission login
+ *
+ * @apiDescription  获取疾病疗法
+ *
+ * @apiHeader {String} access-key Users unique access-key.
+ *
+ * @apiParam {String}  renqunId         人群ID
+ * @apiParam {String}  diseaseId        疾病ID
+ * @apiParam {String}  regionId         地区ID
+ *
+ * @apiSuccess {Object}     obj             疾病的日常疗法和专业疗法
+ * @apiSuccess {Object[]}   obj.dailyMethods        疾病的日常疗法分类列表
+ * @apiSuccess {String}     obj.dailyMethods.type         疾病的日常疗法的类型
+ * @apiSuccess {String}     obj.dailyMethods.typeValue    疾病的日常疗法的类型名称
+ * @apiSuccess {Object}     obj.dailyMethods.datas        疾病的日常疗法的某一类型的数据
+ * @apiSuccess {Object}     obj.dailyMethods.datas.dailyMethods        疾病的日常疗法的饮食类型的日常疗法数据
+ * @apiSuccess {String}     obj.dailyMethods.datas.dailyMethods.id            日常疗法方法ID
+ * @apiSuccess {String}     obj.dailyMethods.datas.dailyMethods.renqunId      人群ID
+ * @apiSuccess {String}     obj.dailyMethods.datas.dailyMethods.type          日常疗法方法所属类型
+ * @apiSuccess {String}     obj.dailyMethods.datas.dailyMethods.suitable      宜食
+ * @apiSuccess {String}     obj.dailyMethods.datas.dailyMethods.fasting       禁食
+ * @apiSuccess {Object[]}   obj.dailyMethods.datas.timePeriod                疾病的日常疗法中的饮食
+ * @apiSuccess {String}     obj.dailyMethods.datas.timePeriod.timePeriod            疾病的日常疗法中的饮食的时期
+ * @apiSuccess {Object}     obj.dailyMethods.datas.timePeriod.suitable              疾病的日常疗法中的午餐或晚餐阶段宜食（注：早餐或下午茶阶段宜食为Object[]类型，无staple和dishes之分）
+ * @apiSuccess {Object}     obj.dailyMethods.datas.timePeriod.suitable.staple                疾病的日常疗法中的午餐或晚餐阶段饮食中的主食
+ * @apiSuccess {Object}     obj.dailyMethods.datas.timePeriod.suitable.dishes                疾病的日常疗法中的午餐或晚餐阶段饮食中的菜品
+ * @apiSuccess {Object[]}   obj.dailyMethods.datas.timePeriod.fasting               疾病的日常疗法中的某一阶段禁食
+ * @apiSuccess {String}     obj.dailyMethods.datas.principle                  疾病的日常疗法的除饮食外的其他类型的日常疗法原理
+ * @apiSuccess {Object[]}   obj.dailyMethods.datas.datas                     疾病的日常疗法的除饮食外的其他类型的日常疗法数据
+ * @apiSuccess {String}     obj.dailyMethods.datas.datas.timePeriod                除饮食外的其他类型的日常疗法适用时段
+ * @apiSuccess {Object[]}   obj.dailyMethods.datas.datas.dailyMethods        除饮食外的其他类型的日常疗法数据
+ * @apiSuccess {String}     obj.dailyMethods.datas.datas.dailyMethods.id               日常疗法方法ID
+ * @apiSuccess {String}     obj.dailyMethods.datas.datas.dailyMethods.name             日常疗法方法名称
+ * @apiSuccess {String}     obj.dailyMethods.datas.datas.dailyMethods.img              日常疗法方法附件（图片/音频/视频）
+ * @apiSuccess {String}     obj.dailyMethods.datas.datas.dailyMethods.detail           日常疗法方法详情
+ * @apiSuccess {String}     obj.dailyMethods.datas.datas.dailyMethods.principle        日常疗法方法详原理
+ * @apiSuccess {String}     obj.dailyMethods.datas.datas.dailyMethods.renqunId         人群ID
+ * @apiSuccess {String}     obj.dailyMethods.datas.datas.dailyMethods.timePeriod       日常疗法方法适用时段
+ * @apiSuccess {String}     obj.dailyMethods.datas.datas.dailyMethods.type             日常疗法方法所属类型
+ * @apiSuccess {Object[]}   obj.professionalMethods  疾病的专业疗法分类列表
+ * @apiSuccess {String}     obj.professionalMethods.type    疾病的专业疗法的类型名称
+ * @apiSuccess {Object[]}   obj.professionalMethods.methods   疾病的专业疗法某一分类列表
+ * @apiSuccess {String}     obj.professionalMethods.methods.id                 专业疗法方法ID
+ * @apiSuccess {String}     obj.professionalMethods.methods.name               专业疗法方法名称
+ * @apiSuccess {String}     obj.professionalMethods.methods.detail             专业疗法方法详情
+ * @apiSuccess {String}     obj.professionalMethods.methods.type               专业疗法方法所属类型
+ * @apiSuccess {String}     obj.professionalMethods.methods.renqunId           人群ID
+ * @apiSuccess {Boolean}    ok              是否成功
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *   HTTP/1.1 200 OK
+  {
+        "obj": {
+            "dailyMethods": [
+                {
+                    "datas": {
+                        "dailyMethods": {
+                            "id": "4",
+                            "suitable": "寒凉性的食物/豆类及豆制品/含微量元素的食物"
+                            "fasting": "辛辣刺激性食物/温热性食物/油炸类食物",
+                            "renqunId": "aged",
+                            "type": "1",
+                        },
+                        "timePeriod": [
+                            {
+                                "timePeriod": "早餐",
+                                "suitable": [
+                                    {
+                                        "id": "71",
+                                        "name": "牛奶"
+                                    },
+                                    ...
+                                ]
+                            },
+                            {
+                                "timePeriod": "午餐",
+                                "suitable": {
+                                    "staple": [.....],
+                                    "dishes": [....]
+                                },
+                                "fasting": [....]
+                            },
+                            {
+                                下午茶，格式同早餐（本数组第一项）
+                            },
+                            {
+                                晚餐，格式同午餐（本数组第二项）
+                            }
+                        ]
+                    },
+                    "type": "1",
+                    "type_value": "饮食"
+                },
+                {
+                    "datas": {
+                        "datas": [
+                            {
+                                "dailyMethods": [
+                                    {
+                                        "details": "1、晚餐最好是睡前4个小时吃。除了晚餐，最好不要吃夜宵。\n2、睡前大吃大喝向来是减肥的大忌，水也要少喝。\n3、除此之外，一些坏习惯也要改改，比如上网看电视时喜欢吃东西，这是很容易堆积脂肪的，而且入睡前吃掉太多东西，很容易让人兴奋，更加不容易睡眠，这会直接影响到睡眠减肥的效果哦!",
+                                        "id": "36",
+                                        "img": "/photo/shuiqianbuchidongxi.jpg",
+                                        "name": "睡前不要吃东西",
+                                        "principle": "保证充足高质量的睡眠，可以减少热量摄入和脂肪囤积。",
+                                        "renqunId": "aged",
+                                        "timePeriod": "睡前",
+                                        "type": "2"
+                                    }
+                                ],
+                                "timePeriod": "睡前"
+                            }
+                        ],
+                        "principle": "保证充足高质量的睡眠，可以减少热量摄入和脂肪囤积。"
+                    },
+                    "type": "2",
+                    "type_value": "起居"
+                },
+                ...格式类型同type：2
+            ],
+            "professionalMethods": [
+                {
+                    "methods": [
+                        {
+                            "details": "取穴：中脘、三阴交、天枢、巨阙、大横、腹结。\n操作：每次选用4-5穴，根据患者肥胖程度选用大号或中号火罐，以闪火法拔罐，留罐10-20min，每日1次，15次为1个疗程。",
+                            "id": "101",
+                            "name": "拔罐疗法",
+                            "renqunId": "aged",
+                            "type": "拔罐"
+                        }
+                    ],
+                    "type": "拔罐"
+                },
+                ...
+            ]
+        },
+        "ok": true
+ }
+ *
+ */
+function getDiseaseMethod() {   return; }
