@@ -1,3 +1,14 @@
+// 1，用户登录 - login (手机号，密码)                                      （access_key）
+// 2，获取登录用户信息 getLoginUser（access_key）                              （User表所有信息）
+// 3，验证手机号是否存在 checkPhone（手机号）                              （ok）
+// 4，发送验证码 sendCode（手机号）                                     （ok）
+// 5，验证验证码 checkCode（手机号， 验证码）                                 （ok， key）
+// 6，用户注册 register（手机号，密码）                                     （ok）
+// 7，设置用户基本信息 setUserBaseInfo（性别，[女性类型]，出生日期，地区）            （ok）
+// 8，重置密码 resetPassword（手机号，密码）                                     （ok）
+// 9，修改密码 updatePassword（手机号，旧密码，新密码）                                     （ok）
+// 10, 修改用户信息 updateUserInfo (fieldName , value)                                   (ok)
+
 /**
  * @api {get} /UserApi/checkPhone  验证手机号（注册或找回密码）
  * @apiVersion 2.0.0
@@ -26,7 +37,7 @@
  *         "obj":{
  *              "message":"existence"
  *         }
-*
+ *
  *      }
  */
 function checkPhone() { return; }
