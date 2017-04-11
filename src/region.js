@@ -1,39 +1,41 @@
 /**
- * @api {get} /RegionApi/getMyRegionList 获取区域列表
+ * @api {get} /RegionApi/getCountyList 获取区县列表
  * @apiVersion 2.0.0
- * @apiName getMyRegionList
+ * @apiName getCountyList
  * @apiGroup Region
  *
- * @apiDescription 获取区域列表
+ * @apiDescription 获取区县列表
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {String}  city   城市名称（北京）
+ * @apiParam {String}  city   城市名称或id（北京或110100）
  *
  *
  * @apiSuccess {Boolean}    ok                  是否成功
- * @apiSuccess {Object[]}     obj                 区域列表
+ * @apiSuccess {Object[]}     obj                 区县列表
+ * @apiSuccess {number}     obj.id                区县id
+ * @apiSuccess {Object[]}     obj.name            区县名称
  *
  *
- * @apiError NoAccessRight 只有授权的用户可以访问数据。
- * @apiError UserNotFound   用户不存在。
  *
  * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
+ *     HTTP/1.1 200 OK
  *     {
  *         "ok": true,
  *         "obj": [
- *            "东城区",
- *            "西城区",
- *            "海淀区",
- *            "朝阳区",
- *            "丰台区",
- *            "崇文区",
+ *            {
+ *                 "id":110101,
+ *                 "naeme":"东城区"
+ *            },
+ *            {
+ *                 "id":110102,
+ *                 "name":"西城区"
+ *            }
  *            ...
  *         ]
  *     }
  */
-function getMyRegionList() { return; }
+function getCountyList() { return; }
 
 
 
@@ -48,71 +50,31 @@ function getMyRegionList() { return; }
  * @apiHeader {String} access-key Users unique access-key.
  *
  *
- * @apiSuccess {Boolean}    ok                  是否成功
- * @apiSuccess {Object}     obj                  列表
- * @apiSuccess {Object[]}  obj.cityName          城市列表
- * @apiSuccess {Number}    obj.page              当前页码
- * @apiSuccess {Number}    obj.pageSize          每页大小
- * @apiSuccess {Number}    obj.pageCount         总页数
+ * @apiSuccess {Boolean}      ok                  是否成功
+ * @apiSuccess {Object[]}     obj                 城市列表
+ * @apiSuccess {Number}    obj.id                 城市id
+ * @apiSuccess {String}    obj.name               城市名称
+ * @apiSuccess {Boolean}    [obj.hot=false]       是否是热门城市
  *
  *
- * @apiError NoAccessRight 只有授权的用户可以访问数据。
- * @apiError UserNotFound   用户不存在。
  *
  * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
+ *     HTTP/1.1 200 OK
  *     {
  *         "ok": true,
- *         "obj": {
- *            "cityName":[
- *                "北京",
- *                "上海",
- *                "深圳",
- *                "杭州",
- *                "重庆",
- *                "武汉",
- *                ...
- *            ],
- *            "page":1,
- *            "pageSize":10,
- *            "pageCount":5,
- *         }
- *     }
- */
-function getCityList() { return; }
-
-/**
- * @api {get} /RegionApi/getHotCityList 获取热门城市列表
- * @apiVersion 2.0.0
- * @apiName getHotCityList
- * @apiGroup Region
- *
- * @apiDescription 获取热门城市列表
- *
- * @apiHeader {String} access-key Users unique access-key.
- *
- * @apiParam {String} collectionId 收藏ID
- *
- * @apiSuccess {Boolean}    success         是否成功
- * @apiSuccess {object[]}    obj            热门城市列表
- *
- *
- * @apiError NoAccessRight 只有授权的用户可以访问数据。
- * @apiError UserNotFound   用户不存在。
- *
- * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
- *     {
- *         "success": true,
  *         "obj": [
- *            "北京",
- *            "上海",
- *            "深圳",
- *            "杭州",
- *            "重庆",
- *            "武汉",
+ *            {
+ *                 id:110101,
+ *                 name:"北京",
+ *                 hot:true
+ *            },
+ *            {
+ *                 id:310000,
+ *                 name:"上海"
+ *                 hot:true
+ *            },
  *            ...
  *         ]
  *     }
  */
-function getHotCityList() { return; }
+function getCityList() { return; }

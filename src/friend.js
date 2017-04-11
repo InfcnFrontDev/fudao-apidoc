@@ -67,11 +67,9 @@ function getMyFriendList() { return; }
  * @apiSuccess {String}     obj.state             我的id
  * @apiSuccess {String}     obj.tip               好友信息
  *
- * @apiError NoAccessRight 只有授权的用户可以访问数据。
- * @apiError UserNotFound   用户不存在。
  *
  * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
+ *     HTTP/1.1 200 OK
  *      {
  *         "ok": true,
  *         "obj": [
@@ -108,11 +106,9 @@ function FriendApplyList() { return; }
  *
  * @apiSuccess {Boolean}    ok               是否成功
  *
- * @apiError NoAccessRight 只有授权的用户可以访问数据。
- * @apiError UserNotFound   用户不存在。
  *
  * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
+ *     HTTP/1.1 200  OK
  *      {
  *         "ok": true,
  *     }
@@ -140,11 +136,9 @@ function modificationFriendName() { return; }
  * @apiSuccess {String}    obj.sex                用户性别
  * @apiSuccess {String}    obj.title              用户昵称
  *
- * @apiError NoAccessRight 只有授权的用户可以访问数据。
- * @apiError UserNotFound   用户不存在。
  *
  * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
+ *     HTTP/1.1 200 OK
  *      {
  *         "ok": true,
  *         "obj":{
@@ -173,8 +167,6 @@ function searchFriend() { return; }
  *
  * @apiSuccess {Boolean}    ok               是否成功
  *
- * @apiError NoAccessRight 只有授权的用户可以访问数据。
- * @apiError UserNotFound   用户不存在。
  *
  * @apiErrorExample Response (example):
  *     HTTP/1.1 401 Not Authenticated
@@ -200,11 +192,9 @@ function agreePlusFriend() { return; }
  *
  * @apiSuccess {Boolean}    ok               是否成功
  *
- * @apiError NoAccessRight 只有授权的用户可以访问数据。
- * @apiError UserNotFound   用户不存在。
  *
  * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
+ *     HTTP/1.1 200 OK
  *      {
  *         "ok": true,
  *     }

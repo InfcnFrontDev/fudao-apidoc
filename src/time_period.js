@@ -72,8 +72,6 @@ function getTimePeriodList() { return; }
  *
  * @apiSuccess {Boolean}    ok      是否成功
  *
- * @apiError NoAccessRight 只有授权的用户可以访问数据。
- * @apiError UserNotFound   用户不存在。
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {

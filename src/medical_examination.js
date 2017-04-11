@@ -22,11 +22,9 @@
  * @apiSuccess {String}    obj.typeItems.orderNum      排序号
  * @apiSuccess {String}    obj.typeItems.value         选项值
  *
- * @apiError NoAccessRight 只有授权的用户可以访问数据。
- * @apiError UserNotFound   用户不存在。
  *
  * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
+ *     HTTP/1.1 200 OK
  *     {
  *         "ok":true,
  *         "obj":[
@@ -74,11 +72,9 @@ function updataMedicalInformation() { return; }
  * @apiSuccess {String}    obj.orderNum      排序号
  * @apiSuccess {String}    obj.value         选项值
  *
- * @apiError NoAccessRight 只有授权的用户可以访问数据。
- * @apiError UserNotFound   用户不存在。
  *
  * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
+ *     HTTP/1.1 200 OK
  *     {
  *         "ok":true,
  *         "obj":[
@@ -117,11 +113,9 @@ function getMedicalInformation() { return; }
  * @apiSuccess {String}    obj.orderNum      排序号
  * @apiSuccess {String}    [obj.items]         选项
  *
- * @apiError NoAccessRight 只有授权的用户可以访问数据。
- * @apiError UserNotFound   用户不存在。
  *
  * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
+ *     HTTP/1.1 200  OK
  *     {
  *         "ok":true,
  *         "obj":[
