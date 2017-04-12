@@ -7,7 +7,7 @@
  *
  * @apiDescription 获取当前用户的好友列表。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {Integer} userId 		用户id
  *
@@ -47,7 +47,7 @@ function getMyFriendList() { return; }
  *
  * @apiDescription 获取好友申请列表。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}        userId 		      当前用户id
  *
@@ -93,7 +93,7 @@ function friendApplyList() { return; }
  *
  * @apiDescription 修改好友备注保存。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String} id 		当前用户id
  * @apiParam {String} friendId 		好友ID
@@ -122,7 +122,7 @@ function modificationFriendName() { return; }
  *
  * @apiDescription 同意加好友
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String} id 		用户id
  * @apiParam {String} friendRemark 	修改的用户备注
@@ -147,7 +147,7 @@ function agreePlusFriend() { return; }
  *
  * @apiDescription 删除好友
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String} userId 		当前用户的id
  * @apiParam {String} friendId 	    好友id
@@ -172,7 +172,7 @@ function deleteFriend() { return; }
  *
  * @apiDescription 加好友申请
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String} userId 		当前用户的id
  * @apiParam {String} friendId 	    好友id

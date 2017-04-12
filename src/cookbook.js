@@ -7,7 +7,7 @@
  *
  * @apiDescription 根据食材和个数，获取推荐的菜品。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String} ingredient	   食材名称
  * @apiParam {Number} [num=4]	       推荐个数
@@ -38,7 +38,7 @@
  *         ]
  *     }
  *
- * @apiUse AccessRightError
+ * @apiUse AuthenticatedError
  *
  */
 function getCookbookList() { return; }
@@ -53,7 +53,7 @@ function getCookbookList() { return; }
  *
  * @apiDescription 根据菜品ID，获取菜谱详细。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String} id	   菜品ID
 
@@ -81,7 +81,7 @@ function getCookbookList() { return; }
  *         }
  *     }
  *
- * @apiUse AccessRightError
+ * @apiUse AuthenticatedError
  *
  */
 function getCookbook() { return; }

@@ -7,7 +7,7 @@
  *
  * @apiDescription 根据情绪和人群，随机获取一条情绪干预内容。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}   emotion       情绪名称
  * @apiParam {String}   crowd         人群
@@ -17,7 +17,7 @@
  * @apiSuccess {String}      obj.id       ID
  * @apiSuccess {String}      obj.title    标题
  * @apiSuccess {String}      obj.content  内容
- * @apiSuccess {String}      obj.type     附件类型，1：图片，2：视频，3：音频
+ * @apiSuccess {Number}      obj.type     附件类型，1：图片，2：视频，3：音频
  * @apiSuccess {String}      obj.path     图片、音乐路径
 
  *
@@ -29,12 +29,12 @@
  *             "id":"1106775f-0d7d-11e7-9b59-000c293e6828",
  *             "title":"开心一笑",
  *             "content":"有一天小明。。。。。",
- *             "type":"1",
+ *             "type":1,
  *             "path":"1.5.jpg",
  *         }
  *     }
  *
- * @apiUse AccessRightError
+ * @apiUse AuthenticatedError
  *
  */
 function getEmotionIntervene() { return; }

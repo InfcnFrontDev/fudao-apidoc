@@ -6,34 +6,25 @@
 // Current Success.
 // ------------------------------------------------------------------------------------------
 
+// ------------------------------------------------------------------------------------------
+// Current Success.
+// ------------------------------------------------------------------------------------------
+
+
+// ------------------------------------------------------------------------------------------
+// Current Headers.
+// ------------------------------------------------------------------------------------------
+/**
+ * @apiDefine AuthenticatedHeader
+ *
+ * @apiHeader {String} authorization Users unique access-key.
+ */
 
 // ------------------------------------------------------------------------------------------
 // Current Errors.
 // ------------------------------------------------------------------------------------------
 /**
- * @apiDefine CreateUserError
- * @apiVersion 0.2.0
- *
- * @apiError NoAccessRight Only authenticated Admins can access the data.
- * @apiError UserNameTooShort Minimum of 5 characters required.
- *
- * @apiErrorExample  Response (example):
- *     HTTP/1.1 400 Bad Request
- *     {
- *       "error": "UserNameTooShort"
- *     }
- * @apiError NoAccessRight  只有授权的用户可以访问数据。
- * @apiError UserNotFound   用户不存在或未登录。
- *
- * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
- *     {
- *       "error": "NoAccessRight"
- *     }
- */
-
-/**
- * @apiDefine AccessRightError
+ * @apiDefine AuthenticatedError
  * @apiVersion 2.0.0
  *
  * @apiError NoAccessRight  只有授权的用户可以访问数据。

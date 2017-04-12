@@ -7,7 +7,7 @@
  *
  * @apiDescription  根据用户ID查看朋友圈动态列表。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}  userId 		    评论用户ID
  * @apiParam {Number}  [page=1] 		当前页码
@@ -92,7 +92,7 @@ function getDynamicsList() { return; }
  *
  * @apiDescription 发表动态。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String} userId     用户ID
  * @apiParam {String} content    发表的内容
@@ -113,7 +113,7 @@ function addDynamic() { return; }
  *
  * @apiDescription 删除指定的动态。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}   key   动态ID
  *
@@ -131,7 +131,7 @@ function deleteDynamic() { return; }
  *
  * @apiDescription 对指定的动态添加评论。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}     dynamicId             动态ID
  * @apiParam {String}     userId                发表评论用户的ID
@@ -152,7 +152,7 @@ function addDynamicComment() { return; }
  *
  * @apiDescription 删除指定评论。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}      userId        评论用户ID
  * @apiParam {String}      dynamicID     评论动态ID
@@ -171,7 +171,7 @@ function deleteDynamicComment() { return; }
  *
  * @apiDescription 对指定的动态点赞。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}     dynamicId             动态ID
  * @apiParam {String}     userId                点赞用户的ID
@@ -190,7 +190,7 @@ function addDynamicPraise() { return; }
  *
  * @apiDescription 对指定动态取消点赞。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}      userId        点赞用户ID
  * @apiParam {String}      dynamicID     点赞动态ID

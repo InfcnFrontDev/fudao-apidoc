@@ -7,7 +7,7 @@
  *
  * @apiDescription 获取当前用户的时间阶段。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {Integer} userId		用户的ID
  * @apiParam {String} [renqunId=high_quality_population]  人群
@@ -47,7 +47,7 @@ function getTimePeriod() { return; }
  *
  * @apiDescription 获取通用时间阶段。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  *
  * @apiSuccess {Boolean}    success               是否成功
@@ -85,7 +85,7 @@ function getCommonUseTimePeriod() { return; }
  *
  * @apiDescription 保存我的时间段。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String} userId 用户的ID
  * @apiParam {jsonstr} data 我的时间的返回的data数据

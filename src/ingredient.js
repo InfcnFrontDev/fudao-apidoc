@@ -7,9 +7,9 @@
  *
  * @apiDescription 根据食材名称，获取食材的详细。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
- * @apiParam {String} name 		食材名称
+ * @apiParam {String}       idOrName 		食材ID或名称
  *
  * @apiSuccess {Boolean}    ok                   是否成功
  * @apiSuccess {Object}     obj                  食材对象

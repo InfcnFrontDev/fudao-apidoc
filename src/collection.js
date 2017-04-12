@@ -5,9 +5,9 @@
  * @apiGroup Collection
  * @apiPermission login
  *
- * @apiDescription 获取用户的收藏列表。
+ * @apiDescription 获取当前用户的收藏列表。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {Integer} [page=1] 		当前页码
  * @apiParam {Integer} [pageSize=10] 	每页大小
@@ -54,10 +54,10 @@
  *         }
  *     }
  *
- * @apiUse AccessRightError
+ * @apiUse AuthenticatedError
  *
  */
-function getMyCollectionList() { return; }
+function getCollectionList() { return; }
 
 /**
  * @api {get} /CollectionApi/deleteCollection 删除收藏
@@ -68,13 +68,13 @@ function getMyCollectionList() { return; }
  *
  * @apiDescription 用户从我的收藏中删除指定的收藏。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String} id 收藏ID
  *
  * @apiSuccess {Boolean}    success         是否成功
  *
- * @apiUse AccessRightError
+ * @apiUse AuthenticatedError
  *
  */
 function deleteCollection() { return; }
@@ -89,14 +89,14 @@ function deleteCollection() { return; }
  *
  * @apiDescription 用户添加资讯/动态等到我的收藏。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {Number} type 类型，1：资讯，...
  * @apiParam {String} sourceId 对象ID
  *
  * @apiSuccess {Boolean}    success         是否成功
  *
- * @apiUse AccessRightError
+ * @apiUse AuthenticatedError
  *
  */
 function addCollection() { return; }

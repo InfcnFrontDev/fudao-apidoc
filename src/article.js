@@ -7,7 +7,7 @@
  *
  * @apiDescription 获取所有资讯栏目。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiSuccess {Boolean}    success   是否成功
  * @apiSuccess {Object[]}   obj       资讯栏目列表
@@ -34,7 +34,7 @@
  *         ]
  *     }
  *
- * @apiUse AccessRightError
+ * @apiUse AuthenticatedError
  *
  */
 function getArticleColumnList() { return; }
@@ -48,7 +48,7 @@ function getArticleColumnList() { return; }
  *
  * @apiDescription 通过人群和资讯栏目， 获取资讯分页列表。按创建时间降序排序。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String} crowd 			人群
  * @apiParam {String} column 			栏目ID或名称
@@ -95,7 +95,7 @@ function getArticleColumnList() { return; }
  *         }
  *     }
  *
- * @apiUse AccessRightError
+ * @apiUse AuthenticatedError
  *
  */
 function getArticleList() { return; }
@@ -107,11 +107,11 @@ function getArticleList() { return; }
  * @apiGroup Article
  * @apiPermission login
  *
- * @apiDescription 获取资讯详细。
+ * @apiDescription 获取资讯详情。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
- * @apiParam {String} id 资讯ID
+ * @apiParam {String}       id              资讯ID
  *
  * @apiSuccess {Boolean}    success         是否成功
  * @apiSuccess {Object}     obj             资讯对象
@@ -138,7 +138,7 @@ function getArticleList() { return; }
  *         }
  *     }
  *
- * @apiUse AccessRightError
+ * @apiUse AuthenticatedError
  *
  */
 function getArticle() { return; }

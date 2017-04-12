@@ -7,7 +7,7 @@
  *
  * @apiDescription 用户修改某项体检结果
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String} medicalInformationId  体检项ID
  * @apiParam {String} value 体检结果值
@@ -27,7 +27,7 @@ function updataMedicalInformationResult() { return; }
  *
  * @apiDescription 获取全部体检项列表
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiSuccess {Boolean}   ok               是否成功
  * @apiSuccess {object[]}  obj              体检项对象

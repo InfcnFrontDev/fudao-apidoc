@@ -6,7 +6,7 @@
  *
  * @apiDescription 获取区县列表
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}  city   城市名称或id（北京或110100）
  *
@@ -47,7 +47,7 @@ function getCountyList() { return; }
  *
  * @apiDescription 获取城市列表
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  *
  * @apiSuccess {Boolean}      ok                  是否成功

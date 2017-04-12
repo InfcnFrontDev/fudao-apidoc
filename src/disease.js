@@ -7,7 +7,7 @@
  *
  * @apiDescription  根据人群ID查询疾病列表
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}  renqunId         人群ID
  *
@@ -50,7 +50,7 @@ function getDiseaseList() {   return; }
  *
  * @apiDescription  获取我的问题
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}  userId           用户ID
  *
@@ -91,7 +91,7 @@ function getMyDisease() {   return; }
  *
  * @apiDescription  添加我的问题
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}  userId           用户ID
  * @apiParam {String}  diseaseId        疾病ID
@@ -110,7 +110,7 @@ function addMyDisease() {   return; }
  *
  * @apiDescription  删除我的问题
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}  userId           用户ID
  * @apiParam {String}  diseaseId        疾病ID
@@ -129,7 +129,7 @@ function deleteMyDisease() {   return; }
  *
  * @apiDescription  获取疾病疗法
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}  renqunId         人群ID
  * @apiParam {String}  diseaseId        疾病ID

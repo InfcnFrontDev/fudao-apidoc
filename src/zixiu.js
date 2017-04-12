@@ -7,7 +7,7 @@
  *
  * @apiDescription  根据人群查询自修部位和项目
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}  renqunId         人群ID
  *
@@ -57,7 +57,7 @@ function getZixiuList() {   return; }
  *
  * @apiDescription  获取我的自修项目
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}  userId           用户ID
  *
@@ -95,7 +95,7 @@ function getMyZixiu() {   return; }
  *
  * @apiDescription  添加我的自修
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}  userId           用户ID
  * @apiParam {String}  zixiuProjectId   自修项目ID
@@ -114,7 +114,7 @@ function addMyZixiu() {   return; }
  *
  * @apiDescription  删除我的自修
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}  userId           用户ID
  * @apiParam {String}  zixiuProjectId   自修项目ID
@@ -133,7 +133,7 @@ function deleteMyZixiu() {   return; }
  *
  * @apiDescription  获取自修疗法
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}  renqunId         人群ID
  * @apiParam {String}  diseaseId        自修ID

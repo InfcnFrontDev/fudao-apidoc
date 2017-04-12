@@ -7,7 +7,7 @@
  *
  * @apiDescription 获取能量场指标。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}  useId	用户ID
  *
@@ -38,7 +38,7 @@
  *         ]
  *     }
  *
- * @apiUse AccessRightError
+ * @apiUse AuthenticatedError
  *
  */
 function getMyEnergyList() { return; }

@@ -305,7 +305,7 @@ function setUserBaseInfo() { return; }
  *
  * @apiDescription 搜索用户
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String} phone 		手机号
  *
