@@ -39,13 +39,13 @@
 function getMyFriendList() { return; }
 
 /**
- * @api {get} /FriendApi/FriendApplyList 好友申请列表
+ * @api {get} /FriendApi/friendApplyList 好友申请列表
  * @apiVersion 2.0.0
- * @apiName FriendApplyList
+ * @apiName friendApplyList
  * @apiGroup Friend
  * @apiPermission login
  *
- * @apiDescription 好友申请列表。
+ * @apiDescription 获取好友申请列表。
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
@@ -82,7 +82,7 @@ function getMyFriendList() { return; }
  *         ]
  *     }
  */
-function FriendApplyList() { return; }
+function friendApplyList() { return; }
 
 /**
  * @api {get} /FriendApi/modificationFriendName 修改好友备注
@@ -91,7 +91,7 @@ function FriendApplyList() { return; }
  * @apiGroup Friend
  * @apiPermission login
  *
- * @apiDescription 修改好友备注。
+ * @apiDescription 修改好友备注保存。
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
@@ -131,7 +131,7 @@ function modificationFriendName() { return; }
  *
  *
  * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
+ *     HTTP/1.1 200 OK
  *      {
  *         "ok": true,
  *     }

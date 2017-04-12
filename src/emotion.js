@@ -33,5 +33,8 @@
  *             "path":"1.5.jpg",
  *         }
  *     }
+ *
+ * @apiUse AccessRightError
+ *
  */
 function getEmotionIntervene() { return; }

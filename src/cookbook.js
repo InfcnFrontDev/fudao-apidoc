@@ -37,6 +37,9 @@
  *             ...
  *         ]
  *     }
+ *
+ * @apiUse AccessRightError
+ *
  */
 function getCookbookList() { return; }
 
@@ -77,5 +80,8 @@ function getCookbookList() { return; }
  *             "steps":"1.热油，放肉。。。。。。"
  *         }
  *     }
+ *
+ * @apiUse AccessRightError
+ *
  */
 function getCookbook() { return; }
