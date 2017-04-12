@@ -9,8 +9,6 @@
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {Integer} userId 		用户id
- *
  * @apiSuccess {Boolean}    ok               是否成功
  * @apiSuccess {Object[]}     obj                   好友列表分页
  * @apiSuccess {String}   obj.createTime        加好友时间
@@ -28,14 +26,11 @@
  *         "ok": true,
  *         "obj": [
  *             {
- *                 "createTime":1489215938000,
- *                 "friendId":"867200022156895,86720002215690321000493",
- *                 "friendNick":"杨可",
- *                 "id":"0eb39b076c1448b6b139a151cbb38924",
- *                 "img":"/uploader/00/00/00/00/00/00/00/60.jpg",
+ *                 "id":"867200022156895,86720002215690321000493",
+ *                 "nickname": "中共党员",
+ *                 "photo":"/uploader/00/00/00/00/00/00/00/60.jpg",
  *                 "phone":"15901097191",
- *                 "isRead":"0",
- *                 "userId":"867516022307943,86751602230794397042005"
+ *                 "friendRemark":"杨可"
  *             }
  *             ...
  *         ]
