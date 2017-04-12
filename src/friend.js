@@ -9,13 +9,13 @@
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {Integer} userId 		用户id
+ * @apiParam {Integer} id 		用户id
  *
  * @apiSuccess {Boolean}    ok               是否成功
  * @apiSuccess {Object[]}     obj                   好友列表分页
  * @apiSuccess {String}       obj.id                好友id
  * @apiSuccess {String}     obj.phone              手机号
- * @apiSuccess {String}     obj.friendNick        好友备注
+ * @apiSuccess {String}     obj.friendRemark        好友备注
  * @apiSuccess {String}     obj.photo             好友头像
  * @apiSuccess {String}     obj.nickName          好友昵称
  *
@@ -28,7 +28,7 @@
  *             {
  *                 "id":"867200022156895,86720002215690321000493",
  *                 "phone":"15901097191",
- *                 "friendNick":"杨可",
+ *                 "friendRemark":"杨可",
  *                 "nickName":"党中央"
  *                 "photo":"/uploader/00/00/00/00/00/00/00/60.jpg",
  *             }
@@ -49,7 +49,7 @@ function getMyFriendList() { return; }
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}        userId 		      当前用户id
+ * @apiParam {String}        id 		      当前用户id
  *
  * @apiSuccess {Boolean}    ok                    是否成功
  * @apiSuccess {Object[]}   obj                   资讯列表分页
@@ -85,19 +85,19 @@ function getMyFriendList() { return; }
 function friendApplyList() { return; }
 
 /**
- * @api {get} /FriendApi/modificationFriendName 修改好友备注
+ * @api {get} /FriendApi/revampFriendRemark 修改好友备注
  * @apiVersion 2.0.0
- * @apiName modificationFriendName
+ * @apiName revampFriendRemark
  * @apiGroup Friend
  * @apiPermission login
  *
- * @apiDescription 修改好友备注保存。
+ * @apiDescription 修改好友备注进行保存。
  *
  * @apiUse AuthenticatedHeader
  *
  * @apiParam {String} id 		当前用户id
- * @apiParam {String} friendId 		好友ID
- * @apiParam {String} friendRemark		好友的昵称
+ * @apiParam {String} friendId 		好友id
+ * @apiParam {String} nickName		好友的昵称
  *
  * @apiSuccess {Boolean}    ok               是否成功
  *
@@ -108,7 +108,7 @@ function friendApplyList() { return; }
  *         "ok": true,
  *     }
  */
-function modificationFriendName() { return; }
+function revampFriendRemark() { return; }
 
 
 
@@ -120,11 +120,11 @@ function modificationFriendName() { return; }
  * @apiGroup Friend
  * @apiPermission login
  *
- * @apiDescription 同意加好友
+ * @apiDescription 同意加对方用户为我的好友
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String} id 		用户id
+ * @apiParam {String} id 		修改的用户id
  * @apiParam {String} friendRemark 	修改的用户备注
  *
  * @apiSuccess {Boolean}    ok               是否成功
@@ -145,11 +145,11 @@ function agreePlusFriend() { return; }
  * @apiGroup Friend
  * @apiPermission login
  *
- * @apiDescription 删除好友
+ * @apiDescription 删除对方用户为我的好友
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String} userId 		当前用户的id
+ * @apiParam {String} id 		当前用户的id
  * @apiParam {String} friendId 	    好友id
  *
  * @apiSuccess {Boolean}    ok               是否成功
@@ -170,11 +170,11 @@ function deleteFriend() { return; }
  * @apiGroup Friend
  * @apiPermission login
  *
- * @apiDescription 加好友申请
+ * @apiDescription  添加好友发送请求进行申请
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String} userId 		当前用户的id
+ * @apiParam {String} id 		当前用户的id
  * @apiParam {String} friendId 	    好友id
  * @apiParam {String} introduce      自我介绍
  * @apiParam {String} friendRemark    好友备注
