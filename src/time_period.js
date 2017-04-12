@@ -1,63 +1,83 @@
 /**
- * @api {get} /TimePeriodApi/getTimePeriodList 获取我的时间（习惯）
+ * @api {get} /TimePeriodApi/getTimePeriod 获取当前用户的时间阶段
  * @apiVersion 2.0.0
- * @apiName getTimePeriodList
+ * @apiName getTimePeriod
  * @apiGroup TimePeriod
  * @apiPermission login
  *
- * @apiDescription 获取我的时间（习惯）。
+ * @apiDescription 获取当前用户的时间阶段。
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
  * @apiParam {Integer} userId		用户的ID
  * @apiParam {String} [renqunId=high_quality_population]  人群
- * @apiParam {Integer} [location=1] 	地区类型1：除新疆、西藏外的所有地区2：新疆、西藏地区
- * @apiParam {Integer} [daytype=1] 	天类型1:工作日2:周末
- * @apiParam {Integer} [seasonId]	季节id(1春季2夏季3秋季 4冬季),不传则系统自动计算
  *
  * @apiSuccess {Boolean}    success               是否成功
- * @apiSuccess {Object}     obj                   资讯列表分页
- * @apiSuccess {Object[]}   obj.data              时间段数据
- * @apiSuccess {String}     obj.data.startTime     开始时间
- * @apiSuccess {String}     obj.data.endTime       结束时间
- * @apiSuccess {String}     obj.data.endTimeRange       时间范围
- * @apiSuccess {String}     obj.data.title       分段备注名称
- * @apiSuccess {String}     obj.data.id       分段id
- * @apiSuccess {Date}       obj.data.name         时间段名称
- * @apiSuccess {Integer}    obj.userId                用户id
+ * @apiSuccess {Object[]}     obj                 用户时间分段
+ * @apiSuccess {String}     obj.startTime     开始时间
+ * @apiSuccess {String}     obj.endTime       结束时间
+ * @apiSuccess {String}     obj.title       分段备注名称
+ * @apiSuccess {Date}       obj.name         分段名称
  *
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
  *         "ok":true,
- *         "obj"{
- *              "data":[
+ *         "obj"[
  *                  {
- *                       "daytype":"2",
  *                       "startTime":"07:30"
  *                       "endTime":"08:30",
- *                       "endTimeRange":"8:15-8:45",
- *                       "id":"ebb8bd60-0f0f-11e7-9b59-000c293e6828",
  *                       "name":"起床阶段",
  *                       "title":"起床阶段"
  *                  },
  *                  ...
- *              ],
- *              "userId": "867200022156895,86720002215690393791782"
- *         }
+ *         ]
  *     }
- *
- *
- *
- *
- *
  */
 
-function getTimePeriodList() { return; }
+function getTimePeriod() { return; }
 
 /**
- * @api {get} /TimePeriodApi/updateMyHabit 保存我的时间（习惯）
+ * @api {get} /TimePeriodApi/getCommonUseTimePeriod 获取通用时间阶段
+ * @apiVersion 2.0.0
+ * @apiName getCommonUseTimePeriod
+ * @apiGroup TimePeriod
+ * @apiPermission login
+ *
+ * @apiDescription 获取通用时间阶段。
+ *
+ * @apiHeader {String} access-key Users unique access-key.
+ *
+ *
+ * @apiSuccess {Boolean}    success               是否成功
+ * @apiSuccess {Object[]}     obj                通用时间分段
+ * @apiSuccess {String}     obj.startTime     开始时间
+ * @apiSuccess {String}     obj.endTime       结束时间
+ * @apiSuccess {String}     obj.title       分段备注名称
+ * @apiSuccess {Date}       obj.name         分段名称
+ *
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *         "ok":true,
+ *         "obj"[
+ *                  {
+ *                       "startTime":"07:30"
+ *                       "endTime":"08:30",
+ *                       "name":"起床阶段",
+ *                       "title":"起床阶段"
+ *                  },
+ *                  ...
+ *         ]
+ *     }
+ */
+
+function getCommonUseTimePeriod() { return; }
+
+/**
+ * @api {get} /TimePeriodApi/updateMyHabit 保存我的时间（待定）
  * @apiVersion 2.0.0
  * @apiName updateMyHabit
  * @apiGroup TimePeriod

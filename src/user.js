@@ -2,63 +2,72 @@
 // 2，获取登录用户信息 getLoginUser（access_key）                              （User表所有信息）
 // 3，验证手机号是否存在 checkPhone（手机号）                              （ok）
 // 4，发送验证码 sendCode（手机号）                                     （ok）
-// 5，验证验证码 checkCode（手机号， 验证码）                                 （ok， key）
+// 5，验证验证码 checkCode（手机号， 验证码）                                 （ok）
 // 6，用户注册 register（手机号，密码）                                     （ok）
-// 7，设置用户基本信息 setUserBaseInfo（性别，[女性类型]，出生日期，地区）            （ok）
+// 7，设置用户基本信息 setUserBaseInfo（手机号， 性别，[女性类型]，出生日期，地区）            （ok）
 // 8，重置密码 resetPassword（手机号，密码）                                     （ok）
 // 9，修改密码 updatePassword（手机号，旧密码，新密码）                                     （ok）
-// 10, 修改用户信息 updateUserInfo (fieldName , value)                                   (ok)
+// 10, 修改用户信息 updateUserInfo (手机号，fieldName , value)                                   (ok)
 
 /**
- * @api {get} /UserApi/checkPhone  验证手机号（注册或找回密码）
+ * @api {get} /UserApi/checkPhone  验证手机号是否存在
  * @apiVersion 2.0.0
  * @apiName checkPhone
  * @apiGroup User
  * @apiPermission login
  *
- * @apiDescription 注册前、找回密码验证手机号
- *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiDescription 验证手机号是否存在
  *
  * @apiParam {String}    phone    手机号
- * @apiParam {String}    type     操作类型（reg:注册/findPwd:找回密码）
  *
  *
- * @apiSuccess {Boolean}    ok               是否成功
- * @apiSuccess {Object}     obj              返回信息
- * @apiSuccess {String}     obj.message      是否存在  （reg: existence:存在,notExistent:不存在,如果notExistent，则向用户发送验证码。
- *                                                        findPwd: existence:存在,notExistent:不存在,如果existence，则向用户发送验证码    ）
+ * @apiSuccess {Boolean}    ok   手机号是否存在（true:存在，false:不存在）
  *
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
  *         "ok": true,
- *         "obj":{
- *              "message":"existence"
- *         }
- *
  *      }
  */
 function checkPhone() { return; }
+
+/**
+ * @api {get} /UserApi/sendCode       发送验证码
+ * @apiVersion 2.0.0
+ * @apiName sendCode
+ * @apiGroup User
+ *
+ * @apiDescription  发送验证码
+ *
+ *
+ * @apiParam {String}    phone      手机号
+ *
+ *
+ * @apiSuccess {Boolean}    ok               是否成功
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *         "ok": true,
+ *      }
+ */
+function sendCode() { return; }
 
 /**
  * @api {get} /UserApi/checkCode  验证验证码
  * @apiVersion 2.0.0
  * @apiName checkCode
  * @apiGroup User
- * @apiPermission login
  *
- * @apiDescription 注册前、找回密码验证验证码
+ * @apiDescription 验证验证码
  *
- * @apiHeader {String} access-key Users unique access-key.
  *
  * @apiParam {String}    phone      手机号
  * @apiParam {String}    code       验证码
- * @apiParam {String}    type       操作类型（reg:注册/findPwd:找回密码）
  *
  *
- * @apiSuccess {Boolean}    ok               是否成功
+ * @apiSuccess {Boolean}    ok               验证成功
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
@@ -70,17 +79,14 @@ function checkCode() { return; }
 
 
 /**
- * @api {get} /UserApi/register  注册
+ * @api {get} /UserApi/register  用户注册
  * @apiVersion 2.0.0
  * @apiName register
  * @apiGroup User
- * @apiPermission login
  *
- * @apiDescription  注册帐号
+ * @apiDescription  用户注册
  *
- * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {String}    userId     用户ID
  * @apiParam {String}    phone      手机号
  * @apiParam {String}    password   密码
  *
@@ -94,23 +100,46 @@ function checkCode() { return; }
  *      }
  */
 function register() { return; }
+
 /**
- * @api {get} /Userapi/login  登录
+ * @api {get} /UserApi/login       用户登录
+ * @apiVersion 2.0.0
+ * @apiName login
+ * @apiGroup User
+ *
+ * @apiDescription  用户登录
+ *
+ *
+ * @apiParam {String}    phone      手机号
+ * @apiParam {String}    password   密码
+ *
+ *
+ * @apiSuccess {Boolean}    ok               是否成功
+ * @apiSuccess {String}    obj               用户标识码(access-key)
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *         "ok": true,
+ *         "obj": "1106775f-0d7d-11e7-9b59-000c293e6828"
+ *      }
+ */
+function login() { return; }
+
+/**
+ * @api {get} /UserApi/getLoginUser  获取登录用户信息
  * @apiversion 2.0.0
- * @apiname login
+ * @apiname getLoginUser
  * @apigroup User
- * @apipermission login
  *
- * @apidescription 登录帐号
- *
- * @apiheader {string} access-key users unique access-key.
- *
- * @apiparam {string}    phone      手机号
- * @apiparam {string}    password    密码
+ * @apidescription 获取登录用户信息
  *
  *
- * @apisuccess {boolean}    ok                           是否成功
- * @apisuccess {object}     obj                          所有用户信息
+ *  @apiParam {String}    access_key      用户标识码
+ *
+ *
+ * @apisuccess {Boolean}    ok                           是否成功
+ * @apisuccess {Object}     obj                          所有用户信息
  * @apisuccess {String}     obj.userId                   用户Id
  * @apisuccess {String}     obj.id                       id
  * @apisuccess {String}     obj.phone                    手机号
@@ -142,7 +171,7 @@ function register() { return; }
  *     {
  *         "ok": true,
  *         "obj":{
- *              "userId" : "9898998089",
+ *                  "userId" : "9898998089",
                 "id" : "045454" ,
                 "phone" : "15930316547" ,
                 "password" : "123456" ,
@@ -169,18 +198,39 @@ function register() { return; }
  *         }
  *      }
  */
-function login() { return; }
+function getLoginUser() { return; }
 
 /**
- * @api {get} /UserApi/findPassword  找回密码
+ * @api {get} /UserApi/updateUserInfo       修改用户信息
  * @apiVersion 2.0.0
- * @apiName findPassword
+ * @apiName updateUserInfo
  * @apiGroup User
- * @apiPermission login
+ *
+ * @apiDescription  修改用户信息
+ *
+ * @apiParam {String}    phone          手机号
+ * @apiParam {String}    fieldName      字段名（eg:email / nickname / name ...   ）
+ * @apiParam {String}    value          值
+ *
+ *
+ * @apiSuccess {Boolean}    ok               是否成功
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *         "ok": true,
+ *      }
+ */
+function updateUserInfo() { return; }
+
+/**
+ * @api {get} /UserApi/resetPassword       重置密码
+ * @apiVersion 2.0.0
+ * @apiName resetPassword
+ * @apiGroup User
  *
  * @apiDescription  找回密码
  *
- * @apiHeader {String} access-key Users unique access-key.
  *
  * @apiParam {String}    phone      手机号
  * @apiParam {String}    password   密码
@@ -194,20 +244,44 @@ function login() { return; }
  *         "ok": true,
  *      }
  */
-function findPassword() { return; }
+function resetPassword() { return; }
 
 /**
- * @api {get} /UserApi/startInformation  设置基本信息
+ * @api {get} /UserApi/updatePassword       修改密码
  * @apiVersion 2.0.0
- * @apiName startInformation
+ * @apiName updatePassword
  * @apiGroup User
- * @apiPermission login
  *
- * @apiDescription  设置基本信息
+ * @apiDescription  修改密码
  *
- * @apiHeader {String} access-key Users unique access-key.
  *
+ * @apiParam {String}    phone          手机号
+ * @apiParam {String}    oldPassword    旧密码
+ * @apiParam {String}    newPassword    新密码
+ *
+ * @apiSuccess {Boolean}    ok      是否成功
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *         "ok": true,
+ *      }
+ */
+function updatePassword() { return; }
+
+/**
+ * @api {get} /UserApi/setUserBaseInfo  设置用户基本信息
+ * @apiVersion 2.0.0
+ * @apiName setUserBaseInfo
+ * @apiGroup User
+ *
+ * @apiDescription  设置用户基本信息
+ *
+ * @apiParam {String}    phone      手机号
  * @apiParam {String}    sex        性别,男:1,女:2
+ * @apiParam {String}    [womanType]  女性类型(1:未孕阶段/备孕阶段/已孕阶段。
+*                                               2:待产阶段。
+ *                                              3:产后恢复阶段。)
  * @apiParam {String}    birthday   出生日期
  * @apiParam {String}    regionId   地区ID
  *
@@ -220,4 +294,39 @@ function findPassword() { return; }
  *         "ok": true,
  *      }
  */
-function startInformation() { return; }
+function setUserBaseInfo() { return; }
+
+/**
+ * @api {get} /UserApi/searchUser 搜索用户
+ * @apiVersion 2.0.0
+ * @apiName searchUser
+ * @apiGroup User
+ * @apiPermission login
+ *
+ * @apiDescription 搜索用户
+ *
+ * @apiHeader {String} access-key Users unique access-key.
+ *
+ * @apiParam {String} phone 		手机号
+ *
+ * @apiSuccess {Boolean}    ok               是否成功
+ * @apiSuccess {Object}    obj                    搜索信息列表
+ * @apiSuccess {String}    obj.id              用户id
+ * @apiSuccess {String}    obj.photo                用户头像
+ * @apiSuccess {String}    obj.phone                手机号
+ * @apiSuccess {String}    obj.nickName              用户昵称
+ *
+ *
+ * @apiErrorExample Response (example):
+ *     HTTP/1.1 200 OK
+ *      {
+ *         "ok": true,
+ *         "obj":{
+ *              "id":"867200022156895,86720002215690393791782",
+ *              "photo":"/uploader/00/00/00/00/00/00/00/62.jpg",
+ *              "phone":"15901097191",
+ *              "nickName":"王朋"
+ *         }
+ *     }
+ */
+function searchUser() { return; }
