@@ -174,7 +174,7 @@ function deleteFriend() { return; }
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {String} userId 		当前用户的id
+ * @apiParam {String} id 		当前用户的id
  * @apiParam {String} friendId 	    好友id
  * @apiParam {String} introduce      自我介绍
  * @apiParam {String} friendRemark    好友备注
