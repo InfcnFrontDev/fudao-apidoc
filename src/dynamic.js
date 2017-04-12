@@ -9,40 +9,41 @@
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {String}  userId 		    评论用户ID
  * @apiParam {Number}  [page=1] 		当前页码
- * @apiParam {Number}  [rows=10] 	    每页大小
+ * @apiParam {Number}  [pageSize=10] 	    每页大小
  *
- * @apiSuccess {Object[]}   datas             动态列表
- * @apiSuccess {String}     datas.id                  动态ID
- * @apiSuccess {String}     datas.content             动态内容
- * @apiSuccess {String}     datas.path                动态图片路径
- * @apiSuccess {String}     datas.userId              动态发表人ID
- * @apiSuccess {String}     datas.nickname            动态发表人昵称
- * @apiSuccess {String}     datas.photo               动态发表人头像
- * @apiSuccess {Date}       datas.createTime          动态发表时间
- * @apiSuccess {Number}     datas.type                动态类型
- * @apiSuccess {Object[]}   datas.dynamicPraise       动态点赞信息
- * @apiSuccess {Date}       datas.dynamicPraise.createTime            点赞时间
- * @apiSuccess {String}     datas.dynamicPraise.dynamicId             动态ID
- * @apiSuccess {String}     datas.dynamicPraise.userId                点赞用户的ID
- * @apiSuccess {String}     datas.dynamicPraise.nickname              点赞用户的昵称
- * @apiSuccess {Object[]}   datas.dynamicComment      动态评论
- * @apiSuccess {String}     datas.dynamicComment.id                    评论ID
- * @apiSuccess {String}     datas.dynamicComment.dynamicId             动态ID
- * @apiSuccess {String}     datas.dynamicComment.userId                评论人ID
- * @apiSuccess {String}     datas.dynamicComment.nickname                  评论人的昵称
- * @apiSuccess {String}     datas.dynamicComment.atUserId              @用户的ID
- * @apiSuccess {String}     datas.dynamicComment.content               评论内容
- * @apiSuccess {Date}       datas.dynamicComment.createTime           评论时间
+ * @apiSuccess {Object[]}   obj             动态列表
+ * @apiSuccess {String}     obj.id                  动态ID
+ * @apiSuccess {String}     obj.content             动态内容
+ * @apiSuccess {String}     obj.path                动态图片路径
+ * @apiSuccess {String}     obj.userId              动态发表人ID
+ * @apiSuccess {String}     obj.nickname            动态发表人昵称
+ * @apiSuccess {String}     obj.photo               动态发表人头像
+ * @apiSuccess {Date}       obj.createTime          动态发表时间
+ * @apiSuccess {Number}     obj.type                动态类型
+ * @apiSuccess {Object[]}   obj.dynamicPraise       动态点赞信息
+ * @apiSuccess {Date}       obj.dynamicPraise.createTime            点赞时间
+ * @apiSuccess {String}     obj.dynamicPraise.dynamicId             动态ID
+ * @apiSuccess {String}     obj.dynamicPraise.userId                点赞用户的ID
+ * @apiSuccess {String}     obj.dynamicPraise.nickname              点赞用户的昵称
+ * @apiSuccess {Object[]}   obj.dynamicComment      动态评论
+ * @apiSuccess {String}     obj.dynamicComment.id                    评论ID
+ * @apiSuccess {String}     obj.dynamicComment.dynamicId             动态ID
+ * @apiSuccess {String}     obj.dynamicComment.userId                评论人ID
+ * @apiSuccess {String}     obj.dynamicComment.nickname                  评论人的昵称
+ * @apiSuccess {String}     obj.dynamicComment.atUserId              @用户的ID
+ * @apiSuccess {String}     obj.dynamicComment.content               评论内容
+ * @apiSuccess {Date}       obj.dynamicComment.createTime           评论时间
  * @apiSuccess {Number}     page              当前页码
- * @apiSuccess {Number}     rows              每页大小
- * @apiSuccess {Number}     totalPages        总页数
+ * @apiSuccess {Number}     pageSize          每页大小
+ * @apiSuccess {Number}     pageCount         总页数
+ * @apiSuccess {Boolean}    ok                是否成功
  *
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
  *   {
-        "datas": [
+        "ok":true,
+        "obj": [
             {
                 "id": "25b403fb5fff41fa80428e504f53225a",
                 "content": "如下原因会造成JSON校验失败,而且会让你不知道为什么失败.....",
@@ -77,8 +78,8 @@
             ...
         ],
         "page": 0,
-        "rows": 0,
-        "totalPages": 0
+        "pageSize": 0,
+        "pageCount": 0
     }
  */
 function getDynamicsList() { return; }
@@ -94,7 +95,6 @@ function getDynamicsList() { return; }
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {String} userId     用户ID
  * @apiParam {String} content    发表的内容
  * @apiParam {String} type       发表的动态类型
  * @apiParam {String} path       发表动态中包含的图片路径
@@ -115,7 +115,7 @@ function addDynamic() { return; }
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {String}   key   动态ID
+ * @apiParam {String}   dynamicId   动态ID
  *
  * @apiSuccess {Boolean}    ok         是否成功
  *
@@ -134,7 +134,6 @@ function deleteDynamic() { return; }
  * @apiHeader {String} access-key Users unique access-key.
  *
  * @apiParam {String}     dynamicId             动态ID
- * @apiParam {String}     userId                发表评论用户的ID
  * @apiParam {String}     content               评论内容
  * @apiParam {String}     atUserId              @用户的ID
  *
@@ -154,8 +153,7 @@ function addDynamicComment() { return; }
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {String}      userId        评论用户ID
- * @apiParam {String}      dynamicID     评论动态ID
+ * @apiParam {String}      id     评论ID
  *
  * @apiSuccess {Boolean}    ok         是否成功
  *
@@ -174,7 +172,6 @@ function deleteDynamicComment() { return; }
  * @apiHeader {String} access-key Users unique access-key.
  *
  * @apiParam {String}     dynamicId             动态ID
- * @apiParam {String}     userId                点赞用户的ID
  *
  * @apiSuccess {Boolean}    ok         是否成功
  *
@@ -192,7 +189,6 @@ function addDynamicPraise() { return; }
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {String}      userId        点赞用户ID
  * @apiParam {String}      dynamicID     点赞动态ID
  *
  * @apiSuccess {Boolean}    ok         是否成功
