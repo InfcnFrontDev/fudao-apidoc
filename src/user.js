@@ -14,9 +14,8 @@
  * @apiVersion 2.0.0
  * @apiName checkPhone
  * @apiGroup User
- * @apiPermission login
  *
- * @apiDescription 验证手机号是否存在
+ * @apiDescription 验证手机号是否存在（注册）
  *
  * @apiParam {String}    phone    手机号
  *
@@ -38,13 +37,13 @@ function checkPhone() { return; }
  * @apiName sendCode
  * @apiGroup User
  *
- * @apiDescription  发送验证码
+ * @apiDescription  向用户发送验证码
  *
  *
  * @apiParam {String}    phone      手机号
  *
  *
- * @apiSuccess {Boolean}    ok               是否成功
+ * @apiSuccess {Boolean}    ok               是否发送成功
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
@@ -60,14 +59,14 @@ function sendCode() { return; }
  * @apiName checkCode
  * @apiGroup User
  *
- * @apiDescription 验证验证码
+ * @apiDescription 验证，验证码是否正确
  *
  *
  * @apiParam {String}    phone      手机号
  * @apiParam {String}    code       验证码
  *
  *
- * @apiSuccess {Boolean}    ok               验证成功
+ * @apiSuccess {Boolean}    ok               验证是否成功
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
@@ -84,7 +83,7 @@ function checkCode() { return; }
  * @apiName register
  * @apiGroup User
  *
- * @apiDescription  用户注册
+ * @apiDescription  用户提交手机号、密码注册新用户。
  *
  *
  * @apiParam {String}    phone      手机号
@@ -107,7 +106,7 @@ function register() { return; }
  * @apiName login
  * @apiGroup User
  *
- * @apiDescription  用户登录
+ * @apiDescription  用户输入手机号、密码登录。
  *
  *
  * @apiParam {String}    phone      手机号
@@ -132,7 +131,7 @@ function login() { return; }
  * @apiname getLoginUser
  * @apigroup User
  *
- * @apidescription 获取登录用户信息
+ * @apidescription  用户登陆成功后，获取用户信息
  *
  *
  *  @apiParam {String}    access_key      用户标识码
@@ -164,14 +163,14 @@ function login() { return; }
  * @apisuccess {String}     obj.mental_state             精神状态
  * @apisuccess {String}     obj.regionId                 地区ID
  * @apisuccess {String}     obj.renqunId                 人群ID
- *
+ * @apisuccess {String}     obj.crowd                    人群
  *
  * @apisuccessexample {json} success-response:
  *     http/1.1 200 ok
  *     {
  *         "ok": true,
  *         "obj":{
- *                  "userId" : "9898998089",
+ *                "userId" : "9898998089",
                 "id" : "045454" ,
                 "phone" : "15930316547" ,
                 "password" : "123456" ,
@@ -194,7 +193,8 @@ function login() { return; }
                 "drink" :"偶尔",
                 "mental_state" :"好",
                 "regionId" :"0365888",
-                "renqunId" :"高精质人群",
+                "renqunId" :"2323",
+                "crowd":"高精质人群"
  *         }
  *      }
  */
@@ -213,7 +213,7 @@ function getLoginUser() { return; }
  * @apiParam {String}    value          值
  *
  *
- * @apiSuccess {Boolean}    ok               是否成功
+ * @apiSuccess {Boolean}    ok               修改是否成功
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
@@ -229,7 +229,7 @@ function updateUserInfo() { return; }
  * @apiName resetPassword
  * @apiGroup User
  *
- * @apiDescription  找回密码
+ * @apiDescription  当用户忘记密码后，重置密码（找回密码）
  *
  *
  * @apiParam {String}    phone      手机号
@@ -252,7 +252,7 @@ function resetPassword() { return; }
  * @apiName updatePassword
  * @apiGroup User
  *
- * @apiDescription  修改密码
+ * @apiDescription  用户修改密码
  *
  *
  * @apiParam {String}    phone          手机号
@@ -275,7 +275,7 @@ function updatePassword() { return; }
  * @apiName setUserBaseInfo
  * @apiGroup User
  *
- * @apiDescription  设置用户基本信息
+ * @apiDescription  用户首次注册后，设置用户的基本信息
  *
  * @apiParam {String}    phone      手机号
  * @apiParam {String}    sex        性别,男:1,女:2
