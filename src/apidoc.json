@@ -5,6 +5,10 @@
   "title": "fudao-apidoc",
   "url": "http://192.168.10.69:9090/api",
   "sampleUrl": "http://192.168.10.69:9090/api",
+  "header": {
+    "title": "功能模块",
+    "filename": "header.md"
+  },
   "template": {
     "withCompare": true,
     "withGenerator": true

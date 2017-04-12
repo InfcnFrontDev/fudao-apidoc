@@ -22,6 +22,28 @@
  *     {
  *       "error": "UserNameTooShort"
  *     }
+ * @apiError NoAccessRight  只有授权的用户可以访问数据。
+ * @apiError UserNotFound   用户不存在或未登录。
+ *
+ * @apiErrorExample Response (example):
+ *     HTTP/1.1 401 Not Authenticated
+ *     {
+ *       "error": "NoAccessRight"
+ *     }
+ */
+
+/**
+ * @apiDefine AccessRightError
+ * @apiVersion 2.0.0
+ *
+ * @apiError NoAccessRight  只有授权的用户可以访问数据。
+ * @apiError UserNotFound   用户不存在或未登录。
+ *
+ * @apiErrorExample Response (example):
+ *     HTTP/1.1 401 Not Authenticated
+ *     {
+ *       "error": "NoAccessRight"
+ *     }
  */
 
 
