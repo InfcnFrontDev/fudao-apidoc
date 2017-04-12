@@ -9,8 +9,8 @@
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {Integer} userId		用户的ID
- * @apiParam {String} [renqunId=high_quality_population]  人群
+ * @apiParam {Integer} id		用户的ID
+ * @apiParam {String} [crowd=high_quality_population]  人群
  *
  * @apiSuccess {Boolean}    success               是否成功
  * @apiSuccess {Object[]}     obj                 用户时间分段
@@ -87,7 +87,7 @@ function getCommonUseTimePeriod() { return; }
  *
  * @apiHeader {String} access-key Users unique access-key.
  *
- * @apiParam {String} userId 用户的ID
+ * @apiParam {String} id 用户的ID
  * @apiParam {jsonstr} data 我的时间的返回的data数据
  *
  * @apiSuccess {Boolean}    ok      是否成功
