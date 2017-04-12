@@ -10,26 +10,18 @@
 // 10, 修改用户信息 updateUserInfo (手机号，fieldName , value)                                   (ok)
 
 /**
- * @api {get} /UserApi/checkPhone  验证手机号是否存在
+ * @api {get} /UserApi/checkPhoneRegistered  检查手机号是否被注册
  * @apiVersion 2.0.0
- * @apiName checkPhone
+ * @apiName checkPhoneRegistered
  * @apiGroup User
  *
- * @apiDescription 验证手机号是否存在（注册）
+ * @apiDescription 检查手机号是否被注册过
  *
  * @apiParam {String}    phone    手机号
  *
- *
- * @apiSuccess {Boolean}    ok   手机号是否存在（true:存在，false:不存在）
- *
- *
- * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *         "ok": true,
- *      }
+ * @apiSuccess {Boolean}    ok   是否被注册
  */
-function checkPhone() { return; }
+function checkPhoneRegistered() { return; }
 
 /**
  * @api {get} /UserApi/sendCode       发送验证码
@@ -45,21 +37,16 @@ function checkPhone() { return; }
  *
  * @apiSuccess {Boolean}    ok               是否发送成功
  *
- * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *         "ok": true,
- *      }
  */
 function sendCode() { return; }
 
 /**
- * @api {get} /UserApi/checkCode  验证验证码
+ * @api {get} /UserApi/checkCode  检查验证码是否正确
  * @apiVersion 2.0.0
  * @apiName checkCode
  * @apiGroup User
  *
- * @apiDescription 验证，验证码是否正确
+ * @apiDescription 检查验证码是否正确
  *
  *
  * @apiParam {String}    phone      手机号
@@ -68,11 +55,6 @@ function sendCode() { return; }
  *
  * @apiSuccess {Boolean}    ok               验证是否成功
  *
- * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *         "ok": true,
- *      }
  */
 function checkCode() { return; }
 
@@ -83,20 +65,15 @@ function checkCode() { return; }
  * @apiName register
  * @apiGroup User
  *
- * @apiDescription  用户提交手机号、密码注册新用户。
+ * @apiDescription  使用手机号、密码，注册新用户。
  *
  *
  * @apiParam {String}    phone      手机号
  * @apiParam {String}    password   密码
  *
  *
- * @apiSuccess {Boolean}    ok               是否成功
+ * @apiSuccess {Boolean}    ok      是否成功
  *
- * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *         "ok": true,
- *      }
  */
 function register() { return; }
 
@@ -108,13 +85,11 @@ function register() { return; }
  *
  * @apiDescription  用户输入手机号、密码登录。
  *
- *
  * @apiParam {String}    phone      手机号
  * @apiParam {String}    password   密码
  *
- *
  * @apiSuccess {Boolean}    ok               是否成功
- * @apiSuccess {String}    obj               用户标识码(access-key)
+ * @apiSuccess {String}     obj              用户唯一标识码
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
@@ -131,15 +106,12 @@ function login() { return; }
  * @apiname getLoginUser
  * @apigroup User
  *
- * @apidescription  用户登陆成功后，获取用户信息
+ * @apidescription  获取当前登录用户的信息
  *
- *
- *  @apiParam {String}    access_key      用户标识码
- *
+ * @apiUse AuthenticatedHeader
  *
  * @apisuccess {Boolean}    ok                           是否成功
- * @apisuccess {Object}     obj                          所有用户信息
- * @apisuccess {String}     obj.userId                   用户Id
+ * @apisuccess {Object}     obj                          用户对象
  * @apisuccess {String}     obj.id                       id
  * @apisuccess {String}     obj.phone                    手机号
  * @apisuccess {String}     obj.password                 密码
@@ -148,21 +120,20 @@ function login() { return; }
  * @apisuccess {String}     obj.name                     姓名
  * @apisuccess {String}     obj.photo                    头像
  * @apisuccess {String}     obj.sex                      性别，男：1,女：2
- * @apisuccess {String}     obj.birthdate                出生日期
+ * @apisuccess {String}     obj.birthday                 出生日期
  * @apisuccess {String}     obj.height                   身高(cm)
  * @apisuccess {String}     obj.weight                   体重(kg)
- * @apisuccess {String}     obj.personal_history         个人史
- * @apisuccess {String}     obj.family_history           家族史
- * @apisuccess {String}     obj.obstetrical_history      婚育史
- * @apisuccess {String}     obj.medication_history       用药史
+ * @apisuccess {String}     obj.personalHistory          个人史
+ * @apisuccess {String}     obj.familyHistory            家族史
+ * @apisuccess {String}     obj.obstetricalHistory       婚育史
+ * @apisuccess {String}     obj.medicationHistory        用药史
  * @apisuccess {String}     obj.diet                     饮食
  * @apisuccess {String}     obj.motion                   运动
  * @apisuccess {String}     obj.sleep                    睡眠
  * @apisuccess {String}     obj.smoke                    吸烟
  * @apisuccess {String}     obj.drink                    饮酒
- * @apisuccess {String}     obj.mental_state             精神状态
+ * @apisuccess {String}     obj.mentalState              精神状态
  * @apisuccess {String}     obj.regionId                 地区ID
- * @apisuccess {String}     obj.renqunId                 人群ID
  * @apisuccess {String}     obj.crowd                    人群
  *
  * @apisuccessexample {json} success-response:
@@ -170,8 +141,7 @@ function login() { return; }
  *     {
  *         "ok": true,
  *         "obj":{
- *                "userId" : "9898998089",
-                "id" : "045454" ,
+                "id" : "045454045-45404545404545404-5454045454" ,
                 "phone" : "15930316547" ,
                 "password" : "123456" ,
                 "email" : "123656985698@qq.com " ,
@@ -179,24 +149,26 @@ function login() { return; }
                 "name" : "草莓罐头",
                 "photo" : "../i.jpg ",
                 "sex"  : "1",
-                "birthdate" :"1996-05-06",
+                "birthday" :"1996-05-06",
                 "height" : "160",
                 "weight" : "50",
-                "personal_history" :"把拉",
-                "family_history" :"无",
-                "obstetrical_history" :"未婚",
-                "medication_history" :"阿莫西林",
+                "personalHistory" :"把拉",
+                "familyHistory" :"无",
+                "obstetricalHistory" :"未婚",
+                "medicationHistory" :"阿莫西林",
                 "diet" :"良好",
                 "motion" :"经常",
                 "sleep" :"良好",
                 "smoke" :"偶尔",
                 "drink" :"偶尔",
-                "mental_state" :"好",
-                "regionId" :"0365888",
-                "renqunId" :"2323",
-                "crowd":"高精质人群"
+                "mentalState" :"好",
+                "regionId": "0365888",
+                "crowd":"aged"
  *         }
  *      }
+ *
+ * @apiUse AuthenticatedError
+ *
  */
 function getLoginUser() { return; }
 
@@ -206,20 +178,16 @@ function getLoginUser() { return; }
  * @apiName updateUserInfo
  * @apiGroup User
  *
- * @apiDescription  修改用户信息
+ * @apiDescription  修改当前用户信息
  *
  * @apiParam {String}    phone          手机号
  * @apiParam {String}    fieldName      字段名（eg:email / nickname / name ...   ）
  * @apiParam {String}    value          值
  *
- *
  * @apiSuccess {Boolean}    ok               修改是否成功
  *
- * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *         "ok": true,
- *      }
+ * @apiUse AuthenticatedError
+ *
  */
 function updateUserInfo() { return; }
 
@@ -229,7 +197,7 @@ function updateUserInfo() { return; }
  * @apiName resetPassword
  * @apiGroup User
  *
- * @apiDescription  当用户忘记密码后，重置密码（找回密码）
+ * @apiDescription  用户找回密码时，验证手机后，重置密码。
  *
  *
  * @apiParam {String}    phone      手机号
@@ -237,12 +205,6 @@ function updateUserInfo() { return; }
  *
  *
  * @apiSuccess {Boolean}    ok      是否成功
- *
- * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *         "ok": true,
- *      }
  */
 function resetPassword() { return; }
 
@@ -251,9 +213,9 @@ function resetPassword() { return; }
  * @apiVersion 2.0.0
  * @apiName updatePassword
  * @apiGroup User
+ * @apiPermission login
  *
- * @apiDescription  用户修改密码
- *
+ * @apiDescription  修改当前用户密码
  *
  * @apiParam {String}    phone          手机号
  * @apiParam {String}    oldPassword    旧密码
@@ -261,11 +223,8 @@ function resetPassword() { return; }
  *
  * @apiSuccess {Boolean}    ok      是否成功
  *
- * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *         "ok": true,
- *      }
+ * @apiUse AuthenticatedError
+ *
  */
 function updatePassword() { return; }
 
@@ -275,24 +234,18 @@ function updatePassword() { return; }
  * @apiName setUserBaseInfo
  * @apiGroup User
  *
- * @apiDescription  用户首次注册后，设置用户的基本信息
+ * @apiDescription  初次使用，设置用户的基本信息
  *
- * @apiParam {String}    phone      手机号
- * @apiParam {String}    sex        性别,男:1,女:2
- * @apiParam {String}    [womanType]  女性类型(1:未孕阶段/备孕阶段/已孕阶段。
-*                                               2:待产阶段。
- *                                              3:产后恢复阶段。)
- * @apiParam {String}    birthday   出生日期
- * @apiParam {String}    regionId   地区ID
- *
+ * @apiParam {String}    phone        手机号
+ * @apiParam {String}    sex          性别，（1：男，2：女）
+ * @apiParam {String}    [womanType]  女性类型（1:未孕，2：备孕，3:待产，4:产后，5：已育）
+ * @apiParam {String}    birthday     出生日期，（1987-07-19）
+ * @apiParam {String}    regionId     地区ID
  *
  * @apiSuccess {Boolean}    ok      是否成功
  *
- * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *         "ok": true,
- *      }
+ * @apiUse AuthenticatedError
+ *
  */
 function setUserBaseInfo() { return; }
 
@@ -303,23 +256,23 @@ function setUserBaseInfo() { return; }
  * @apiGroup User
  * @apiPermission login
  *
- * @apiDescription 搜索用户
+ * @apiDescription 用手机号完全匹配，搜索用户。
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String} phone 		手机号
+ * @apiParam {String}      phone 		      手机号
  *
- * @apiSuccess {Boolean}    ok               是否成功
- * @apiSuccess {Object}    obj                    搜索信息列表
- * @apiSuccess {String}    obj.id              用户id
- * @apiSuccess {String}    obj.photo                用户头像
- * @apiSuccess {String}    obj.phone                手机号
- * @apiSuccess {String}    obj.nickName              用户昵称
+ * @apiSuccess {Boolean}   ok                 是否成功
+ * @apiSuccess {Object}    obj                搜索信息列表
+ * @apiSuccess {String}    obj.id             用户id
+ * @apiSuccess {String}    obj.photo          用户头像
+ * @apiSuccess {String}    obj.phone          手机号
+ * @apiSuccess {String}    obj.nickName       用户昵称
  *
  *
  * @apiErrorExample Response (example):
  *     HTTP/1.1 200 OK
- *      {
+ *     {
  *         "ok": true,
  *         "obj":{
  *              "id":"867200022156895,86720002215690393791782",
@@ -328,5 +281,8 @@ function setUserBaseInfo() { return; }
  *              "nickName":"王朋"
  *         }
  *     }
+ *
+ * @apiUse AuthenticatedError
+ *
  */
 function searchUser() { return; }

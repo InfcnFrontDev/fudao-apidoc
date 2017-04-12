@@ -1,77 +1,83 @@
 /**
- * @api {get} /DiseaseApi/getDiseaseList 获取疾病列表
+ * @api {get} /DiseaseApi/getAllDiseaseList 获取全部疾病列表
  * @apiVersion 2.0.0
- * @apiName getDiseaseList
+ * @apiName getAllDiseaseList
  * @apiGroup Disease
  * @apiPermission login
  *
- * @apiDescription  根据人群ID查询疾病列表
+ * @apiDescription  根据人群查询全部疾病列表
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}  crowd            人群ID
+ * @apiParam {String}       crowd               人群
  *
- * @apiSuccess {Boolean}    ok         是否成功
- * @apiSuccess {Object[]}   obj             疾病列表
+ * @apiSuccess {Boolean}    ok                  是否成功
+ * @apiSuccess {Object[]}   obj                 疾病列表
  * @apiSuccess {String}     obj.id              疾病ID
  * @apiSuccess {String}     obj.name            疾病名称
  * @apiSuccess {String}     obj.title           疾病显示名称
  * @apiSuccess {String}     obj.img             疾病图片
- * @apiSuccess {String}     obj.type            疾病类型
+ * @apiSuccess {String}     obj.type            疾病分类
  *
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
  *   {
-        "ok": true,
-        "obj": [
-            {
-                "id": "17",
-                "name": "跌倒",
-                "title": "跌倒",
-                "img": "/icons/disease/diedao.png",
-                "type": "意外伤害",
-            },
-            ...
-        ]
-    }
+ *       "ok": true,
+ *       "obj": [
+ *           {
+ *               "id": "17",
+ *               "name": "跌倒",
+ *               "title": "跌倒",
+ *               "img": "/icons/disease/diedao.png",
+ *               "type": "意外伤害",
+ *           },
+ *           ...
+ *       ]
+ *   }
+ *
+ * @apiUse AuthenticatedError
+ *
  */
-function getDiseaseList() {   return; }
+function getAllDiseaseList() {   return; }
 
 /**
- * @api {get} /DiseaseApi/getMyDisease 获取我的疾病
+ * @api {get} /DiseaseApi/getMyDiseaseList 获取我的疾病列表
  * @apiVersion 2.0.0
- * @apiName getMyDisease
+ * @apiName getMyDiseaseList
  * @apiGroup Disease
  * @apiPermission login
  *
- * @apiDescription  获取我的疾病
+ * @apiDescription  获取我的疾病列表
  *
  * @apiUse AuthenticatedHeader
  *
  * @apiSuccess {Boolean}    ok              是否成功
- * @apiSuccess {Object[]}   obj             疾病类型列表
- * @apiSuccess {String}     obj.id                  疾病ID
- * @apiSuccess {String}     obj.name                疾病名称
- * @apiSuccess {String}     obj.title               疾病显示名称
- * @apiSuccess {String}     obj.img                 疾病图片
+ * @apiSuccess {Object[]}   obj             疾病列表
+ * @apiSuccess {String}     obj.id          疾病ID
+ * @apiSuccess {String}     obj.name        疾病名称
+ * @apiSuccess {String}     obj.title       疾病显示名称
+ * @apiSuccess {String}     obj.img         疾病图片
  *
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
  *   {
-        "ok": true,
-        "obj": [
-            {
-                "id": "17",
-                "name": "跌倒",
-                "title": "跌倒",
-                "img": "/icons/disease/diedao.png",
-            },
-            ...
-        ],
-    }
+ *       "ok": true,
+ *       "obj": [
+ *           {
+ *               "id": "17",
+ *               "name": "跌倒",
+ *               "title": "跌倒",
+ *               "img": "/icons/disease/diedao.png",
+ *           },
+ *           ...
+ *       ],
+ *   }
+ *
+ * @apiUse AuthenticatedError
+ *
  *
  */
-function getMyDisease() {   return; }
+function getMyDiseaseList() {   return; }
 
 /**
  * @api {get} /DiseaseApi/addMyDisease 添加我的疾病
@@ -87,6 +93,8 @@ function getMyDisease() {   return; }
  * @apiParam {String}  diseaseId        疾病ID
  *
  * @apiSuccess {Boolean}    ok         是否成功
+ *
+ * @apiUse AuthenticatedError
  *
  */
 function addMyDisease() {   return; }
@@ -106,30 +114,31 @@ function addMyDisease() {   return; }
  *
  * @apiSuccess {Boolean}    ok         是否成功
  *
+ * @apiUse AuthenticatedError
+ *
  */
 function deleteMyDisease() {   return; }
 
 /**
- * @api {get} /DiseaseApi/getDiseaseDailyMethodsList 获取疾病日常疗法列表
+ * @api {get} /DiseaseApi/getDiseaseDailyMethodList 获取疾病日常疗法列表
  * @apiVersion 2.0.0
- * @apiName getDiseaseDailyMethodsList
+ * @apiName getDiseaseDailyMethodList
  * @apiGroup Disease
  * @apiPermission login
  *
- * @apiDescription  获取疾病日常疗法列表
+ * @apiDescription  根据人群、疾病，获取疾病日常疗法列表
  *
  * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}  crowd            人群ID
  * @apiParam {String}  diseaseId        疾病ID
- * @apiParam {String}  regionId         地区ID
  *
- * @apiSuccess {Boolean}    ok              是否成功
- * @apiSuccess {Object[]}   obj             疾病的日常疗法列表
- * @apiSuccess {String}     obj.type            日常疗法的类型名称
- * @apiSuccess {Object}     obj.suitable        日常疗法的饮食类型的宜食
- * @apiSuccess {Object}     obj.fasting         日常疗法的饮食类型的禁食
- * @apiSuccess {Object[]}   obj.methods         日常疗法的各阶段饮食或方法列表
+ * @apiSuccess {Boolean}    ok                              是否成功
+ * @apiSuccess {Object[]}   obj                             疾病的日常疗法列表
+ * @apiSuccess {String}     obj.type                        日常疗法的类型名称
+ * @apiSuccess {Object}     obj.suitable                    日常疗法的饮食类型的宜食
+ * @apiSuccess {Object}     obj.fasting                     日常疗法的饮食类型的禁食
+ * @apiSuccess {Object[]}   obj.methods                     日常疗法的各阶段饮食或方法列表
  * @apiSuccess {String}     obj.methods.timePeriod          日常疗法中饮食类型的适用时段
  * @apiSuccess {Object[]}   obj.methods.suitable            日常疗法中饮食类型的宜食
  * @apiSuccess {Object[]}   obj.methods.fasting             日常疗法中饮食类型的禁食(早餐、下午茶阶段不包含此字段，午餐、晚餐阶段包含此字段)
@@ -219,8 +228,10 @@ function deleteMyDisease() {   return; }
  *       ]
  * }
  *
+ * @apiUse AuthenticatedError
+ *
  */
-function getDiseaseDailyMethodsList() {   return; }
+function getDiseaseDailyMethodList() {   return; }
 
 /**
  * @api {get} /DiseaseApi/getDiseaseDailyMethodDetail 获取疾病日常疗法详情
@@ -231,54 +242,56 @@ function getDiseaseDailyMethodsList() {   return; }
  *
  * @apiDescription  获取疾病日常疗法详情
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}   id         方法ID
+ * @apiParam {String}   id         日常方法ID
  *
  * @apiSuccess {Boolean}    ok              是否成功
  * @apiSuccess {Object}     obj             疾病的日常疗法方法详情
+ * @apiSuccess {String}     obj.id                        方法ID
  * @apiSuccess {String}     obj.name                      方法名称
  * @apiSuccess {String}     obj.img                       方法附件：图片/音频/视频
  * @apiSuccess {String}     obj.threeCharacterClassic     方法三字经
- * @apiSuccess {String}     obj.details                   方法详情
- * @apiSuccess {String}     obj.timePeriod                方法适用时段
+ * @apiSuccess {String}     obj.detail                   方法详情
  *
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
- * {
+ *   {
  *      "ok":true,
  *      "obj": {
-          "name": "睡前不要吃东西",
-          "img": "/photo/shuiqianbuchidongxi.jpg",
-          "threeCharacterClassic":"用粗盐，可减肥，拍废物，促代谢。",
-          "details": "1、晚餐最好是睡前4个小时吃。除了晚餐，最好不要吃夜宵。\n2、睡前大吃大喝向来是减肥的大忌，水也要少喝。\n3、除此之外，一些坏习惯也要改改，比如上网看电视时喜欢吃东西，这是很容易堆积脂肪的，而且入睡前吃掉太多东西，很容易让人兴奋，更加不容易睡眠，这会直接影响到睡眠减肥的效果哦!",
-          "timePeriod": "睡前"
-      }
- * }
+ *          "id": "91723491hf-ajdhfkaqwerqew1239-4193749fhaw",
+ *          "name": "睡前不要吃东西",
+ *          "img": "/photo/shuiqianbuchidongxi.jpg",
+ *          "threeCharacterClassic":"用粗盐，可减肥，拍废物，促代谢。",
+ *          "detail": "1、晚餐最好是睡前4个小时吃。除了晚餐，最好不要吃夜宵。\n2、睡前大吃大喝向来是减肥的大忌，水也要少喝。\n3、除此之外，一些坏习惯也要改改，比如上网看电视时喜欢吃东西，这是很容易堆积脂肪的，而且入睡前吃掉太多东西，很容易让人兴奋，更加不容易睡眠，这会直接影响到睡眠减肥的效果哦!",
+ *       }
+ *   }
+ *
+ * @apiUse AuthenticatedError
+ *
  *
  */
 function getDiseaseDailyMethodDetail() {   return; }
 
 /**
- * @api {get} /DiseaseApi/getDiseaseProfessionalMethodsList 获取疾病专业疗法列表
+ * @api {get} /DiseaseApi/getDiseaseProfessionalMethodList 获取疾病专业疗法列表
  * @apiVersion 2.0.0
- * @apiName getDiseaseProfessionalMethodsList
+ * @apiName getDiseaseProfessionalMethodList
  * @apiGroup Disease
  * @apiPermission login
  *
- * @apiDescription  获取疾病专业疗法列表
+ * @apiDescription  根据人群、疾病，获取疾病的专业疗法列表
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}  crowd            人群ID
+ * @apiParam {String}  crowd            人群
  * @apiParam {String}  diseaseId        疾病ID
- * @apiParam {String}  regionId         地区ID
  *
  * @apiSuccess {Boolean}    ok              是否成功
  * @apiSuccess {Object}     obj             疾病的专业疗法列表
- * @apiSuccess {String}     obj.id                 专业疗法方法ID
- * @apiSuccess {String}     obj.name               专业疗法方法名称
- * @apiSuccess {String}     obj.type               专业疗法方法所属类型
+ * @apiSuccess {String}     obj.id          专业方法ID
+ * @apiSuccess {String}     obj.name        专业方法名称
+ * @apiSuccess {String}     obj.type        专业方法分类
  *
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
@@ -294,8 +307,10 @@ function getDiseaseDailyMethodDetail() {   return; }
  *      ]
  *   }
  *
+ * @apiUse AuthenticatedError
+ *
  */
-function getDiseaseProfessionalMethodsList() {   return; }
+function getDiseaseProfessionalMethodList() {   return; }
 
 /**
  * @api {get} /DiseaseApi/getDiseaseProfessionalMethodDetail 获取疾病专业疗法详情
@@ -304,28 +319,32 @@ function getDiseaseProfessionalMethodsList() {   return; }
  * @apiGroup Disease
  * @apiPermission login
  *
- * @apiDescription  获取疾病专业疗法详情
+ * @apiDescription  根据疾病专业疗法ID, 获取疾病专业疗法详情
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}   id         专业疗法ID
+ * @apiParam {String}       id              专业疗法ID
  *
  * @apiSuccess {Boolean}    ok              是否成功
- * @apiSuccess {Object}     obj             疾病的专业疗法方法详情
- * @apiSuccess {String}     obj.name           方法名称
- * @apiSuccess {String}     obj.details        方法详情
- * @apiSuccess {String}     obj.type           方法类型
+ * @apiSuccess {Object}     obj             疾病的专业疗法方法对象
+ * @apiSuccess {String}     obj.id          方法ID
+ * @apiSuccess {String}     obj.name        方法名称
+ * @apiSuccess {String}     obj.detail      方法详情
+ * @apiSuccess {String}     obj.type        方法类型
  *
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
  *   {
  *      "ok":true,
  *      "obj": {
-          "name": "拔罐疗法",
-          "details": "取穴：中脘、三阴交、天枢、巨阙、大横、腹结。\n操作：每次选用4-5穴，根据患者肥胖程度选用大号或中号火罐，以闪火法拔罐，留罐10-20min，每日1次，15次为1个疗程。",
-          "type": "拔罐"
-       }
+ *         "id": "0128340-123759183481635-91328749123",
+ *         "name": "拔罐疗法",
+ *         "detail": "取穴：中脘、三阴交、天枢、巨阙、大横、腹结。\n操作：每次选用4-5穴，根据患者肥胖程度选用大号或中号火罐，以闪火法拔罐，留罐10-20min，每日1次，15次为1个疗程。",
+ *         "type": "拔罐"
+ *      }
  *   }
+ *
+ * @apiUse AuthenticatedError
  *
  */
 function getDiseaseProfessionalMethodDetail() {   return; }

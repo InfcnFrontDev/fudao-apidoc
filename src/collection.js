@@ -1,7 +1,7 @@
 /**
- * @api {get} /CollectionApi/getCollectionList 获取收藏列表
+ * @api {get} /CollectionApi/getMyCollectionList 获取我的收藏列表
  * @apiVersion 2.0.0
- * @apiName getCollectionList
+ * @apiName getMyCollectionList
  * @apiGroup Collection
  * @apiPermission login
  *
@@ -57,12 +57,12 @@
  * @apiUse AuthenticatedError
  *
  */
-function getCollectionList() { return; }
+function getMyCollectionList() { return; }
 
 /**
- * @api {get} /CollectionApi/deleteCollection 删除收藏
+ * @api {get} /CollectionApi/deleteMyCollection 删除我的收藏
  * @apiVersion 2.0.0
- * @apiName deleteCollection
+ * @apiName deleteMyCollection
  * @apiGroup Collection
  * @apiPermission login
  *
@@ -70,20 +70,20 @@ function getCollectionList() { return; }
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String} id 收藏ID
+ * @apiParam {String}       id              收藏ID
  *
  * @apiSuccess {Boolean}    success         是否成功
  *
  * @apiUse AuthenticatedError
  *
  */
-function deleteCollection() { return; }
+function deleteMyCollection() { return; }
 
 
 /**
- * @api {get} /CollectionApi/addCollection 添加收藏
+ * @api {get} /CollectionApi/addMyCollection 添加我的收藏
  * @apiVersion 2.0.0
- * @apiName addCollection
+ * @apiName addMyCollection
  * @apiGroup Collection
  * @apiPermission login
  *
@@ -92,11 +92,11 @@ function deleteCollection() { return; }
  * @apiUse AuthenticatedHeader
  *
  * @apiParam {Number} type 类型，1：资讯，...
- * @apiParam {String} sourceId 对象ID
+ * @apiParam {String} sourceId 收藏对象ID
  *
  * @apiSuccess {Boolean}    success         是否成功
  *
  * @apiUse AuthenticatedError
  *
  */
-function addCollection() { return; }
+function addMyCollection() { return; }

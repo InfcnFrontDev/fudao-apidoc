@@ -13,6 +13,9 @@
  * @apiParam {String} value 体检结果值
  *
  * @apiSuccess {Boolean}    ok          是否成功
+ *
+ * @apiUse AuthenticatedError
+ *
  */
 
 
@@ -33,12 +36,10 @@ function updataMedicalInformationResult() { return; }
  * @apiSuccess {object[]}  obj              体检项对象
  * @apiSuccess {String}    obj.id           ID
  * @apiSuccess {String}    obj.name         名称
- * @apiSuccess {String}    obj.medicalExaminationType          体检项分类对象
- * @apiSuccess {String}    obj.medicalExaminationType.id       分类ID
- * @apiSuccess {String}    obj.medicalExaminationType.name     分类名称
- * @apiSuccess {String}    obj.type          输入类型，1：数值型，2：文本型，3：选择型，4：A/B型
- * @apiSuccess {String}    obj.items         选择项
- * @apiSuccess {String}    obj.unit          单位
+ * @apiSuccess {String}    obj.type         体检项分类
+ * @apiSuccess {String}    obj.unit         单位
+ * @apiSuccess {String}    obj.inputType    输入类型，1：数值型，2：文本型，3：选择型，4：A/B型
+ * @apiSuccess {String}    obj.items        选择项
  *
  * @apiErrorExample Response (example):
  *     HTTP/1.1 200 OK
@@ -46,29 +47,26 @@ function updataMedicalInformationResult() { return; }
  *         "ok":true,
  *         "obj":[
  *             {
- *                 "name":'1',
+ *                 "id":'1',
  *                 "name":'体重',
- *                 "medicalExaminationType": {
- *                     "id": "ebb8bd60-0f0f-11e7-9b59-000c293e6828",
- *                     "name": "基本信息"
- *                 },
- *                 "type":'数值型',
- *                 "items": null,
- *                 "unit":'kg'
+ *                 "type": "基本信息",
+ *                 "unit":'kg',
+ *                 "inputType": 1,
+ *                 "items": null
  *             },
  *             {
- *                 "name":'2',
- *                 "name":'身高',
- *                 "medicalExaminationType": {
- *                     "id": "ebb8bd60-0f0f-11e7-9b59-000c293e6828",
- *                     "name": "基本信息"
- *                 },
- *                 "type":'数值型',
- *                 "items": null,
- *                 "unit":'cm'
+ *                 "id":'2',
+ *                 "name":'辨色力',
+ *                 "type": "眼科",
+ *                 "unit": null,
+ *                 "inputType": 3,
+ *                 "items": ["正常", "色弱", "色盲"]
  *             },
  *             ...
  *         ]
  *     }
+ *
+ * @apiUse AuthenticatedError
+ *
  */
 function getMedicalInformationList() { return; }

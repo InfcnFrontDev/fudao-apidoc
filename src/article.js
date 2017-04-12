@@ -51,7 +51,7 @@ function getArticleColumnList() { return; }
  * @apiUse AuthenticatedHeader
  *
  * @apiParam {String} crowd 			人群
- * @apiParam {String} column 			栏目ID或名称
+ * @apiParam {String} columnId 			栏目ID
  * @apiParam {Number} [page=1] 		    当前页码
  * @apiParam {Number} [pageSize=10] 	每页大小
  *

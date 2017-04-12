@@ -42,5 +42,7 @@
  *         }
  *     }
  *
+ * @apiUse AuthenticatedError
+ *
  */
 function getIngredient() { return; }

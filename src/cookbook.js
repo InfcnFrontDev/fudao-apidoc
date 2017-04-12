@@ -51,11 +51,12 @@ function getCookbookList() { return; }
  * @apiGroup Cookbook
  * @apiPermission login
  *
- * @apiDescription 根据菜品ID，获取菜谱详细。
+ * @apiDescription 根据菜品ID或名称，获取菜谱详细。
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String} id	   菜品ID
+ * @apiParam (ID查询){String}   id	       菜品ID
+ * @apiParam (名称查询){String}  name	   菜品名称
 
  *
  * @apiSuccess {Boolean}    ok                       是否成功

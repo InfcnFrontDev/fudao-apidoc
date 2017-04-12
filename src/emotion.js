@@ -9,7 +9,7 @@
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}   emotion       情绪名称
+ * @apiParam {String}   emotion       情绪
  * @apiParam {String}   crowd         人群
  *
  * @apiSuccess {Boolean}     ok       是否成功

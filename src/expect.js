@@ -1,74 +1,77 @@
 /**
- * @api {get} /ExpectApi/getExpectList 获取期望列表
+ * @api {get} /ExpectApi/getAllExpectList 获取全部期望列表
  * @apiVersion 2.0.0
- * @apiName getExpectList
+ * @apiName getAllExpectList
  * @apiGroup Expect
  * @apiPermission login
  *
- * @apiDescription  根据人群ID查询期望列表
+ * @apiDescription  根据人群, 获取全部期望列表
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}  crowd            人群ID
+ * @apiParam {String}  crowd            人群
  *
  * @apiSuccess {Boolean}    ok         是否成功
  * @apiSuccess {Object[]}   obj             期望列表
- * @apiSuccess {String}     obj.id              期望ID
- * @apiSuccess {String}     obj.name            期望名称
- * @apiSuccess {String}     obj.img             期望图片
- * @apiSuccess {String}     obj.type            期望类型
+ * @apiSuccess {String}     obj.id          期望ID
+ * @apiSuccess {String}     obj.name        期望名称
+ * @apiSuccess {String}     obj.img         期望图片
+ * @apiSuccess {String}     obj.type        期望类型
  *
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
  *   {
-        "ok": true,
-        "obj": [
-            {
-                "id": "dc36f1c5-1488-11e7-9b59-000c293e6828",
-                "name": "跌倒",
-                "img": "/icons/zixiu/jianfeisuxing.png",
-                "type": "减肥塑形",
-            },
-            ...
-        ]
-    }
+ *       "ok": true,
+ *       "obj": [
+ *           {
+ *               "id": "dc36f1c5-1488-11e7-9b59-000c293e6828",
+ *               "name": "跌倒",
+ *               "img": "/icons/zixiu/jianfeisuxing.png",
+ *               "type": "减肥塑形",
+ *           },
+ *           ...
+ *       ]
+ *   }
+ *
+ * @apiUse AuthenticatedError
+ *
  */
-function getExpectList() {   return; }
+function getAllExpectList() {   return; }
 
 
 /**
- * @api {get} /ExpectApi/getMyExpect 获取我的期望
+ * @api {get} /ExpectApi/getMyExpectList 获取我的期望列表
  * @apiVersion 2.0.0
- * @apiName getMyExpect
+ * @apiName getMyExpectList
  * @apiGroup Expect
  * @apiPermission login
  *
- * @apiDescription  获取我的期望项目
+ * @apiDescription  获取我的期望项目列表
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiSuccess {Boolean}    ok              是否成功
  * @apiSuccess {Object[]}   obj             自修类型列表
- * @apiSuccess {String}     obj.id                  自修ID
- * @apiSuccess {String}     obj.name                自修名称
- * @apiSuccess {String}     obj.img                 自修图片
+ * @apiSuccess {String}     obj.id          自修ID
+ * @apiSuccess {String}     obj.name        自修名称
+ * @apiSuccess {String}     obj.img         自修图片
  *
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
-  {
-      "ok": true,
-      "obj": [
-          {
-            "id": "dc36f1c5-1488-11e7-9b59-000c293e6828",
-            "img": "/icons/zixiu/jianfeisuxing.png",
-            "name": "减肥塑形",
-          },
-          ...
-      ],
-  }
+ *   {
+ *       "ok": true,
+ *       "obj": [
+ *           {
+ *             "id": "dc36f1c5-1488-11e7-9b59-000c293e6828",
+ *             "img": "/icons/zixiu/jianfeisuxing.png",
+ *             "name": "减肥塑形",
+ *           },
+ *           ...
+ *       ]
+ *   }
  *
  */
-function getMyExpect() {   return; }
+function getMyExpectList() {   return; }
 
 /**
  * @api {get} /ExpectApi/addMyExpect 添加我的期望
@@ -79,11 +82,13 @@ function getMyExpect() {   return; }
  *
  * @apiDescription  添加我的期望
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}  expectProjectId   期望项目ID
+ * @apiParam {String}  expectId   期望ID
  *
  * @apiSuccess {Boolean}    ok         是否成功
+ *
+ * @apiUse AuthenticatedError
  *
  */
 function addMyExpect() {   return; }
@@ -97,30 +102,31 @@ function addMyExpect() {   return; }
  *
  * @apiDescription  删除我的期望
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}  expectProjectId   期望项目ID
+ * @apiParam {String}       expectId   期望项目ID
  *
  * @apiSuccess {Boolean}    ok         是否成功
+ *
+ * @apiUse AuthenticatedError
  *
  */
 function deleteMyExpect() {   return; }
 
 
 /**
- * @api {get} /ExpectApi/getExpectDailyMethodsList 获取期望日常疗法列表
+ * @api {get} /ExpectApi/getExpectDailyMethodList 获取期望日常疗法列表
  * @apiVersion 2.0.0
- * @apiName getExpectDailyMethodsList
+ * @apiName getExpectDailyMethodList
  * @apiGroup Expect
  * @apiPermission login
  *
- * @apiDescription  获取期望日常疗法列表
+ * @apiDescription  根据人群和期望，获取期望日常疗法列表
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}  crowd            人群ID
- * @apiParam {String}  diseaseId        期望项目ID
- * @apiParam {String}  regionId         地区ID
+ * @apiParam {String}  expectId         期望ID
  *
  * @apiSuccess {Boolean}    ok              是否成功
  * @apiSuccess {Object[]}   obj             期望的日常疗法列表
@@ -217,8 +223,10 @@ function deleteMyExpect() {   return; }
  *       ]
  * }
  *
+ * @apiUse AuthenticatedError
+ *
  */
-function getExpectDailyMethodsList() {   return; }
+function getExpectDailyMethodList() {   return; }
 
 /**
  * @api {get} /ExpectApi/getExpectDailyMethodDetail 获取期望日常疗法详情
@@ -229,51 +237,52 @@ function getExpectDailyMethodsList() {   return; }
  *
  * @apiDescription  获取期望日常疗法详情
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}   id         方法ID
+ * @apiParam {String}       id               期望日常疗法ID
  *
  * @apiSuccess {Boolean}    ok              是否成功
  * @apiSuccess {Object}     obj             期望的日常疗法方法详情
+ * @apiSuccess {String}     obj.id                        方法ID
  * @apiSuccess {String}     obj.name                      方法名称
  * @apiSuccess {String}     obj.threeCharacterClassic     方法三字经
  * @apiSuccess {String}     obj.img                       方法附件：图片/音频/视频
- * @apiSuccess {String}     obj.details                   方法详情
- * @apiSuccess {String}     obj.timePeriod                方法适用时段
+ * @apiSuccess {String}     obj.detail                    方法详情
  *
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
  * {
  *      "ok":true,
  *      "obj": {
-          name: "粗盐减肥法",
-          threeCharacterClassic: "用粗盐，可减肥，拍废物，促代谢。",
-          img: "/photo/cuyan.jpg",
-          details: "1、每次洗澡前，取一杯粗盐加上少许热水拌成糊状，再把它涂在腹部。\n\t2、10分钟后，用热水把粗盐冲洗干净，也可以按摩后再冲掉，...",
-          timePeriod: "睡前",
-      }
+ *         "id": "192341l34-193479132lfhqdew7f-9asdf91234",
+ *         "name": "粗盐减肥法",
+ *         "threeCharacterClassic": "用粗盐，可减肥，拍废物，促代谢。",
+ *         "img": "/photo/cuyan.jpg",
+ *         "detail": "1、每次洗澡前，取一杯粗盐加上少许热水拌成糊状，再把它涂在腹部。\n\t2、10分钟后，用热水把粗盐冲洗干净，也可以按摩后再冲掉，...",
+ *     }
  * }
+ *
+ * @apiUse AuthenticatedError
  *
  */
 function getExpectDailyMethodDetail() {   return; }
 
 /**
- * @api {get} /ExpectApi/getExpectProfessionalMethodsList 获取期望专业疗法列表
+ * @api {get} /ExpectApi/getExpectProfessionalMethodList 获取期望专业疗法列表
  * @apiVersion 2.0.0
- * @apiName getExpectProfessionalMethodsList
+ * @apiName getExpectProfessionalMethodList
  * @apiGroup Expect
  * @apiPermission login
  *
- * @apiDescription  获取期望专业疗法列表
+ * @apiDescription  根据人群和期望，获取期望专业疗法列表
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}  crowd            人群ID
  * @apiParam {String}  diseaseId        期望ID
- * @apiParam {String}  regionId         地区ID
  *
- * @apiSuccess {Boolean}    ok              是否成功
- * @apiSuccess {Object}     obj             期望的专业疗法列表
+ * @apiSuccess {Boolean}    ok                     是否成功
+ * @apiSuccess {Object}     obj                    期望的专业疗法列表
  * @apiSuccess {String}     obj.id                 专业疗法方法ID
  * @apiSuccess {String}     obj.name               专业疗法方法名称
  * @apiSuccess {String}     obj.type               专业疗法方法所属类型
@@ -292,8 +301,10 @@ function getExpectDailyMethodDetail() {   return; }
  *      ]
  *   }
  *
+ * @apiUse AuthenticatedError
+ *
  */
-function getExpectProfessionalMethodsList() {   return; }
+function getExpectProfessionalMethodList() {   return; }
 
 /**
  * @api {get} /ExpectApi/getExpectProfessionalMethodDetail 获取期望专业疗法详情
@@ -304,30 +315,34 @@ function getExpectProfessionalMethodsList() {   return; }
  *
  * @apiDescription  获取期望专业疗法详情
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}   id         专业疗法ID
  *
  * @apiSuccess {Boolean}    ok              是否成功
  * @apiSuccess {Object}     obj             期望的专业疗法方法详情
+ * @apiSuccess {String}     obj.id                 方法ID
  * @apiSuccess {String}     obj.name               方法名称
  * @apiSuccess {String}     obj.material           方法原料
  * @apiSuccess {String}     obj.makingMethod       方法制作方法
  * @apiSuccess {String}     obj.usageMethod        方法使用方法
- * @apiSuccess {String}     obj.type             方法类型
+ * @apiSuccess {String}     obj.type               方法类型
  *
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
- * {
- *      "ok":true,
- *      "obj": {
-          name: "茉莉花茶",
-          material: "茉莉花10克，玫瑰花10克，荷叶10克，草决明10克，枳壳10克，泽兰12克，泽泻12克，桑葚15克，补骨脂15克，何首乌15克。",
-          makingMethod: "上药用水煎。",
-          usageMethod: "\t每日1剂，每剂分2次代茶饮。"
-          type: "药用奇方",
-      }
- * }
+ *   {
+ *       "ok":true,
+ *       "obj": {
+ *           "id": "46ads1f3-asd4f6ads4f3asd1fa3-sd2f1as3df",
+ *           "name": "茉莉花茶",
+ *           "material": "茉莉花10克，玫瑰花10克，荷叶10克，草决明10克，枳壳10克，泽兰12克，泽泻12克，桑葚15克，补骨脂15克，何首乌15克。",
+ *           "makingMethod": "上药用水煎。",
+ *           "usageMethod": "\t每日1剂，每剂分2次代茶饮。"
+ *           "type": "药用奇方",
+ *       }
+ *   }
+ *
+ * @apiUse AuthenticatedError
  *
  */
 function getExpectProfessionalMethodDetail() {   return; }

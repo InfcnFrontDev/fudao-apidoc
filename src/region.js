@@ -6,10 +6,7 @@
  *
  * @apiDescription 获取区县列表
  *
- * @apiUse AuthenticatedHeader
- *
  * @apiParam {String}  city   城市名称或id（北京或110100）
- *
  *
  * @apiSuccess {Boolean}    ok                  是否成功
  * @apiSuccess {Object[]}     obj                 区县列表
@@ -17,8 +14,7 @@
  * @apiSuccess {String}     obj.name            区县名称
  *
  *
- *
- * @apiErrorExample Response (example):
+ * @apiSuccessExample Response (example):
  *     HTTP/1.1 200 OK
  *     {
  *         "ok": true,
@@ -37,8 +33,6 @@
  */
 function getCountyList() { return; }
 
-
-
 /**
  * @api {get} /RegionApi/getCityList 获取城市列表
  * @apiVersion 2.0.0
@@ -47,18 +41,13 @@ function getCountyList() { return; }
  *
  * @apiDescription 获取城市列表
  *
- * @apiUse AuthenticatedHeader
- *
- *
  * @apiSuccess {Boolean}      ok                  是否成功
  * @apiSuccess {Object[]}     obj                 城市列表
  * @apiSuccess {Number}    obj.id                 城市id
  * @apiSuccess {String}    obj.name               城市名称
  * @apiSuccess {Boolean}    [obj.hot=false]       是否是热门城市
  *
- *
- *
- * @apiErrorExample Response (example):
+ * @apiSuccessExample Response (example):
  *     HTTP/1.1 200 OK
  *     {
  *         "ok": true,
@@ -76,5 +65,6 @@ function getCountyList() { return; }
  *            ...
  *         ]
  *     }
+ *
  */
 function getCityList() { return; }
