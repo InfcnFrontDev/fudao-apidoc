@@ -53,6 +53,9 @@
  *             "pageCount": 5
  *         }
  *     }
+ *
+ * @apiUse AccessRightError
+ *
  */
 function getMyCollectionList() { return; }
 
@@ -70,6 +73,8 @@ function getMyCollectionList() { return; }
  * @apiParam {String} id 收藏ID
  *
  * @apiSuccess {Boolean}    success         是否成功
+ *
+ * @apiUse AccessRightError
  *
  */
 function deleteCollection() { return; }
@@ -90,6 +95,8 @@ function deleteCollection() { return; }
  * @apiParam {String} sourceId 对象ID
  *
  * @apiSuccess {Boolean}    success         是否成功
+ *
+ * @apiUse AccessRightError
  *
  */
 function addCollection() { return; }

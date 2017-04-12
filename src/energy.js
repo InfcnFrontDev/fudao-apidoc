@@ -37,5 +37,8 @@
  *             ...
  *         ]
  *     }
+ *
+ * @apiUse AccessRightError
+ *
  */
 function getMyEnergyList() { return; }
