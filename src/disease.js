@@ -15,7 +15,6 @@
  * @apiSuccess {Object[]}   obj                 疾病列表
  * @apiSuccess {String}     obj.id              疾病ID
  * @apiSuccess {String}     obj.name            疾病名称
- * @apiSuccess {String}     obj.title           疾病显示名称
  * @apiSuccess {String}     obj.img             疾病图片
  * @apiSuccess {String}     obj.type            疾病分类
  *
@@ -27,7 +26,6 @@
  *           {
  *               "id": "17",
  *               "name": "跌倒",
- *               "title": "跌倒",
  *               "img": "/icons/disease/diedao.png",
  *               "type": "意外伤害",
  *           },
@@ -66,7 +64,6 @@ function getAllDiseaseList() {   return; }
  *           {
  *               "id": "17",
  *               "name": "跌倒",
- *               "title": "跌倒",
  *               "img": "/icons/disease/diedao.png",
  *           },
  *           ...
@@ -130,7 +127,6 @@ function deleteMyDisease() {   return; }
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}  crowd            人群ID
  * @apiParam {String}  diseaseId        疾病ID
  *
  * @apiSuccess {Boolean}    ok                              是否成功
@@ -284,7 +280,6 @@ function getDiseaseDailyMethodDetail() {   return; }
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}  crowd            人群
  * @apiParam {String}  diseaseId        疾病ID
  *
  * @apiSuccess {Boolean}    ok              是否成功
