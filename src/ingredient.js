@@ -18,6 +18,7 @@
  * @apiSuccess {String}     obj.otherName        其他的名字
  * @apiSuccess {String}     obj.img              图片
  * @apiSuccess {String}     obj.abstract         摘要
+ * @apiSuccess {String}     obj.energy           能量
  * @apiSuccess {String}     obj.protein          蛋白质
  * @apiSuccess {String}     obj.fat              脂肪
  * @apiSuccess {String}     obj.carbohydrate     碳水化合物
@@ -34,6 +35,7 @@
  *             "otherName": "大豆",
  *             "img": "ingredien/1.1.jpg",
  *             "abstract":"蚕豆有。。的作用。。",
+ *             "energy": "1.3",
  *             "protein": "5.0",
  *             "fat": "0.7",
  *             "carbohydrate": "0.8",
