@@ -5,11 +5,9 @@
  * @apiGroup Disease
  * @apiPermission login
  *
- * @apiDescription  根据人群查询全部疾病列表
+ * @apiDescription  获取所有疾病列表（适合于当前用户人群）
  *
  * @apiUse AuthenticatedHeader
- *
- * @apiParam {String}       crowd               人群
  *
  * @apiSuccess {Boolean}    ok                  是否成功
  * @apiSuccess {Object[]}   obj                 疾病列表

@@ -237,8 +237,8 @@ function updatePassword() { return; }
  * @apiDescription  初次使用，设置用户的基本信息
  *
  * @apiParam {String}    phone        手机号
- * @apiParam {String}    sex          性别，（1：男，2：女）
- * @apiParam {String}    [womanType]  女性类型（1:未孕，2：备孕，3:待产，4:产后，5：已育）
+ * @apiParam {Number}    sex          性别，（1：男，2：女）
+ * @apiParam {String}    crowd        女性类型（woman_un:未孕，woman_pre：备孕，woman_ing:待产，woman_ed:产后，woman_next：已育）
  * @apiParam {String}    birthday     出生日期，（1987-07-19）
  * @apiParam {String}    regionId     地区ID
  *

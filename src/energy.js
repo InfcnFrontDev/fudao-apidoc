@@ -1,7 +1,7 @@
 /**
- * @api {get} /EnergyApi/getMyEnergyDataList 获取我的能量场数据列表
+ * @api {get} /EnergyApi/getEnergyDataList 获取能量场数据列表
  * @apiVersion 2.0.0
- * @apiName getMyEnergyDataList
+ * @apiName getEnergyDataList
  * @apiGroup Energy
  * @apiPermission login
  *
@@ -11,8 +11,8 @@
  *
  * @apiSuccess {Boolean}      ok                  是否成功
  * @apiSuccess {Object[]}     obj                 指标
- * @apiSuccess {String}       obj.name              指标名称
- * @apiSuccess {Number}       obj.value             能量值
+ * @apiSuccess {String}       obj.indicator       指标名称
+ * @apiSuccess {Number}       obj.score           得分
 
  *
  * @apiSuccessExample {json} Success-Response:
@@ -21,12 +21,12 @@
  *         "ok": true,
  *         "obj": [
  *             {
- *                 name: "风"，
- *                 value: 90,
+ *                 "indicator": "风"，
+ *                 "score": 90,
  *             },
  *             {
- *                 name: "雨"，
- *                 value: 80,
+ *                 "indicator": "雨"，
+ *                 "score": 80,
  *             },
  *             ...
  *         ]
@@ -35,23 +35,23 @@
  * @apiUse AuthenticatedError
  *
  */
-function getMyEnergyDataList() { return; }
+function getEnergyDataList() { return; }
 
 /**
- * @api {get} /EnergyApi/getInformationDataList 获取填写数据项列表
+ * @api {get} /EnergyApi/getInformationResult 获取填写数据结果
  * @apiVersion 2.0.0
- * @apiName getInformationDataList
+ * @apiName getInformationResult
  * @apiGroup Energy
  * @apiPermission login
  *
- * @apiDescription 获取填写数据项列表。
+ * @apiDescription 获取填写数据结果。
  *
  * @apiUse AuthenticatedHeader
  *
  * @apiSuccess {Boolean}      ok                  是否成功
  * @apiSuccess {Object[]}     obj                 指标
- * @apiSuccess {String}       obj.name              指标名称
- * @apiSuccess {Number}       obj.value             能量值
+ * @apiSuccess {String}       obj.indicator       指标名称
+ * @apiSuccess {Number}       obj.value           值
 
  *
  * @apiSuccessExample {json} Success-Response:
@@ -60,12 +60,16 @@ function getMyEnergyDataList() { return; }
  *         "ok": true,
  *         "obj": [
  *             {
- *                 name: "风"，
- *                 value: 90,
+ *                 "indicator": "性别"，
+ *                 "value": '男',
  *             },
  *             {
- *                 name: "雨"，
- *                 value: 80,
+ *                 "indicator": "民族"，
+ *                 "value": '汉',
+ *             },
+ *             {
+ *                 "indicator": "姓氏"，
+ *                 "value": '杨',
  *             },
  *             ...
  *         ]
@@ -74,24 +78,25 @@ function getMyEnergyDataList() { return; }
  * @apiUse AuthenticatedError
  *
  */
-function getInformationList() { return; }
+function getInformationResult() { return; }
 
 
 /**
- * @api {get} /EnergyApi/getQuestionnaireList 获取问卷调查列表
+ * @api {get} /EnergyApi/getQuestionnaireResult 获取问卷调查结果
  * @apiVersion 2.0.0
- * @apiName getQuestionnaireList
+ * @apiName getQuestionnaireResult
  * @apiGroup Energy
  * @apiPermission login
  *
- * @apiDescription 获取问卷调查列表。
+ * @apiDescription 获取问卷调查结果。
  *
  * @apiUse AuthenticatedHeader
  *
  * @apiSuccess {Boolean}      ok                  是否成功
  * @apiSuccess {Object[]}     obj                 指标
- * @apiSuccess {String}       obj.name              指标名称
- * @apiSuccess {Number}       obj.value             能量值
+ * @apiSuccess {String}       obj.indicator       指标名称
+ * @apiSuccess {Number}       obj.question        问题
+ * @apiSuccess {Number}       obj.value           值
 
  *
  * @apiSuccessExample {json} Success-Response:
@@ -100,12 +105,19 @@ function getInformationList() { return; }
  *         "ok": true,
  *         "obj": [
  *             {
- *                 name: "风"，
- *                 value: 90,
+ *                 "indicator": "爱情类型"，
+ *                 "question": "您会如何形容您恋爱的类型",
+ *                 "value": '空洞式爱情'
  *             },
  *             {
- *                 name: "雨"，
- *                 value: 80,
+ *                 "indicator": "道德感"，
+ *                 "question": "您会如何形容自己的道德感",
+ *                 "value": '非善向'
+ *             },
+ *             {
+ *                 "indicator": "友情空间"，
+ *                 "question": "您在公司保持有过短暂接触的人有多少",
+ *                 "value": '偏善'
  *             },
  *             ...
  *         ]
@@ -114,53 +126,13 @@ function getInformationList() { return; }
  * @apiUse AuthenticatedError
  *
  */
-function getQuestionnaireList() { return; }
+function getQuestionnaireResult() { return; }
 
 
 /**
- * @api {get} /EnergyApi/getMyEnergyDataList4 提交填写数据项结果
+ * @api {get} /EnergyApi/submitInformationResult 提交填写数据项结果
  * @apiVersion 2.0.0
- * @apiName getMyEnergyDataList4
- * @apiGroup Energy
- * @apiPermission login
- *
- * @apiDescription 提交填写数据项结果。
- *
- * @apiUse AuthenticatedHeader
- *
- * @apiSuccess {Boolean}      ok                  是否成功
- * @apiSuccess {Object[]}     obj                 指标
- * @apiSuccess {String}       obj.name              指标名称
- * @apiSuccess {Number}       obj.value             能量值
-
- *
- * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *         "ok": true,
- *         "obj": [
- *             {
- *                 name: "风"，
- *                 value: 90,
- *             },
- *             {
- *                 name: "雨"，
- *                 value: 80,
- *             },
- *             ...
- *         ]
- *     }
- *
- * @apiUse AuthenticatedError
- *
- */
-function submitInformationData() { return; }
-
-
-/**
- * @api {get} /EnergyApi/getMyEnergyDataList5 提交问卷调查数据
- * @apiVersion 2.0.0
- * @apiName getMyEnergyDataList5
+ * @apiName submitInformationResult
  * @apiGroup Energy
  * @apiPermission login
  *
@@ -168,70 +140,85 @@ function submitInformationData() { return; }
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiSuccess {Boolean}      ok                  是否成功
- * @apiSuccess {Object[]}     obj                 指标
- * @apiSuccess {String}       obj.name              指标名称
- * @apiSuccess {Number}       obj.value             能量值
-
+ * @apiParam {String}   jsonData	       json数据
  *
- * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
+ * @apiParamExample {json} Param (example):
  *     {
- *         "ok": true,
- *         "obj": [
+ *         "jsonData": [
  *             {
- *                 name: "风"，
- *                 value: 90,
+ *                 "indicator": "性别"，
+ *                 "value": '男',
+ *                 "score": 50
  *             },
  *             {
- *                 name: "雨"，
- *                 value: 80,
+ *                 "indicator": "民族"，
+ *                 "value": '汉',
+ *                 "score": 50
+ *             },
+ *             {
+ *                 "indicator": "姓氏"，
+ *                 "value": '杨',
+ *                 "score": 50
  *             },
  *             ...
  *         ]
  *     }
  *
+ * @apiSuccess {Boolean}      ok                  是否成功
+ *
  * @apiUse AuthenticatedError
  *
  */
-function submitQuestionnaireData() { return; }
+function submitInformationResult() { return; }
 
 
 /**
- * @api {get} /EnergyApi/getMyEnergyDataList6 提交自动获取数据
+ * @api {get} /EnergyApi/submitQuestionnaireResult 提交问卷调查数据
  * @apiVersion 2.0.0
- * @apiName getMyEnergyDataList6
+ * @apiName submitQuestionnaireResult
  * @apiGroup Energy
  * @apiPermission login
  *
- * @apiDescription 提交自动获取数据结果。
+ * @apiDescription 提交问卷调查数据。
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiSuccess {Boolean}      ok                  是否成功
- * @apiSuccess {Object[]}     obj                 指标
- * @apiSuccess {String}       obj.name              指标名称
- * @apiSuccess {Number}       obj.value             能量值
-
+ * @apiParam {String}   jsonData	       json数据
  *
- * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
+ * @apiParamExample {json} Param (example):
  *     {
- *         "ok": true,
- *         "obj": [
+ *         "jsonData": [
  *             {
- *                 name: "风"，
- *                 value: 90,
+ *                 "indicator": "动植物"，
+ *                 "question": "您周围的动植物多吗",
+ *                 "value": "多",
+ *                 "score": 100
  *             },
  *             {
- *                 name: "雨"，
- *                 value: 80,
+ *                 "indicator": "婚姻幸福度"，
+ *                 "question": "您对您的婚姻满意吗",
+ *                 "value": "不满意",
+ *                 "score": 0
+ *             },
+ *             {
+ *                 "indicator": "强组织弱关系指数"，
+ *                 "question": "您在公司保持有过短暂接触的人有多少",
+ *                 "value": "中",
+ *                 "score": 30
+ *             },
+ *             {
+ *                 "indicator": "强组织弱关系指数"，
+ *                 "question": "您在公司保持有过短暂接触的人有多少",
+ *                 "value": '多',
+ *                 "score": 30
  *             },
  *             ...
  *         ]
  *     }
  *
+ * @apiSuccess {Boolean}      ok                  是否成功
+ *
  * @apiUse AuthenticatedError
  *
  */
-function submitAcquisitionData() { return; }
+function submitQuestionnaireResult() { return; }

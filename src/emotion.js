@@ -5,12 +5,11 @@
  * @apiGroup Emotion
  * @apiPermission login
  *
- * @apiDescription 根据情绪和人群，随机获取一条情绪干预内容。
+ * @apiDescription 根据情绪，随机获取一条情绪干预内容（适合于当前用户人群）。
  *
  * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}   emotion       情绪
- * @apiParam {String}   crowd         人群
  *
  * @apiSuccess {Boolean}     ok       是否成功
  * @apiSuccess {String}      obj      情绪干预内容

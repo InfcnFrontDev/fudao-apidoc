@@ -57,7 +57,6 @@ function getCookbookList() { return; }
  *
  * @apiParam (ID查询){String}   id	       菜品ID
  * @apiParam (名称查询){String}  name	   菜品名称
-
  *
  * @apiSuccess {Boolean}    ok                       是否成功
  * @apiSuccess {Object[]}   obj                      菜品对象

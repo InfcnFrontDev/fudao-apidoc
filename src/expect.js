@@ -5,11 +5,9 @@
  * @apiGroup Expect
  * @apiPermission login
  *
- * @apiDescription  根据人群, 获取全部期望列表
+ * @apiDescription  获取所有期望列表（适合于当前用户人群）
  *
  * @apiUse AuthenticatedHeader
- *
- * @apiParam {String}  crowd            人群
  *
  * @apiSuccess {Boolean}    ok         是否成功
  * @apiSuccess {Object[]}   obj             期望列表
@@ -121,11 +119,10 @@ function deleteMyExpect() {   return; }
  * @apiGroup Expect
  * @apiPermission login
  *
- * @apiDescription  根据人群和期望，获取期望日常疗法列表
+ * @apiDescription  根据期望，获取该期望的日常疗法列表（适合于当前用户人群）
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}  crowd            人群ID
  * @apiParam {String}  expectId         期望ID
  *
  * @apiSuccess {Boolean}    ok              是否成功
@@ -274,11 +271,10 @@ function getExpectDailyMethodDetail() {   return; }
  * @apiGroup Expect
  * @apiPermission login
  *
- * @apiDescription  根据人群和期望，获取期望专业疗法列表
+ * @apiDescription  根据期望，获取该期望的专业疗法列表
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}  crowd            人群ID
  * @apiParam {String}  diseaseId        期望ID
  *
  * @apiSuccess {Boolean}    ok                     是否成功

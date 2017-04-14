@@ -46,11 +46,10 @@ function getArticleColumnList() { return; }
  * @apiGroup Article
  * @apiPermission login
  *
- * @apiDescription 通过人群和资讯栏目， 获取资讯分页列表。按创建时间降序排序。
+ * @apiDescription 根据资讯栏目， 获取资讯分页列表（适合于当前用户人群）。按创建时间降序排序。
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String} crowd 			人群
  * @apiParam {String} columnId 			栏目ID
  * @apiParam {Number} [page=1] 		    当前页码
  * @apiParam {Number} [pageSize=10] 	每页大小

@@ -40,6 +40,8 @@ function updataMedicalInformationResult() { return; }
  * @apiSuccess {String}    obj.unit         单位
  * @apiSuccess {String}    obj.inputType    输入类型，1：数值型，2：文本型，3：选择型，4：A/B型
  * @apiSuccess {String}    obj.items        选择项
+ * @apiSuccess {String}    obj.value        值
+ *
  *
  * @apiErrorExample Response (example):
  *     HTTP/1.1 200 OK
@@ -52,7 +54,8 @@ function updataMedicalInformationResult() { return; }
  *                 "type": "基本信息",
  *                 "unit":'kg',
  *                 "inputType": 1,
- *                 "items": null
+ *                 "items": null,
+ *                 "value": 75
  *             },
  *             {
  *                 "id":'2',
@@ -60,7 +63,8 @@ function updataMedicalInformationResult() { return; }
  *                 "type": "眼科",
  *                 "unit": null,
  *                 "inputType": 3,
- *                 "items": ["正常", "色弱", "色盲"]
+ *                 "items": ["正常", "色弱", "色盲"],
+ *                 "value": 175
  *             },
  *             ...
  *         ]
