@@ -275,7 +275,7 @@ function getExpectDailyMethodDetail() {   return; }
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}  diseaseId        期望ID
+ * @apiParam {String}       expectId               期望ID
  *
  * @apiSuccess {Boolean}    ok                     是否成功
  * @apiSuccess {Object}     obj                    期望的专业疗法列表

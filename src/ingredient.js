@@ -9,7 +9,8 @@
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}       idOrName 		食材ID或名称
+ * @apiParam (ID查询){String}   id	       食材ID
+ * @apiParam (名称查询){String}  name	   食材名称
  *
  * @apiSuccess {Boolean}    ok                   是否成功
  * @apiSuccess {Object}     obj                  食材对象

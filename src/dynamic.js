@@ -73,7 +73,6 @@
  *                           "id": "86720002215690321000493",
  *                           "nickname": "guoxm",
  *                       },
- *                       "nickname": "小球",
  *                       "atUser": {
  *                           "id": "867200022156895",
  *                           "nickname": "yangkk",
