@@ -15,7 +15,7 @@
  * @apiSuccess {String}     obj.phone             手机号
  * @apiSuccess {String}     obj.nickname          昵称
  * @apiSuccess {String}     obj.photo             好友头像
- * @apiSuccess {String}     obj.remark            好友备注
+ * @apiSuccess {String}     obj.friendRemark            好友备注
  *
  *
  * @apiSuccessExample {json} Success-Response:
@@ -28,7 +28,7 @@
  *                 "phone":"15901097191",
  *                 "nickmame":"党中央"
  *                 "photo":"/uploader/00/00/00/00/00/00/00/60.jpg",
- *                 "remark":"杨可",
+ *                 "friendRemark":"杨可",
  *             }
  *             ...
  *         ]
