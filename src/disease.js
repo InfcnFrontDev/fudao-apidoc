@@ -341,3 +341,41 @@ function getDiseaseProfessionalMethodList() {   return; }
  *
  */
 function getDiseaseProfessionalMethodDetail() {   return; }
+
+/**
+ * @api {get} /DiseaseApi/getDisease 获取疾病详情（New）
+ * @apiVersion 2.0.0
+ * @apiName getDisease
+ * @apiGroup Disease
+ * @apiPermission login
+ *
+ * @apiDescription  根据问题ID、名称，获取疾病问题详情，若该问题不存在ok返回false
+ *
+ * @apiUse AuthenticatedHeader
+ *
+ * @apiParam (ID查询){String}  id        问题ID
+ * @apiParam (名称查询){String}  name        问题名称
+ *
+ * @apiSuccess {Boolean}    ok                  是否存在该问题
+ * @apiSuccess {Object}     obj                 问题详情
+ * @apiSuccess {String}     obj.id
+ * @apiSuccess {String}     obj.name            疾病名称
+ * @apiSuccess {String}     obj.type            疾病类型
+ * @apiSuccess {String}     obj.crowd           人群
+ * @apiSuccess {String}     obj.img             疾病图片
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *   HTTP/1.1 200 OK
+ *   {
+ *       "ok": true,
+ *       "obj": {
+ *           "id": "02000b2c5bd841f4a0549b10f5680f1e",
+ *           "name": "消化不良",
+ *           "type": "职业病",
+ *           "crowd": "woman_un",
+ *           "img": "/icons/disease/xiaohuabuliang.png"
+ *       }
+ *   }
+ *
+ */
+function getDisease() {   return; }

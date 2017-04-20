@@ -1,23 +1,20 @@
 /**
- * @api {get} /DiagnosisApi/getCommonDiseaseList 获取常见问题列表
+ * @api {get} /DiagnosisApi/getCommonDiseaseList 获取常见疾病列表
  * @apiVersion 2.0.0
  * @apiName getCommonDiseaseList
  * @apiGroup Diagnosis
  * @apiPermission login
  *
- * @apiDescription  分别提供关于地域、年龄、节气、性别的常见问题。
+ * @apiDescription  分别提供关于地域、年龄、节气、性别的常见疾病。
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}  size        每类问题最多个数
- *
- *
  * @apiSuccess {Boolean}    ok                  是否成功
  * @apiSuccess {Object[]}   obj                 问题分类列表
- * @apiSuccess {String}     obj.title               列表名称
- * @apiSuccess {Object[]}   obj.list                问题列表
- * @apiSuccess {String}     obj.list.id                 疾病ID
- * @apiSuccess {String}     obj.list.name               疾病名称
+ * @apiSuccess {String}     obj.title           列表名称（北京地区、40岁用户、春季、女性、...）
+ * @apiSuccess {Object[]}   obj.list            问题列表
+ * @apiSuccess {String}     obj.list.id         疾病ID
+ * @apiSuccess {String}     obj.list.name       疾病名称
  *
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
@@ -28,14 +25,14 @@
  *               "title": "北京",
  *               "list": [
  *                   {
- *                       "id": "17",
+ *                       "id": "北京地区",
  *                       "name": "脱发",
  *                   },
  *                   ...
  *               ]
  *           },
  *          {
- *               "title": "40",
+ *               "title": "40岁用户",
  *               "list": [
  *                   {
  *                       "id": "17",
@@ -55,7 +52,7 @@
  *               ]
  *           },
  *          {
- *               "title": "女",
+ *               "title": "女性",
  *               "list": [
  *                   {
  *                       "id": "17",
@@ -65,45 +62,15 @@
  *               ]
  *           }
  *    ]
- *
  *}
- *
  *
  */
 function getCommonDiseaseList() {   return; }
 
 /**
- * @api {get} /DiagnosisApi/hasDisease 获取问题ID
+ * @api {get} /DiagnosisApi/addMyDiseases 添加我的疾病(多个)
  * @apiVersion 2.0.0
- * @apiName hasDisease
- * @apiGroup Diagnosis
- * @apiPermission login
- *
- * @apiDescription  根据问题名称获取问题ID，若该问题不存在ok返回false
- *
- * @apiUse AuthenticatedHeader
- *
- * @apiParam {String}  name        问题名称
- *
- *
- * @apiSuccess {Boolean}    ok                  是否存在该问题
- * @apiSuccess {String}     obj                 问题ID
- * @apiSuccess {String}     obj.id
- *
- * @apiSuccessExample {json} Success-Response:
- *   HTTP/1.1 200 OK
- *   {
- *           "ok": true,
- *           "obj": "10",
- *   }
- *
- */
-function hasDisease() {   return; }
-
-/**
- * @api {get} /DiagnosisApi/addSomeDisease 添加我的疾病(多个)
- * @apiVersion 2.0.0
- * @apiName addSomeDisease
+ * @apiName addMyDiseases
  * @apiGroup Diagnosis
  * @apiPermission login
  *
@@ -111,12 +78,12 @@ function hasDisease() {   return; }
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}  diseaseIds          疾病Id（多个中间以逗号隔开）
+ * @apiParam {String}  ids          疾病Id（多个中间以逗号隔开）
  *
  * @apiSuccess {Boolean}    ok         是否成功
  *
  */
-function addSomeDisease() {   return; }
+function addMyDiseases() {   return; }
 
 /**
  * @api {get} /DiagnosisApi/getEvaluationResult 获取测评结果
@@ -125,7 +92,7 @@ function addSomeDisease() {   return; }
  * @apiGroup Diagnosis
  * @apiPermission login
  *
- * @apiDescription  获取测评结果
+ * @apiDescription  获取最近一次测评结果
  *
  * @apiUse AuthenticatedHeader
  *
@@ -153,9 +120,9 @@ function addSomeDisease() {   return; }
 function getEvaluationResult() { return; }
 
 /**
- * @api {get} /DiagnosisApi/getQuestionnaire 获取问卷
+ * @api {get} /DiagnosisApi/getQuestionnaireList 获取问卷列表
  * @apiVersion 2.0.0
- * @apiName getQuestionnaire
+ * @apiName getQuestionnaireList
  * @apiGroup Diagnosis
  * @apiPermission login
  *
@@ -163,32 +130,34 @@ function getEvaluationResult() { return; }
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {Number}  [type]          问卷类型（1：生理测评、2：心理测评、3：社交测评、4：自我测评、不传则为一键测评）
+ * @apiParam {Number}  [type]          问卷类型（1：生理测评、2：心理测评、3：社交测评、4：自我测评、不传则为全部）
  *
  * @apiSuccess {Boolean}    ok         是否成功
  * @apiSuccess {Object[]}   obj                 测评问卷列表
- * @apiSuccess {String}     obj.content             问卷问题
- * @apiSuccess {String}     obj.photo              问卷问题图片
+ * @apiSuccess {String}     obj.id              问卷问题ID
+ * @apiSuccess {String}     obj.title           问卷问题标题
+ * @apiSuccess {String}     obj.img             问卷问题图片
  *
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
  *   {
- *           "ok": true,
- *           "obj": [
- *               {
- *                   "content": "您是否有便秘症状",
- *                   "photo": "/test/a.png",
- *               },
- *               ...
- *           ]
+ *       "ok": true,
+ *       "obj": [
+ *           {
+ *               "id": 1,
+ *               "title": "您是否有便秘症状",
+ *               "img": "/test/a.png",
+ *           },
+ *           ...
+ *       ]
  *   }
  */
-function getQuestionnaire() { return; }
+function getQuestionnaireList() { return; }
 
 /**
- * @api {get} /DiagnosisApi/postQuestionnaire 提交问卷
+ * @api {get} /DiagnosisApi/submitQuestionnaireResult 提交问卷
  * @apiVersion 2.0.0
- * @apiName postQuestionnaire
+ * @apiName submitQuestionnaireResult
  * @apiGroup Diagnosis
  * @apiPermission login
  *
@@ -201,53 +170,45 @@ function getQuestionnaire() { return; }
  * @apiSuccess {Boolean}    ok         是否成功
  *
  */
-function postQuestionnaire() { return; }
+function submitQuestionnaireResult() { return; }
 
 /**
- * @api {get} /DiagnosisApi/getOrgan 获取器官症状列表
+ * @api {get} /DiagnosisApi/getSymptomList 获取部位器官症状列表
  * @apiVersion 2.0.0
- * @apiName getOrgan
+ * @apiName getSymptomList
  * @apiGroup Diagnosis
  * @apiPermission login
  *
- * @apiDescription  根据人群获取器官症状列表
+ * @apiDescription  根据人群、个人的问题，获取部位器官症状列表
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}  part          部位
- *
  * @apiSuccess {Boolean}    ok         是否成功
- * @apiSuccess {Object[]}   obj                 器官列表
- * @apiSuccess {String}     obj.organ                器官名称
- * @apiSuccess {Object[]}   obj.symptom              器官对应症状列表
- * @apiSuccess {String}     obj.symptom.id                症状ID
- * @apiSuccess {String}     obj.symptom.name              症状名称
+ * @apiSuccess {Object[]}   obj              部位器官症状列表
+ * @apiSuccess {String}     obj.part         部位名称
+ * @apiSuccess {String}     obj.organ        器官名称
+ * @apiSuccess {Object[]}   obj.symptom      症状名称
  *
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
  *   {
- *           "ok": true,
- *           "obj": [
- *               {
- *                   "organ": "鼻",
- *                   "symptom": [
- *                       {
- *                           "id": "01",
- *                           "name": "鼻塞",
- *                       },
- *                       ...
- *                   ]
- *               },
- *               ...
- *           ]
+ *       "ok": true,
+ *       "obj": [
+ *           {
+ *               "part": "头部",
+ *               "organ": "鼻",
+ *               "symptom": "鼻塞"
+ *           },
+ *           ...
+ *       ]
  *   }
  */
-function getOrgan() { return; }
+function getSymptomList() { return; }
 
 /**
- * @api {get} /DiagnosisApi/getRecentThings 获取最近做过的事情列表
+ * @api {get} /DiagnosisApi/getRecentThingList 获取最近做过的事情列表
  * @apiVersion 2.0.0
- * @apiName getRecentThings
+ * @apiName getRecentThingList
  * @apiGroup Diagnosis
  * @apiPermission login
  *
@@ -264,27 +225,31 @@ function getOrgan() { return; }
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
  *   {
- *           "ok": true,
- *           "obj": ["进食过量","缺乏运动","夜间加餐"]
+ *       "ok": true,
+ *       "obj": [
+ *           "进食过量",
+ *           "缺乏运动",
+ *           "夜间加餐",
+ *           ...
+ *       ]
  *   }
  */
-function getRecentThings() { return; }
+function getRecentThingList() { return; }
 
 /**
- * @api {get} /DiagnosisApi/postSymptom 提交症状
+ * @api {get} /DiagnosisApi/submitSymptom 提交症状
  * @apiVersion 2.0.0
- * @apiName postSymptom
+ * @apiName submitSymptom
  * @apiGroup Diagnosis
  * @apiPermission login
  *
- * @apiDescription  提交症状(多个)
+ * @apiDescription  提交症状
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}  symptom          症状名称（多个中间以逗号隔开）
- * @apiParam {String}  things           最近做过的事情名称（多个中间以逗号隔开）
+ * @apiParam {String}  symptoms         症状名称（多个中间以逗号隔开）
+ * @apiParam {String}  things           事情（多个中间以逗号隔开）
  *
  * @apiSuccess {Boolean}    ok         是否成功
- *
  */
-function postSymptom() {   return; }
+function submitSymptom() {   return; }
