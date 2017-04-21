@@ -10,12 +10,12 @@
  * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}   emotion       情绪,
- * @apiParam {String}   fenji         分级
+ * @apiParam {String}   grade         分级
  *
  * @apiSuccess {Boolean}     ok                 是否成功
  * @apiSuccess {Object}      obj                情绪干预内容
  * @apiSuccess {String}      obj.emotion           情绪名称
- * @apiSuccess {String}      obj.sanzijin       三字经
+ * @apiSuccess {String}      obj.threeCharacterClassic       三字经
  * @apiSuccess {String}      obj.influence       对器官的影响
  * @apiSuccess {String}      obj.methods         干预方法
  * @apiSuccess {String}      obj.methods.fenji   级别
@@ -31,7 +31,7 @@
  *         "ok": true,
  *         "obj": {
  *             "emotion":"生气",
- *             "sanzijin":'人之初，性本善。。。',
+ *             "threeCharacterClassic":'人之初，性本善。。。',
  *             "influence":'生气不利于健康。。。。。',
  *             "methods":[
  *                  {
@@ -107,16 +107,16 @@ function getEmotionIntervene() { return; }
  *             ],
  *             "grade":[
  *                  {
- *                      "name":"生气"，
-  *                      "fenji":"一级"
+ *                      "title":"生气"，
+  *                      "name":"一级"
  *                  },
  *                  {
- *                      "name":"愤怒"，
-  *                      "fenji":"二级"
+ *                      "title":"愤怒"，
+  *                      "name":"二级"
  *                  },
  *                  {
- *                      "name":"暴怒"，
-  *                      "fenji":"三级"
+ *                      "title":"暴怒"，
+  *                      "name":"三级"
  *                  },
  *             ],
  *             "reasons":["工作困难","家庭生活不和睦","患有慢性疾病",...],
