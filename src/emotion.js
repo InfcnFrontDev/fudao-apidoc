@@ -11,6 +11,8 @@
  *
  * @apiParam {String}   emotion       情绪,
  * @apiParam {String}   grade         分级
+ * @apiParam {Array}    [factors]       因素
+ * 
  *
  * @apiSuccess {Boolean}     ok                 是否成功
  * @apiSuccess {Object}      obj                情绪干预内容
