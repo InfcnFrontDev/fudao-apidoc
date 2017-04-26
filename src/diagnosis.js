@@ -103,6 +103,7 @@ function addMyDiseases() {   return; }
  * @apiSuccess {Number}     obj.psychology         心理结果
  * @apiSuccess {Number}     obj.social             社交结果
  * @apiSuccess {Number}     obj.self               自测结果
+ * @apiSuccess {String}     obj.grade              健康状况等级
  *
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
@@ -114,6 +115,7 @@ function addMyDiseases() {   return; }
  *               "psychology": 80,
  *               "social": 86,
  *               "self": 93,
+ *               "grade": 良好
  *           }
  *   }
  */
@@ -133,10 +135,12 @@ function getEvaluationResult() { return; }
  * @apiParam {Number}  [type]          问卷类型（1：生理测评、2：心理测评、3：社交测评、4：自我测评、不传则为全部）
  *
  * @apiSuccess {Boolean}    ok         是否成功
- * @apiSuccess {Object[]}   obj                 测评问卷列表
+ * @apiSuccess {Object[]}   obj        测评问卷列表
  * @apiSuccess {String}     obj.id              问卷问题ID
  * @apiSuccess {String}     obj.title           问卷问题标题
  * @apiSuccess {String}     obj.img             问卷问题图片
+ * @apiSuccess {Object[]}   obj.answer          问卷问题从A到E对应问题答案
+ * @apiSuccess {Object[]}   obj.asnwerScore     问卷问题从A到E对应问题答案得分
  *
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
@@ -147,6 +151,8 @@ function getEvaluationResult() { return; }
  *               "id": 1,
  *               "title": "您是否有便秘症状",
  *               "img": "/test/a.png",
+ *               answer:["没有","偶尔","有时","经常","总是"],
+ *               asnwerScore:[5，4，3，2，1]
  *           },
  *           ...
  *       ]
