@@ -10,25 +10,45 @@
  * @apiUse AuthenticatedHeader
  *
  * @apiSuccess {Boolean}    ok                  是否成功
- * @apiSuccess {Object[]}   obj                 疾病列表
- * @apiSuccess {String}     obj.id              疾病ID
- * @apiSuccess {String}     obj.name            疾病名称
- * @apiSuccess {String}     obj.img             疾病图片
- * @apiSuccess {String}     obj.type            疾病分类
+ * @apiSuccess {Object[]}   obj                 全部疾病数据
+ * @apiSuccess {Object[]}   obj.liaoShen        疗身疾病
+ * @apiSuccess {String}     obj.liaoShen.id              疾病ID
+ * @apiSuccess {String}     obj.liaoShen.name            疾病名称
+ * @apiSuccess {String}     obj.liaoShen.img             疾病图片
+ * @apiSuccess {Object[]}   obj.liaoXin         疗心疾病
+ * @apiSuccess {String}     obj.liaoXin.id              疾病ID
+ * @apiSuccess {String}     obj.liaoXin.name            疾病名称
+ * @apiSuccess {String}     obj.liaoXin.img             疾病图片
  *
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
  *   {
  *       "ok": true,
- *       "obj": [
- *           {
- *               "id": "17",
- *               "name": "跌倒",
- *               "img": "/icons/disease/diedao.png",
- *               "type": "意外伤害",
+ *       "obj": {
+ *           "liaoShen": {
+ *               "意外伤害": [
+ *                   {
+ *                       "id": "077fbcc94bd843f7a308519bc4f9b532",
+ *                       "img": "/icons/disease/dianxian.png",
+ *                       "name": "癫痫",
+ *                   },
+ *               ],
+ *               ...
  *           },
- *           ...
- *       ]
+ *           "liaoXin": [
+ *               {
+ *                   "id": "077fbcc94bd843f7a308519bc4f9b532",
+ *                   "img": "/icons/disease/dianxian.png",
+ *                   "name": "癫痫",
+ *               },
+ *               {
+ *                   "id": "131f725025e04c1485c9463bcf0e8b86",
+ *                   "img": "/icons/disease/toutong.png",
+ *                   "name": "头痛",
+ *               },
+ *               ...
+ *           ]
+ *       }
  *   }
  *
  * @apiUse AuthenticatedError
@@ -268,6 +288,7 @@ function getDiseaseDailyMethodList() {   return; }
 function getDiseaseDailyMethodDetail() {   return; }
 
 /**
+ * @apiIgnore 不要了
  * @api {get} /DiseaseApi/getDiseaseProfessionalMethodList 获取疾病专业疗法列表
  * @apiVersion 2.0.0
  * @apiName getDiseaseProfessionalMethodList
@@ -306,6 +327,7 @@ function getDiseaseDailyMethodDetail() {   return; }
 function getDiseaseProfessionalMethodList() {   return; }
 
 /**
+ * @apiIgnore 不要了
  * @api {get} /DiseaseApi/getDiseaseProfessionalMethodDetail 获取疾病专业疗法详情
  * @apiVersion 2.0.0
  * @apiName getDiseaseProfessionalMethodDetail
@@ -343,7 +365,7 @@ function getDiseaseProfessionalMethodList() {   return; }
 function getDiseaseProfessionalMethodDetail() {   return; }
 
 /**
- * @api {get} /DiseaseApi/getDisease 获取疾病详情（New）
+ * @api {get} /DiseaseApi/getDisease 获取疾病详情
  * @apiVersion 2.0.0
  * @apiName getDisease
  * @apiGroup Disease
@@ -358,7 +380,7 @@ function getDiseaseProfessionalMethodDetail() {   return; }
  *
  * @apiSuccess {Boolean}    ok                  是否存在该问题
  * @apiSuccess {Object}     obj                 问题详情
- * @apiSuccess {String}     obj.id
+ * @apiSuccess {String}     obj.id              ID
  * @apiSuccess {String}     obj.name            疾病名称
  * @apiSuccess {String}     obj.type            疾病类型
  * @apiSuccess {String}     obj.crowd           人群

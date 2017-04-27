@@ -7,6 +7,8 @@
  *
  * @apiDescription  分别提供关于地域、年龄、节气、性别的常见疾病。
  *
+ * @apiParam {String}       region        当前地区
+ *
  * @apiUse AuthenticatedHeader
  *
  * @apiSuccess {Boolean}    ok                  是否成功
