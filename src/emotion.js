@@ -12,7 +12,7 @@
  * @apiParam {String}   emotion       情绪,
  * @apiParam {String}   grade         分级
  * @apiParam {Array}    [factors]       因素
- * 
+ *
  *
  * @apiSuccess {Boolean}     ok                 是否成功
  * @apiSuccess {Object}      obj                情绪干预内容
@@ -77,7 +77,7 @@ function getEmotionIntervene() { return; }
  * @apiUse AuthenticatedHeader
  *
  * @apiParam {String}   emotion       情绪
- *
+ * @apiParam {String}   weather       多云
  * @apiSuccess {Boolean}     ok                     是否成功
  * @apiSuccess {String}      obj                    情绪因素内容
  * @apiSuccess {String}      obj.emotion            情绪名称
