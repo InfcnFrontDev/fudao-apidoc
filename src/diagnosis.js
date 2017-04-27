@@ -115,7 +115,7 @@ function addMyDiseases() {   return; }
  *               "psychology": 80,
  *               "social": 86,
  *               "self": 93,
- *               "grade": 良好
+ *               "grade": "良好"
  *           }
  *   }
  */
@@ -151,8 +151,8 @@ function getEvaluationResult() { return; }
  *               "id": 1,
  *               "title": "您是否有便秘症状",
  *               "img": "/test/a.png",
- *               answer:["没有","偶尔","有时","经常","总是"],
- *               asnwerScore:[5，4，3，2，1]
+ *               "answer":["没有","偶尔","有时","经常","总是"],
+ *               "asnwerScore":[5，4，3，2，1]
  *           },
  *           ...
  *       ]
