@@ -203,7 +203,7 @@ function submitQuestionnaireResult() { return; }
  *           {
  *               "part": "头部",
  *               "organ": "鼻",
- *               "symptom": "鼻塞"
+ *               "symptom": ["鼻塞","流涕"]
  *           },
  *           ...
  *       ]
