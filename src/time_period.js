@@ -131,3 +131,90 @@ function getMyTimeStage() { return; }
  *
  */
 function getGeneralTimeStage() { return; }
+
+
+/**
+ * @api {get} /TimePeriodApi/getTimeStageTherapyList 获取时间阶段的推荐疗法
+ * @apiVersion 2.0.0
+ * @apiName getTimeStageTherapyList
+ * @apiGroup TimePeriod
+ * @apiPermission login
+ *
+ * @apiDescription 获取时间阶段的推荐疗法。
+ *
+ * @apiUse AuthenticatedHeader
+ *
+ * @apiParam {String}    timeStage	       时间阶段
+ *
+ * @apiSuccess {Boolean}    success           是否成功
+ * @apiSuccess {Object[]}   obj               时段疗法列表
+ * @apiSuccess {String}     obj.timePeriod                时段
+ * @apiSuccess {String}     obj.name                      名称
+ * @apiSuccess {String}     obj.img                       图片
+ * @apiSuccess {String}     obj.principle                 原理
+ * @apiSuccess {String}     obj.threeCharacterClassic     三字经
+ * @apiSuccess {String}     obj.detail                    详细
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *         "ok":true,
+ *         "obj": [
+ *             {
+ *                 timePeriod: "晨练",
+ *                 name: "揉心窝",
+ *                 img: "pic/rouxinwo.png",
+ *                 principle: "\t揉心窝可以有效止胃痛、祛胃寒、养胃气。",
+ *                 threeCharacterClassic: "揉心窝，止胃痛，祛胃寒，养胃气。",
+ *                 detail: "\t1.心窝也就是中脘穴以上，胸骨以下的位置。这里虽然叫心窝，其实是胃所在的位置。\n\t2.将双手交迭，用掌跟在这里按揉，顺时针方向和逆时针方向各揉36圈以上。\n\t3.既保养了胃气，又能减轻压力，使心中畅快。"
+ *             },
+ *             ...
+ *         ]
+ *     }
+ *
+ * @apiUse AuthenticatedError
+ *
+ */
+function getTimeStageTherapyList() { return; }
+
+
+/**
+ * @api {get} /TimePeriodApi/getAllDayMotionList 获取全天的运动列表
+ * @apiVersion 2.0.0
+ * @apiName getAllDayMotionList
+ * @apiGroup TimePeriod
+ * @apiPermission login
+ *
+ * @apiDescription 获取全天所有时段的运动列表。
+ *
+ * @apiUse AuthenticatedHeader
+ *
+ * @apiSuccess {Boolean}    success           是否成功
+ * @apiSuccess {Object[]}   obj               时段运动列表
+ * @apiSuccess {String}     obj.timePeriod    时段
+ * @apiSuccess {String}     obj.name          运动名称
+ * @apiSuccess {String}     obj.img           运动图片
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *         "ok":true,
+ *         "obj": [
+ *             {
+ *                 "timePeriod": "晨练",
+ *                 "name": "揉心窝",
+ *                 "img": "pic/rouxinwo.png",
+ *             },
+ *             {
+ *                 "timePeriod": "运动",
+ *                 "name": "内养功",
+ *                 "img": "pic/neiyanggong.jpg",
+ *             },
+ *             ...
+ *         ],
+ *     }
+ *
+ * @apiUse AuthenticatedError
+ *
+ */
+function getAllDayMotionList() { return; }
