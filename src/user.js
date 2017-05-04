@@ -172,6 +172,60 @@ function login() { return; }
  */
 function getLoginUser() { return; }
 
+
+/**
+ * @api {get} /UserApi/getUser  获取指定用户信息
+ * @apiversion 2.0.0
+ * @apiname getUser
+ * @apigroup User
+ *
+ * @apidescription  获取指定用户信息
+ *
+ * @apiParam (ID查询){String}       id          用户ID
+ * @apiParam (手机号查询){String}    phone      手机号
+ *
+ * @apiUse AuthenticatedHeader
+ *
+ * @apisuccess {Boolean}    ok                           是否成功
+ * @apisuccess {Object}     obj                          用户对象
+ * @apisuccess {String}     obj.id                       id
+ * @apisuccess {String}     obj.phone                    手机号
+ * @apisuccess {String}     obj.email                    电子邮箱
+ * @apisuccess {String}     obj.nickname                 昵称
+ * @apisuccess {String}     obj.name                     姓名
+ * @apisuccess {String}     obj.photo                    头像
+ * @apisuccess {String}     obj.sex                      性别，男：1,女：2
+ * @apisuccess {String}     obj.birthday                 出生日期
+ * @apisuccess {String}     obj.height                   身高(cm)
+ * @apisuccess {String}     obj.weight                   体重(kg)
+ * @apisuccess {String}     obj.regionId                 地区ID
+ * @apisuccess {String}     obj.crowd                    人群
+ *
+ * @apisuccessexample {json} success-response:
+ *     http/1.1 200 ok
+ *     {
+ *         "ok": true,
+ *         "obj":{
+ *             "id" : "045454045-45404545404545404-5454045454" ,
+ *             "phone" : "15930316547" ,
+ *             "email" : "123656985698@qq.com " ,
+ *             "nickname" : "罐头" ,
+ *             "name" : "草莓罐头",
+ *             "photo" : "../i.jpg ",
+ *             "sex"  : "1",
+ *             "birthday" :"1996-05-06",
+ *             "height" : "160",
+ *             "weight" : "50",
+ *             "regionId": "0365888",
+ *             "crowd":"aged"
+ *         }
+ *      }
+ *
+ * @apiUse AuthenticatedError
+ *
+ */
+function getUser() { return; }
+
 /**
  * @api {get} /UserApi/updateUserInfo       修改用户信息
  * @apiVersion 2.0.0
