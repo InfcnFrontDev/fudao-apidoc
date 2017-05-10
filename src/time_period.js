@@ -32,7 +32,7 @@
  *     HTTP/1.1 200 OK
  *     {
  *         "ok":true,
- *         "obj"[
+ *         "obj": [
  *             {
  *                 "id": "128624c3-0f17-11e7-9b59-000c293e6828",
  *                 "name":"起床阶段",
@@ -218,3 +218,62 @@ function getTimeStageTherapyList() { return; }
  *
  */
 function getAllDayMotionList() { return; }
+
+
+
+
+/**
+ * @api {get} /TimePeriodApi/saveMyTimePeriod 保存我的时间段
+ * @apiVersion 2.0.0
+ * @apiName saveMyTimePeriod
+ * @apiGroup TimePeriod
+ * @apiPermission login
+ *
+ * @apiDescription 获取全天所有时段的运动列表。
+ *
+ * @apiUse AuthenticatedHeader
+ *
+ * @apiParam {String} jsonData 	    时间阶段和分段
+ *
+ *
+ * @apiParamExample {json} Param (example):
+ *     {
+ *         "jsonData": [
+ *             {
+ *                 "id": "128624c3-0f17-11e7-9b59-000c293e6828",
+ *                 "name":"起床阶段",
+ *                 "title":"起床阶段"
+ *                 "level":"主要阶段"
+ *                 "startTime":"07:30"
+ *                 "endTime":"08:30",
+ *                 "startTimeRange": "7:45-8:15",
+ *                 "endTimeRange": "7:45-8:15",
+ *                 "timeLenRangeMin": 20,
+ *                 "timeLenReaneMax": 40,
+ *                 "timePeriods": [
+ *                     {
+ *                          "id": "128624c3-0f17-11e7-9b59-000c293e6828",
+ *                          "name":"晨练",
+ *                          "title":"晨练"
+ *                          "startTime":"07:30"
+ *                          "endTime":"08:30"
+ *                     },
+ *                     ...
+ *                 ]
+ *             },
+ *             ...
+ *         ]
+ *     }
+ *
+ * @apiSuccess {Boolean}    success           是否成功
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *         "ok":true,
+ *     }
+ *
+ * @apiUse AuthenticatedError
+ *
+ */
+function saveMyTimePeriod() { return; }
