@@ -134,17 +134,17 @@ function getGeneralTimeStage() { return; }
 
 
 /**
- * @api {get} /TimePeriodApi/getTimeStageTherapyList 获取时间阶段的推荐疗法
+ * @api {get} /TimePeriodApi/getTimeStageTherapyList 获取时间段的推荐疗法
  * @apiVersion 2.0.0
  * @apiName getTimeStageTherapyList
  * @apiGroup TimePeriod
  * @apiPermission login
  *
- * @apiDescription 获取时间阶段的推荐疗法。
+ * @apiDescription 获取时间段的推荐疗法。
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}    timeStage	       时间阶段
+ * @apiParam {String}    timePeriod	       时间分段
  *
  * @apiSuccess {Boolean}    success           是否成功
  * @apiSuccess {Object[]}   obj               时段疗法列表

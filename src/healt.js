@@ -148,3 +148,37 @@ function getHealthDailyMethodList() {   return; }
  *
  */
 function getHealthDailyMethodDetail() {   return; }
+
+
+/**
+ * @api {get} /HealthApi/getSolarTerm 获取节气信息
+ * @apiVersion 2.0.0
+ * @apiName getSolarTerm
+ * @apiGroup Health
+ * @apiPermission login
+ *
+ * @apiDescription  获取当前节气信息
+ *
+ * @apiUse AuthenticatedHeader
+ *
+ * @apiSuccess {Boolean}    ok              是否成功
+ * @apiSuccess {Object}     obj             节气详情
+ * @apiSuccess {String}     obj.name        节气名称
+ * @apiSuccess {String}     obj.img         节气图片
+ * @apiSuccess {String}     obj.detail      节气详情
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *   HTTP/1.1 200 OK
+ *   {
+ *      "ok":true,
+ *      "obj": {
+ *          "name": "惊蛰",
+ *          "img": "/solarterm/shuiqianbuchidongxi.jpg",
+ *          "detail": "桃始华，仓庚鸣，鹰化为鸠。",
+ *       }
+ *   }
+ *
+ * @apiUse AuthenticatedError
+ *
+ */
+function getSolarTerm() {   return; }

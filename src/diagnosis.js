@@ -181,37 +181,63 @@ function getQuestionnaireList() { return; }
 function submitQuestionnaireResult() { return; }
 
 /**
- * @api {get} /DiagnosisApi/getSymptomList 获取部位器官症状列表
+ * @api {get} /DiagnosisApi/getPartOrganSymptomList 获取部位器官症状列表
  * @apiVersion 2.0.0
- * @apiName getSymptomList
+ * @apiName getPartOrganSymptomList
  * @apiGroup Diagnosis
  * @apiPermission login
  *
- * @apiDescription  根据人群、个人的问题，获取部位器官症状列表
+ * @apiDescription  获取全部部位器官症状列表
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiSuccess {Boolean}    ok         是否成功
- * @apiSuccess {Object[]}   obj              部位器官症状列表
- * @apiSuccess {String}     obj.part         部位名称
- * @apiSuccess {String}     obj.organ        器官名称
- * @apiSuccess {Object[]}   obj.symptom      症状名称
+ * @apiSuccess {Boolean}    ok             是否成功
+ * @apiSuccess {Object}     obj              人体部位
+ * @apiSuccess {Object}     obj.key1        部位下器官
+ * @apiSuccess {String[]}   obj.key1.key2   器官下的症状
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *   HTTP/1.1 200 OK
+ *   {
+ *       "ok": true,
+ *       "obj": {
+ *           "头部": {
+ *               "鼻": ["鼻塞","流涕"]
+ *               ...
+ *           },
+ *           ...
+ *       ]
+ *   }
+ */
+function getPartOrganSymptomList() { return; }
+
+
+/**
+ * @api {get} /DiagnosisApi/getUserSymptomList 获取用户症状列表
+ * @apiVersion 2.0.0
+ * @apiName getUserSymptomList
+ * @apiGroup Diagnosis
+ * @apiPermission login
+ *
+ * @apiDescription  根据人群、个人的问题，获取症状列表
+ *
+ * @apiUse AuthenticatedHeader
+ *
+ * @apiSuccess {Boolean}    ok             是否成功
+ * @apiSuccess {String[]}   obj            症状列表
  *
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
  *   {
  *       "ok": true,
  *       "obj": [
- *           {
- *               "part": "头部",
- *               "organ": "鼻",
- *               "symptom": ["鼻塞","流涕"]
- *           },
+ *           "鼻塞",
+ *           "流涕",
  *           ...
  *       ]
  *   }
  */
-function getSymptomList() { return; }
+function getUserSymptomList() { return; }
 
 /**
  * @api {get} /DiagnosisApi/getRecentThingList 获取最近做过的事情列表
@@ -224,7 +250,7 @@ function getSymptomList() { return; }
  *
  * @apiUse AuthenticatedHeader
  *
- * @apiParam {String}  organ          器官
+ * @apiParam {String}  symptoms          症状，多个症状逗号隔开
  *
  * @apiSuccess {Boolean}    ok         是否成功
  * @apiSuccess {Object[]}   obj                 最近做过的事情列表
@@ -257,6 +283,7 @@ function getRecentThingList() { return; }
  *
  * @apiParam {String}  symptoms         症状名称（多个中间以逗号隔开）
  * @apiParam {String}  things           事情（多个中间以逗号隔开）
+ * @apiParam {Nubmer}  type             类型，（1：用户症状，2：器管症状）
  *
  * @apiSuccess {Boolean}    ok         是否成功
  */

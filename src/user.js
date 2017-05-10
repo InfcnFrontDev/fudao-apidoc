@@ -234,7 +234,8 @@ function getUser() { return; }
  *
  * @apiDescription  修改当前用户信息
  *
- * @apiParam {String}    phone          手机号
+ * @apiUse AuthenticatedHeader
+ *
  * @apiParam {String}    fieldName      字段名（eg:email / nickname / name ...   ）
  * @apiParam {String}    value          值
  *
@@ -253,7 +254,6 @@ function updateUserInfo() { return; }
  *
  * @apiDescription  用户找回密码时，验证手机后，重置密码。
  *
- *
  * @apiParam {String}    phone      手机号
  * @apiParam {String}    password   密码
  *
@@ -271,7 +271,8 @@ function resetPassword() { return; }
  *
  * @apiDescription  修改当前用户密码
  *
- * @apiParam {String}    phone          手机号
+ * @apiUse AuthenticatedHeader
+ *
  * @apiParam {String}    oldPassword    旧密码
  * @apiParam {String}    newPassword    新密码
  *
