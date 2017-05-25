@@ -33,41 +33,45 @@ function updataMedicalInformationResult() { return; }
  * @apiUse AuthenticatedHeader
  *
  * @apiSuccess {Boolean}   ok               是否成功
- * @apiSuccess {object[]}  obj              体检项对象
- * @apiSuccess {String}    obj.id           ID
- * @apiSuccess {String}    obj.name         名称
- * @apiSuccess {String}    obj.type         体检项分类
- * @apiSuccess {String}    obj.unit         单位
- * @apiSuccess {String}    obj.inputType    输入类型，1：数值型，2：文本型，3：选择型，4：A/B型
- * @apiSuccess {String}    obj.items        选择项
- * @apiSuccess {String}    obj.value        值
+ * @apiSuccess {object}    obj              体检项对象
+ * @apiSuccess {object[]}  obj.type         体检项分类
+ * @apiSuccess {String}    obj.type.id           ID
+ * @apiSuccess {String}    obj.type.name         名称
+ * @apiSuccess {String}    obj.type.unit         单位
+ * @apiSuccess {String}    obj.type.inputType    输入类型，1：数值型，2：文本型，3：选择型，4：A/B型
+ * @apiSuccess {String}    obj.type.items        选择项
+ * @apiSuccess {String}    obj.type.value        值
  *
  *
  * @apiErrorExample Response (example):
  *     HTTP/1.1 200 OK
  *     {
  *         "ok":true,
- *         "obj":[
- *             {
- *                 "id":'1',
- *                 "name":'体重',
- *                 "type": "基本信息",
- *                 "unit":'kg',
- *                 "inputType": 1,
- *                 "items": null,
- *                 "value": 75
- *             },
- *             {
- *                 "id":'2',
- *                 "name":'辨色力',
- *                 "type": "眼科",
- *                 "unit": null,
- *                 "inputType": 3,
- *                 "items": ["正常", "色弱", "色盲"],
- *                 "value": 175
- *             },
- *             ...
- *         ]
+ *         "obj":{
+ *              "基本信息": [
+ *                  {
+ *                      "id":'1',
+ *                      "name":'体重',
+ *                      "type": "基本信息",
+ *                      "unit":'kg',
+ *                      "inputType": 1,
+ *                      "items": null,
+ *                      "value": 75
+ *                  },
+ *                  ...
+ *              ],
+ *              "眼科": [
+ *                  {
+ *                      "id":'2',
+ *                      "name":'辨色力',
+ *                      "unit": null,
+ *                      "inputType": 3,
+ *                      "items": ["正常", "色弱", "色盲"],
+ *                      "value": 175
+ *                  },
+ *                  ...
+ *              ]
+ *         }
  *     }
  *
  * @apiUse AuthenticatedError

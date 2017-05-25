@@ -194,6 +194,9 @@ function getTimeStageTherapyList() { return; }
  * @apiSuccess {String}     obj.timePeriod    时段
  * @apiSuccess {String}     obj.name          运动名称
  * @apiSuccess {String}     obj.img           运动图片
+ * @apiSuccess {String}     obj.threeCharacterClassic           三字经
+ * @apiSuccess {String}     obj.detail           详情
+ *
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
@@ -204,11 +207,15 @@ function getTimeStageTherapyList() { return; }
  *                 "timePeriod": "晨练",
  *                 "name": "揉心窝",
  *                 "img": "pic/rouxinwo.png",
+ *                 "detail": "1.洗净双手互相摩擦，待搓热后用手掌贴双眼(闭着眼睛)，反复3次以上。\\n2.用食指、中指、无名指的指端轻轻按压眼球，也可以旋转轻揉，但不可持续太久，也不可用力压揉，持续20秒左右即可。",
+ *                 "threeCharacterClassic": "手热敷，促循环，利泪腺，助分泌。"
  *             },
  *             {
  *                 "timePeriod": "运动",
  *                 "name": "内养功",
  *                 "img": "pic/neiyanggong.jpg",
+ *                 "detail": "1.洗净双手互相摩擦，待搓热后用手掌贴双眼(闭着眼睛)，反复3次以上。\\n2.用食指、中指、无名指的指端轻轻按压眼球，也可以旋转轻揉，但不可持续太久，也不可用力压揉，持续20秒左右即可。",
+ *                 "threeCharacterClassic": "手热敷，促循环，利泪腺，助分泌。"
  *             },
  *             ...
  *         ],
