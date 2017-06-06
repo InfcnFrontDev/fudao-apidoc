@@ -32,6 +32,8 @@ function updataMedicalInformationResult() { return; }
  *
  * @apiUse AuthenticatedHeader
  *
+ * @apiParam {String}  keyword          模糊匹配名称，或使用首字母检索，为空查询全部
+ *
  * @apiSuccess {Boolean}   ok               是否成功
  * @apiSuccess {object}    obj              体检项对象
  * @apiSuccess {object[]}  obj.type         体检项分类

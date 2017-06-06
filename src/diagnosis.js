@@ -288,3 +288,40 @@ function getRecentThingList() { return; }
  * @apiSuccess {Boolean}    ok         是否成功
  */
 function submitSymptom() {   return; }
+
+
+/**
+ * @api {get} /DiagnosisApi/getQuestionnaireScores 获取问卷得分
+ * @apiVersion 2.0.0
+ * @apiName getQuestionnaireScores
+ * @apiGroup Diagnosis
+ * @apiPermission login
+ *
+ * @apiDescription  获取问卷得分
+ *
+ * @apiUse AuthenticatedHeader
+ *
+ * @apiParam {Number}  [type]          问卷类型（1：生理测评、2：心理测评、3：社交测评、4：自我测评、不传则为全部）
+ *
+ * @apiSuccess {Boolean}    ok                  是否成功
+ * @apiSuccess {Object[]}   obj                 问题得分列表
+ * @apiSuccess {String}     obj.id                   问题ID
+ * @apiSuccess {String}     obj.title                问题标题
+ * @apiSuccess {String}     obj.score                问题得分
+ *
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *   HTTP/1.1 200 OK
+ *   {
+ *       "ok": true,
+ *       "obj": [
+ *           {
+ *               "id": 30,
+ *               "title": "您是否有便秘症状",
+ *               "score": 90
+ *           },
+ *           ...
+ *       ]
+ *   }
+ */
+function getQuestionnaireScores() {   return; }

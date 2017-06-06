@@ -9,6 +9,8 @@
  *
  * @apiUse AuthenticatedHeader
  *
+ * @apiParam {Number} dayType 	    天类型，1：工作日，2：休息日，如果为null，则取当天的类型。
+ *
  * @apiSuccess {Boolean}    success           是否成功
  * @apiSuccess {Object[]}   obj               时间阶段
  * @apiSuccess {String}     obj.id            阶段ID
@@ -240,6 +242,7 @@ function getAllDayMotionList() { return; }
  *
  * @apiUse AuthenticatedHeader
  *
+ * @apiParam {Number} dayType 	    天类型，1：工作日，2：休息日
  * @apiParam {String} jsonData 	    时间阶段和分段
  *
  *

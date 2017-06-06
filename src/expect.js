@@ -342,3 +342,285 @@ function getExpectProfessionalMethodList() {   return; }
  *
  */
 function getExpectProfessionalMethodDetail() {   return; }
+
+
+
+/**
+ * @api {get} /ExpectApi/getExpectRelevant 获取自修相关
+ * @apiVersion 2.0.0
+ * @apiName getExpectRelevant
+ * @apiGroup Expect
+ * @apiPermission login
+ *
+ * @apiDescription  获取自修相关数据，包括经线、穴位、部位、循环系统。数据区分人群。
+ *
+ * @apiUse AuthenticatedHeader
+ *
+ * @apiParam {String}  expect                  自修项目
+ *
+ * @apiSuccess {Boolean}    ok                  是否成功
+ * @apiSuccess {Object}     obj                 问题详情
+ * @apiSuccess {String}     obj.meridians                  相关经络
+ * @apiSuccess {String}     obj.meridians.name                经络名称
+ * @apiSuccess {String}     obj.meridians.correlativity       经络相关关系
+ * @apiSuccess {String}     obj.meridians.list                经络路径列表
+ * @apiSuccess {String}     obj.meridians.list.code              路径编码
+ * @apiSuccess {String}     obj.meridians.list.map               路径地图
+ *
+ * @apiSuccess {String}     obj.acupoints                  相关穴位
+ * @apiSuccess {String}     obj.acupoints.name                穴位名称
+ * @apiSuccess {String}     obj.acupoints.correlativity       穴位相关关系
+ * @apiSuccess {String}     obj.acupoints.list                穴位路径列表
+ * @apiSuccess {String}     obj.acupoints.list.code              路径编码
+ * @apiSuccess {String}     obj.acupoints.list.map               路径地图
+ *
+ * @apiSuccess {String}     obj.organs                  相关器官
+ * @apiSuccess {String}     obj.organs.name                器官名称
+ * @apiSuccess {String}     obj.organs.correlativity       器官相关关系
+ * @apiSuccess {String}     obj.organs.list                器官路径列表
+ * @apiSuccess {String}     obj.organs.list.code              路径编码
+ * @apiSuccess {String}     obj.organs.list.map               路径地图
+
+ * @apiSuccess {String}     obj.circulatorySystems                  相关循环系统
+ * @apiSuccess {String}     obj.circulatorySystems.name                循环系统名称
+ * @apiSuccess {String}     obj.circulatorySystems.correlativity       循环系统相关关系
+ * @apiSuccess {String}     obj.circulatorySystems.list                循环系统路径列表
+ * @apiSuccess {String}     obj.circulatorySystems.list.code              路径编码
+ * @apiSuccess {String}     obj.circulatorySystems.list.map               路径地图
+ *
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *   HTTP/1.1 200 OK
+ *   {
+ *       "ok": true,
+ *       "obj": {
+ *           "meridians": [
+ *               {
+ *                   "name": "足厥阴肝经",
+ *                   "correlativity": "中毒的病因主要是肝肾阴亏。",
+ *                   "list":[
+ *                       {
+ *                           "code":"ZONGSHAOYIN",
+ *                           "map":"2.svg"
+ *                       },
+ *                       {
+ *                           "code":"2",
+ *                           "map":"2.svg"
+ *                       },
+ *                       ...
+ *                   ]
+ *               },
+ *               ...
+ *           ],
+ *           "acupoints": [
+ *               {
+ *                   "name": "风池",
+ *                   "correlativity": "滋养肝肾。",
+ *                   "list":[
+ *                       {
+ *                           "code":"ZONGSHAOYIN",
+ *                           "map":"2.svg"
+ *                       },
+ *                       {
+ *                           "code":"2",
+ *                           "map":"2.svg"
+ *                       },
+ *                       ...
+ *                   ]
+ *               },
+ *               ...
+ *           ],
+ *           "organs": [
+ *               {
+ *                   "name": "脚",
+ *                   "correlativity": "痛风多引起远心端关节受累，尤其是大脚趾，痛风经常在半夜突然发作，并且很痛。",
+ *                   "list":[
+ *                       {
+ *                           "code":"ZONGSHAOYIN",
+ *                           "map":"2.svg"
+ *                       },
+ *                       {
+ *                           "code":"2",
+ *                           "map":"2.svg"
+ *                       },
+ *                       ...
+ *                   ]
+ *               },
+ *               ...
+ *           ],
+ *           "circulatorySystems": [
+ *               {
+ *                   "name": "心血管系统",
+ *                   "correlativity": "机体接触各种毒物，引发组织结构和功能损害、代谢障碍而发生疾病或死亡者，称为中毒。",
+ *                   "list":[
+ *                       {
+ *                           "code":"ZONGSHAOYIN",
+ *                           "map":"2.svg"
+ *                       },
+ *                       {
+ *                           "code":"2",
+ *                           "map":"2.svg"
+ *                       },
+ *                       ...
+ *                   ]
+ *               },
+ *               ...
+ *           ]
+ *       }
+ *   }
+ *
+ */
+function getExpectRelevant() {   return; }
+
+/**
+ * @api {get} /ExpectApi/getExpectAcupoints 获取自修相关穴位
+ * @apiVersion 2.0.0
+ * @apiName getExpectAcupoints
+ * @apiGroup Expect
+ * @apiPermission login
+ *
+ * @apiDescription  获取自修相关穴位。
+ *
+ * @apiUse AuthenticatedHeader
+ *
+ * @apiParam {String}  expect                  自修项目
+ *
+ * @apiSuccess {Boolean}    ok                  是否成功
+ * @apiSuccess {Object}     obj                 相关穴位集合
+ * @apiSuccess {String}     obj.name                      穴位名称
+ * @apiSuccess {String}     obj.part                      部位
+ * @apiSuccess {String}     obj.location                  相关器官
+ * @apiSuccess {String}     obj.healthEffect              穴位保健效果
+ * @apiSuccess {String}     obj.healthMethod              穴位保健方法
+ * @apiSuccess {String}     obj.simpleAcupointSelection   简便取穴法
+ * @apiSuccess {String}     obj.mattersNeedAttention      注意事项
+ * @apiSuccess {String}     obj.contraindication          禁忌症
+ * @apiSuccess {String}     obj.img                       图片
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *   HTTP/1.1 200 OK
+ *   {
+ *       "ok": true,
+ *       "obj": [
+ *           {
+ *               "name": "天府",
+ *               "part": "背部",
+ *               "location": "在脊柱区，第7胸椎棘突下，后正中线旁开1.5寸。",
+ *               "healthEffect": "活血行血，补血养血。",
+ *               "healthMethod": "他人代为按揉。施术者两手置于被施术者上背部，双手拇指指腹分别按揉两侧的膈俞穴。按揉的手法要均匀、柔和，以局部有酸痛感为佳。早晚各1次，每次按揉2～3分钟，两侧膈俞穴同时按揉。",
+ *               "simpleAcupointSelection": "在肩胛下角水平连线，后正中线旁开2横指处。",
+ *               "mattersNeedAttention": null,
+ *               "contraindication": null,
+ *               "img": "xuewei/geshu.jpg",
+ *           },
+ *           ...
+ *       ]
+ *   }
+ *
+ */
+function getExpectAcupoints() {   return; }
+
+
+/**
+ * @api {get} /ExpectApi/getExpectMeridians 获取自修相关经络
+ * @apiVersion 2.0.0
+ * @apiName getExpectMeridians
+ * @apiGroup Expect
+ * @apiPermission login
+ *
+ * @apiDescription  获取自修相关经络。
+ *
+ * @apiUse AuthenticatedHeader
+ *
+ * @apiParam {String}  expect                  自修项目
+ *
+ * @apiSuccess {Boolean}    ok                  是否成功
+ * @apiSuccess {Object[]}   obj                 相关经络集合
+ * @apiSuccess {String}     obj.name            名称
+ * @apiSuccess {String}     obj.healthMethod    保健方法
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *   HTTP/1.1 200 OK
+ *   {
+ *       "ok": true,
+ *       "obj": [
+ *           {
+ *               "name": "足少阴肾经",
+ *               "healthMethod": "疏肝理气，和胃降逆。",
+ *           },
+ *           ...
+ *       ]
+ *   }
+ *
+ */
+function getExpectMeridians() {   return; }
+
+
+/**
+ * @api {get} /ExpectApi/getExpectOrgans 获取自修相关器管
+ * @apiVersion 2.0.0
+ * @apiName getExpectOrgans
+ * @apiGroup Expect
+ * @apiPermission login
+ *
+ * @apiDescription  获取自修相关器管。
+ *
+ * @apiUse AuthenticatedHeader
+ *
+ * @apiParam {String}  expect                  自修项目
+ *
+ * @apiSuccess {Boolean}    ok                  是否成功
+ * @apiSuccess {Object[]}   obj                 相关器管集合
+ * @apiSuccess {String}     obj.name            名称
+ * @apiSuccess {String}     obj.healthMethod    保健方法
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *   HTTP/1.1 200 OK
+ *   {
+ *       "ok": true,
+ *       "obj": [
+ *           {
+ *               "name": "大脑",
+ *               "healthMethod": "中风最普遍的原因是动脉硬化。动脉硬化会使血液中的脂肪凝结成块，致使动脉血管变窄，血液流通受阻。当输送血液到大脑的动脉被血块阻塞时，血液与氧气就无法顺畅输送到脑细胞，进而引发中风。",
+ *           },
+ *           ...
+ *       ]
+ *   }
+ *
+ */
+function getExpectOrgans() {   return; }
+
+
+/**
+ * @api {get} /ExpectApi/getExpectCirculatorySystems 获取自修相关循环系统
+ * @apiVersion 2.0.0
+ * @apiName getExpectCirculatorySystems
+ * @apiGroup Expect
+ * @apiPermission login
+ *
+ * @apiDescription  获取自修相关循环系统。
+ *
+ * @apiUse AuthenticatedHeader
+ *
+ * @apiParam {String}  expect                  自修项目
+ *
+ * @apiSuccess {Boolean}    ok                  是否成功
+ * @apiSuccess {Object[]}   obj                 相关循环系统集合
+ * @apiSuccess {String}     obj.name            名称
+ * @apiSuccess {String}     obj.healthMethod    保健方法
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *   HTTP/1.1 200 OK
+ *   {
+ *       "ok": true,
+ *       "obj": [
+ *           {
+ *               "name": "神经系统",
+ *               "healthMethod": "由高温液体(例如，沸水、热油)、高温固体(烧热的金属等)或高温蒸气等所致皮肤损伤称为烫伤。",
+ *           },
+ *           ...
+ *       ]
+ *   }
+ *
+ */
+function getExpectCirculatorySystems() {   return; }
