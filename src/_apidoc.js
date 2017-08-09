@@ -6,21 +6,34 @@
 // Current Success.
 // ------------------------------------------------------------------------------------------
 
+// ------------------------------------------------------------------------------------------
+// Current Success.
+// ------------------------------------------------------------------------------------------
+
+
+// ------------------------------------------------------------------------------------------
+// Current Headers.
+// ------------------------------------------------------------------------------------------
+/**
+ * @apiDefine AuthenticatedHeader
+ *
+ * @apiHeader {String} authorization Users unique access-key.
+ */
 
 // ------------------------------------------------------------------------------------------
 // Current Errors.
 // ------------------------------------------------------------------------------------------
 /**
- * @apiDefine CreateUserError
- * @apiVersion 0.2.0
+ * @apiDefine AuthenticatedError
+ * @apiVersion 2.0.0
  *
- * @apiError NoAccessRight Only authenticated Admins can access the data.
- * @apiError UserNameTooShort Minimum of 5 characters required.
+ * @apiError NoAccessRight  只有授权的用户可以访问数据。
+ * @apiError UserNotFound   用户不存在或未登录。
  *
- * @apiErrorExample  Response (example):
- *     HTTP/1.1 400 Bad Request
+ * @apiErrorExample Response (example):
+ *     HTTP/1.1 401 Not Authenticated
  *     {
- *       "error": "UserNameTooShort"
+ *       "error": "NoAccessRight"
  *     }
  */
 
@@ -41,57 +54,4 @@
 /**
  * @apiDefine admin This title is visible in version 0.1.0 and 0.2.0
  * @apiVersion 0.1.0
- */
-
-/**
- * @api {get} /user/:id Read data of a User
- * @apiVersion 0.2.0
- * @apiName GetUser
- * @apiGroup User
- * @apiPermission admin
- *
- * @apiDescription Here you can describe the function.
- * Multilines are possible.
- *
- * @apiParam {String} id The Users-ID.
- *
- * @apiSuccess {String} id         The Users-ID.
- * @apiSuccess {Date}   name       Fullname of the User.
- *
- * @apiError UserNotFound   The <code>id</code> of the User was not found.
- */
-
-/**
- * @api {get} /user/:id Read data of a User
- * @apiVersion 0.1.0
- * @apiName GetUser
- * @apiGroup User
- * @apiPermission admin
- *
- * @apiDescription Here you can describe the function.
- * Multilines are possible.
- *
- * @apiParam {String} id The Users-ID.
- *
- * @apiSuccess {String} id         The Users-ID.
- * @apiSuccess {Date}   name       Fullname of the User.
- *
- * @apiError UserNotFound   The error description text in version 0.1.0.
- */
-
-/**
- * @api {post} /user Create a User
- * @apiVersion 0.2.0
- * @apiName PostUser
- * @apiGroup User
- * @apiPermission none
- *
- * @apiDescription In this case "apiErrorStructure" is defined and used.
- * Define blocks with params that will be used in several functions, so you dont have to rewrite them.
- *
- * @apiParam {String} name Name of the User.
- *
- * @apiSuccess {String} id         The Users-ID.
- *
- * @apiUse CreateUserError
  */

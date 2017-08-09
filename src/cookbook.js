@@ -1,78 +1,87 @@
 /**
- * @api {get} /CookbookApi/getCookbookList 获取收藏列表
+ * @api {get} /CookbookApi/getCookbookList 获取菜品列表
  * @apiVersion 2.0.0
  * @apiName getCookbookList
  * @apiGroup Cookbook
  * @apiPermission login
  *
- * @apiDescription 获取我的收藏列表。
+ * @apiDescription 根据食材和个数，获取推荐的菜品。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
- * @apiParam {Integer} [page=1] 		当前页码
- * @apiParam {Integer} [pageSize=10] 	每页大小
+ * @apiParam {String} ingredient	   食材名称
+ * @apiParam {Number} [num=4]	       推荐个数
  *
- * @apiSuccess {Boolean}    success               是否成功
- * @apiSuccess {Object}     obj                   资讯列表分页
- * @apiSuccess {Object[]}   obj.list              收藏列表
- * @apiSuccess {String}     obj.list.id           收藏ID
- * @apiSuccess {String}     obj.list.type         收藏类型，1：资讯，...
- * @apiSuccess {Date}       obj.list.createTime   收藏时间
- * @apiSuccess {Object}     obj.list.data         资讯
- * @apiSuccess {String}     obj.list.data.id           资讯ID
- * @apiSuccess {String}     obj.list.data.title        资讯标题
- * @apiSuccess {String}     obj.list.data.img          资讯图片
- * @apiSuccess {String}     obj.list.data.source       资讯来源
- * @apiSuccess {Date}       obj.list.data.createTime   资讯发表时间
- * @apiSuccess {Integer}    obj.page              当前页码
- * @apiSuccess {Integer}    obj.pageSize          每页大小
- * @apiSuccess {Integer}    obj.pageCount         总页数
+ * @apiSuccess {Boolean}    ok                       是否成功
+ * @apiSuccess {Object[]}   obj                      菜品列表
+ * @apiSuccess {String}     obj.id                   菜品ID
+ * @apiSuccess {String}     obj.name                 菜品名称
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
- *         "success": true,
+ *         "ok": true,
  *         "obj": [
  *             {
- *                 "id": "473a39e9-0fba-11e7-9b59-000c293e6828",
- *                 "type": 1,
- *                 "createTime": 1460651070000,
- *                 "data": {
- *                     "id": "473a39e9-0fba-11e7-9b59-000c293e6828",
- *                     "title": "日用品过期会引来一身病，99%的人不知道！",
- *                     "img": "zixun/1.1.jpg,zixun/1.2.jpg,zixun/1.3.jpg",
- *                     "source": "养生堂",
- *                     "createTime": 1460651070000
- *                 }
+ *                 "id": "11269e42-0d7d-11e7-9b59-000c293e6828",
+ *                 "name": "番茄牛肉"
+ *             },
+ *             {
+ *                 "id": "110681b1-0d7d-11e7-9b59-000c293e6828",
+ *                 "name": "炒白菜"
+ *             },
+ *             {
+ *                 "id": "1106775f-0d7d-11e7-9b59-000c293e6828",
+ *                 "name": "拔丝地瓜"
  *             },
  *             ...
  *         ]
  *     }
+ *
+ * @apiUse AuthenticatedError
+ *
  */
-function getMyCookbookList() { return; }
+function getCookbookList() { return; }
+
 
 /**
- * @api {get} /CookbookApi/deleteCookbook 删除收藏
+ * @api {get} /CookbookApi/getCookbook 获取菜品详细
  * @apiVersion 2.0.0
- * @apiName deleteCookbook
+ * @apiName getCookbook
  * @apiGroup Cookbook
  * @apiPermission login
  *
- * @apiDescription 删除指定的收藏。
+ * @apiDescription 根据菜品ID或名称，获取菜谱详细。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
- * @apiParam {String} collectionId 收藏ID
+ * @apiParam (ID查询){String}   id	       菜品ID
+ * @apiParam (名称查询){String}  name	   菜品名称
  *
- * @apiSuccess {Boolean}    success         是否成功
+ * @apiSuccess {Boolean}    ok                       是否成功
+ * @apiSuccess {Object[]}   obj                      菜品对象
+ * @apiSuccess {String}     obj.id                   菜品ID
+ * @apiSuccess {String}     obj.name                 菜名
+ * @apiSuccess {String}     obj.img                  菜品图片
+ * @apiSuccess {String}     obj.mainIngredient       主料
+ * @apiSuccess {String}     obj.auxiliaryIngredient  辅料
+ * @apiSuccess {String}     obj.steps                做法步骤
  *
- * @apiError NoAccessRight 只有授权的用户可以访问数据。
- * @apiError UserNotFound   用户不存在。
- *
- * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
  *     {
- *       "error": "NoAccessRight"
+ *         "ok": true,
+ *         "obj": {
+ *             "id": "11269e42-0d7d-11e7-9b59-000c293e6828",
+ *             "name": "豆角焖面",
+ *             "img": ""../../1.jpg,
+ *             "mainIngredient": "豆角",
+ *             "auxiliaryIngredient": "面条，肉",
+ *             "steps":"1.热油，放肉。。。。。。"
+ *         }
  *     }
+ *
+ * @apiUse AuthenticatedError
+ *
  */
-function deleteCookbook() { return; }
+function getCookbook() { return; }

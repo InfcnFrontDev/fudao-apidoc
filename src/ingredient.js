@@ -1,78 +1,51 @@
 /**
- * @api {get} /IngredientApi/getIngredientList 获取收藏列表
+ * @api {get} /IngredientApi/getIngredient 获取食材详细
  * @apiVersion 2.0.0
- * @apiName getIngredientList
+ * @apiName getIngredient
  * @apiGroup Ingredient
  * @apiPermission login
  *
- * @apiDescription 获取我的收藏列表。
+ * @apiDescription 根据食材名称，获取食材的详细。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
- * @apiParam {Integer} [page=1] 		当前页码
- * @apiParam {Integer} [pageSize=10] 	每页大小
+ * @apiParam (ID查询){String}   id	       食材ID
+ * @apiParam (名称查询){String}  name	   食材名称
  *
- * @apiSuccess {Boolean}    success               是否成功
- * @apiSuccess {Object}     obj                   资讯列表分页
- * @apiSuccess {Object[]}   obj.list              收藏列表
- * @apiSuccess {String}     obj.list.id           收藏ID
- * @apiSuccess {String}     obj.list.type         收藏类型，1：资讯，...
- * @apiSuccess {Date}       obj.list.createTime   收藏时间
- * @apiSuccess {Object}     obj.list.data         资讯
- * @apiSuccess {String}     obj.list.data.id           资讯ID
- * @apiSuccess {String}     obj.list.data.title        资讯标题
- * @apiSuccess {String}     obj.list.data.img          资讯图片
- * @apiSuccess {String}     obj.list.data.source       资讯来源
- * @apiSuccess {Date}       obj.list.data.createTime   资讯发表时间
- * @apiSuccess {Integer}    obj.page              当前页码
- * @apiSuccess {Integer}    obj.pageSize          每页大小
- * @apiSuccess {Integer}    obj.pageCount         总页数
+ * @apiSuccess {Boolean}    ok                   是否成功
+ * @apiSuccess {Object}     obj                  食材对象
+ * @apiSuccess {String}     obj.id               ID
+ * @apiSuccess {String}     obj.name             名称
+ * @apiSuccess {String}     obj.otherName        其他的名字
+ * @apiSuccess {String}     obj.img              图片
+ * @apiSuccess {String}     obj.abstract         摘要
+ * @apiSuccess {String}     obj.energy           能量
+ * @apiSuccess {String}     obj.protein          蛋白质
+ * @apiSuccess {String}     obj.fat              脂肪
+ * @apiSuccess {String}     obj.carbohydrate     碳水化合物
+ * @apiSuccess {String}     obj.dietaryFiber     膳食纤维
+ * @apiSuccess {String}     obj.cholesterol      胆固醇
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
- *         "success": true,
- *         "obj": [
- *             {
- *                 "id": "473a39e9-0fba-11e7-9b59-000c293e6828",
- *                 "type": 1,
- *                 "createTime": 1460651070000,
- *                 "data": {
- *                     "id": "473a39e9-0fba-11e7-9b59-000c293e6828",
- *                     "title": "日用品过期会引来一身病，99%的人不知道！",
- *                     "img": "zixun/1.1.jpg,zixun/1.2.jpg,zixun/1.3.jpg",
- *                     "source": "养生堂",
- *                     "createTime": 1460651070000
- *                 }
- *             },
- *             ...
- *         ]
+ *         "ok": true,
+ *         "obj": {
+ *             "id": "11081c38-0d7d-11e7-9b59-000c293e6828",
+ *             "name": "蚕豆",
+ *             "otherName": "大豆",
+ *             "img": "ingredien/1.1.jpg",
+ *             "abstract":"蚕豆有。。的作用。。",
+ *             "energy": "1.3",
+ *             "protein": "5.0",
+ *             "fat": "0.7",
+ *             "carbohydrate": "0.8",
+ *             "dietaryFiber": "0.9",
+ *             "cholesterol": "0.6"
+ *         }
  *     }
+ *
+ * @apiUse AuthenticatedError
+ *
  */
-function getMyIngredientList() { return; }
-
-/**
- * @api {get} /IngredientApi/deleteIngredient 删除收藏
- * @apiVersion 2.0.0
- * @apiName deleteIngredient
- * @apiGroup Ingredient
- * @apiPermission login
- *
- * @apiDescription 删除指定的收藏。
- *
- * @apiHeader {String} access-key Users unique access-key.
- *
- * @apiParam {String} collectionId 收藏ID
- *
- * @apiSuccess {Boolean}    success         是否成功
- *
- * @apiError NoAccessRight 只有授权的用户可以访问数据。
- * @apiError UserNotFound   用户不存在。
- *
- * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
- *     {
- *       "error": "NoAccessRight"
- *     }
- */
-function deleteIngredient() { return; }
+function getIngredient() { return; }

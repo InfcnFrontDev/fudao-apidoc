@@ -1,78 +1,85 @@
 /**
- * @api {get} /MedicalExaminationApi/getMedicalExaminationList 获取收藏列表
+ * @api {get} /MedicalExaminationApi/updataMedicalInformationResult 修改体检结果
  * @apiVersion 2.0.0
- * @apiName getMedicalExaminationList
+ * @apiName updataMedicalInformationResult
  * @apiGroup MedicalExamination
  * @apiPermission login
  *
- * @apiDescription 获取我的收藏列表。
+ * @apiDescription 用户修改某项体检结果
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
- * @apiParam {Integer} [page=1] 		当前页码
- * @apiParam {Integer} [pageSize=10] 	每页大小
+ * @apiParam {String} medicalInformationId  体检项ID
+ * @apiParam {String} value 体检结果值
  *
- * @apiSuccess {Boolean}    success               是否成功
- * @apiSuccess {Object}     obj                   资讯列表分页
- * @apiSuccess {Object[]}   obj.list              收藏列表
- * @apiSuccess {String}     obj.list.id           收藏ID
- * @apiSuccess {String}     obj.list.type         收藏类型，1：资讯，...
- * @apiSuccess {Date}       obj.list.createTime   收藏时间
- * @apiSuccess {Object}     obj.list.data         资讯
- * @apiSuccess {String}     obj.list.data.id           资讯ID
- * @apiSuccess {String}     obj.list.data.title        资讯标题
- * @apiSuccess {String}     obj.list.data.img          资讯图片
- * @apiSuccess {String}     obj.list.data.source       资讯来源
- * @apiSuccess {Date}       obj.list.data.createTime   资讯发表时间
- * @apiSuccess {Integer}    obj.page              当前页码
- * @apiSuccess {Integer}    obj.pageSize          每页大小
- * @apiSuccess {Integer}    obj.pageCount         总页数
+ * @apiSuccess {Boolean}    ok          是否成功
  *
- * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *         "success": true,
- *         "obj": [
- *             {
- *                 "id": "473a39e9-0fba-11e7-9b59-000c293e6828",
- *                 "type": 1,
- *                 "createTime": 1460651070000,
- *                 "data": {
- *                     "id": "473a39e9-0fba-11e7-9b59-000c293e6828",
- *                     "title": "日用品过期会引来一身病，99%的人不知道！",
- *                     "img": "zixun/1.1.jpg,zixun/1.2.jpg,zixun/1.3.jpg",
- *                     "source": "养生堂",
- *                     "createTime": 1460651070000
- *                 }
- *             },
- *             ...
- *         ]
- *     }
+ * @apiUse AuthenticatedError
+ *
  */
-function getMyMedicalExaminationList() { return; }
+
+
+function updataMedicalInformationResult() { return; }
 
 /**
- * @api {get} /MedicalExaminationApi/deleteMedicalExamination 删除收藏
+ * @api {get} /MedicalExaminationApi/getMedicalInformationList 获取体检项列表
  * @apiVersion 2.0.0
- * @apiName deleteMedicalExamination
+ * @apiName getMedicalInformationList
  * @apiGroup MedicalExamination
  * @apiPermission login
  *
- * @apiDescription 删除指定的收藏。
+ * @apiDescription 获取全部体检项列表
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
- * @apiParam {String} collectionId 收藏ID
+ * @apiParam {String}  keyword          模糊匹配名称，或使用首字母检索，为空查询全部
  *
- * @apiSuccess {Boolean}    success         是否成功
+ * @apiSuccess {Boolean}   ok               是否成功
+ * @apiSuccess {object}    obj              体检项对象
+ * @apiSuccess {object[]}  obj.type         体检项分类
+ * @apiSuccess {String}    obj.type.id           ID
+ * @apiSuccess {String}    obj.type.name         名称
+ * @apiSuccess {String}    obj.type.unit         单位
+ * @apiSuccess {String}    obj.type.inputType    输入类型，1：数值型，2：文本型，3：选择型，4：A/B型
+ * @apiSuccess {String}    obj.type.items        选择项
+ * @apiSuccess {String}    obj.type.value        值
+ * @apiSuccess {String}    obj.type.range        值输入范围
  *
- * @apiError NoAccessRight 只有授权的用户可以访问数据。
- * @apiError UserNotFound   用户不存在。
  *
  * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
+ *     HTTP/1.1 200 OK
  *     {
- *       "error": "NoAccessRight"
+ *         "ok":true,
+ *         "obj":{
+ *              "基本信息": [
+ *                  {
+ *                      "id":'1',
+ *                      "name":'体重',
+ *                      "type": "基本信息",
+ *                      "unit":'kg',
+ *                      "inputType": 1,
+ *                      "items": null,
+ *                      "value": 75,
+ *                      "range": "30~200"
+ *                  },
+ *                  ...
+ *              ],
+ *              "眼科": [
+ *                  {
+ *                      "id":'2',
+ *                      "name":'辨色力',
+ *                      "unit": null,
+ *                      "inputType": 3,
+ *                      "items": ["正常", "色弱", "色盲"],
+ *                      "value": 175,
+ *                      "range": "30~200"
+ *                  },
+ *                  ...
+ *              ]
+ *         }
  *     }
+ *
+ * @apiUse AuthenticatedError
+ *
  */
-function deleteMedicalExamination() { return; }
+function getMedicalInformationList() { return; }

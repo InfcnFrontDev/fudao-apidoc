@@ -1,78 +1,165 @@
 /**
- * @api {get} /FriendApi/getFriendList 获取收藏列表
+ * @api {get} /FriendApi/getMyFriendList 获取我的好友列表
  * @apiVersion 2.0.0
- * @apiName getFriendList
+ * @apiName getMyFriendList
  * @apiGroup Friend
  * @apiPermission login
  *
- * @apiDescription 获取我的收藏列表。
+ * @apiDescription 获取当前登录用户的好友列表。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
- * @apiParam {Integer} [page=1] 		当前页码
- * @apiParam {Integer} [pageSize=10] 	每页大小
+ * @apiSuccess {Boolean}    ok                    是否成功
+ * @apiSuccess {Object[]}   obj                   好友列表
+ * @apiSuccess {String}     obj.id                好友id
+ * @apiSuccess {String}     obj.phone             手机号
+ * @apiSuccess {String}     obj.nickname          昵称
+ * @apiSuccess {String}     obj.photo             好友头像
+ * @apiSuccess {String}     obj.friendRemark            好友备注
  *
- * @apiSuccess {Boolean}    success               是否成功
- * @apiSuccess {Object}     obj                   资讯列表分页
- * @apiSuccess {Object[]}   obj.list              收藏列表
- * @apiSuccess {String}     obj.list.id           收藏ID
- * @apiSuccess {String}     obj.list.type         收藏类型，1：资讯，...
- * @apiSuccess {Date}       obj.list.createTime   收藏时间
- * @apiSuccess {Object}     obj.list.data         资讯
- * @apiSuccess {String}     obj.list.data.id           资讯ID
- * @apiSuccess {String}     obj.list.data.title        资讯标题
- * @apiSuccess {String}     obj.list.data.img          资讯图片
- * @apiSuccess {String}     obj.list.data.source       资讯来源
- * @apiSuccess {Date}       obj.list.data.createTime   资讯发表时间
- * @apiSuccess {Integer}    obj.page              当前页码
- * @apiSuccess {Integer}    obj.pageSize          每页大小
- * @apiSuccess {Integer}    obj.pageCount         总页数
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
- *         "success": true,
+ *         "ok": true,
  *         "obj": [
  *             {
- *                 "id": "473a39e9-0fba-11e7-9b59-000c293e6828",
- *                 "type": 1,
- *                 "createTime": 1460651070000,
- *                 "data": {
- *                     "id": "473a39e9-0fba-11e7-9b59-000c293e6828",
- *                     "title": "日用品过期会引来一身病，99%的人不知道！",
- *                     "img": "zixun/1.1.jpg,zixun/1.2.jpg,zixun/1.3.jpg",
- *                     "source": "养生堂",
- *                     "createTime": 1460651070000
- *                 }
- *             },
+ *                 "id":"867200022156895,86720002215690321000493",
+ *                 "phone":"15901097191",
+ *                 "nickmame":"党中央"
+ *                 "photo":"/uploader/00/00/00/00/00/00/00/60.jpg",
+ *                 "friendRemark":"杨可",
+ *             }
  *             ...
  *         ]
  *     }
+ *
+ * @apiUse AuthenticatedError
+ *
  */
 function getMyFriendList() { return; }
 
 /**
- * @api {get} /FriendApi/deleteFriend 删除收藏
+ * @api {get} /FriendApi/getMyFriendApplyList 获取我的好友申请列表
  * @apiVersion 2.0.0
- * @apiName deleteFriend
+ * @apiName getMyFriendApplyList
  * @apiGroup Friend
  * @apiPermission login
  *
- * @apiDescription 删除指定的收藏。
+ * @apiDescription 获取我的好友申请列表。
  *
- * @apiHeader {String} access-key Users unique access-key.
+ * @apiUse AuthenticatedHeader
  *
- * @apiParam {String} collectionId 收藏ID
- *
- * @apiSuccess {Boolean}    success         是否成功
- *
- * @apiError NoAccessRight 只有授权的用户可以访问数据。
- * @apiError UserNotFound   用户不存在。
- *
+ * @apiSuccess {Boolean}    ok                    是否成功
+ * @apiSuccess {Object[]}   obj                   资讯列表分页
+ * @apiSuccess {String}     obj.id                用户id
+ * @apiSuccess {String}     obj.nickname          昵称
+ * @apiSuccess {String}     obj.phone             手机号
+ * @apiSuccess {String}     obj.photo             好友头像
+ * @apiSuccess {String}     obj.introduce         自我介绍
+ * @apiSuccess {String}     obj.status            状态，1：新朋友，2：拒绝，3：同意
  * @apiErrorExample Response (example):
- *     HTTP/1.1 401 Not Authenticated
- *     {
- *       "error": "NoAccessRight"
+ *     HTTP/1.1 200 OK
+ *      {
+ *         "ok": true,
+ *         "obj": [
+ *             {
+ *                 "id":"867200022156895,86720002215690321000493",
+ *                 "nickname":"杨可",
+ *                 "phone":"15901097191",
+ *                 "photo":"/uploader/00/00/00/00/00/00/00/60.jpg",
+ *                 'introduce'："我叫杨可",
+ *                 "status": 1
+ *             }
+ *             ...
+ *         ]
  *     }
+ *
+ * @apiUse AuthenticatedError
+ *
  */
-function deleteFriend() { return; }
+function getMyFriendApplyList() { return; }
+
+/**
+ * @api {get} /FriendApi/updateFriendRemark 修改好友备注
+ * @apiVersion 2.0.0
+ * @apiName updateFriendRemark
+ * @apiGroup Friend
+ * @apiPermission login
+ *
+ * @apiDescription 修改好友备注进行保存。
+ *
+ * @apiUse AuthenticatedHeader
+ *
+ * @apiParam {String} friendId 		    好友id
+ * @apiParam {String} friendRemark		好友备注
+ *
+ * @apiSuccess {Boolean}    ok               是否成功
+ *
+ * @apiUse AuthenticatedError
+ *
+ */
+function updateFriendRemark() { return; }
+
+/**
+ * @api {get} /FriendApi/agreeAddFriend 同意加好友
+ * @apiVersion 2.0.0
+ * @apiName agreeAddFriend
+ * @apiGroup Friend
+ * @apiPermission login
+ *
+ * @apiDescription 同意加对方用户为我的好友
+ *
+ * @apiUse AuthenticatedHeader
+ *
+ * @apiParam {String} id 		修改的用户id
+ * @apiParam {String} friendRemark 	修改的用户备注
+ *
+ * @apiSuccess {Boolean}    ok               是否成功
+ *
+ * @apiUse AuthenticatedError
+ *
+ */
+function agreeAddFriend() { return; }
+
+/**
+ * @api {get} /FriendApi/deleteMyFriend 删除我的好友
+ * @apiVersion 2.0.0
+ * @apiName deleteMyFriend
+ * @apiGroup Friend
+ * @apiPermission login
+ *
+ * @apiDescription 删除我的好友
+ *
+ * @apiUse AuthenticatedHeader
+ *
+ * @apiParam {String} friendId 	    好友id
+ *
+ * @apiSuccess {Boolean}    ok      是否成功
+ *
+ * @apiUse AuthenticatedError
+ *
+ */
+function deleteMyFriend() { return; }
+
+/**
+ * @api {get} /FriendApi/applyAddFriend 申请加为好友
+ * @apiVersion 2.0.0
+ * @apiName applyAddFriend
+ * @apiGroup Friend
+ * @apiPermission login
+ *
+ * @apiDescription  向好友发送加好友请求。
+ *
+ * @apiUse AuthenticatedHeader
+ *
+ * @apiParam {String} friendId 	    好友id
+ * @apiParam {String} introduce      自我介绍
+ * @apiParam {String} friendRemark    好友备注
+ *
+ * @apiSuccess {Boolean}    ok               是否成功
+ *
+ * @apiUse AuthenticatedError
+ *
+ */
+function applyAddFriend() { return; }
