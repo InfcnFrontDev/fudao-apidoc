@@ -43,6 +43,7 @@ function updataMedicalInformationResult() { return; }
  * @apiSuccess {String}    obj.type.inputType    输入类型，1：数值型，2：文本型，3：选择型，4：A/B型
  * @apiSuccess {String}    obj.type.items        选择项
  * @apiSuccess {String}    obj.type.value        值
+ * @apiSuccess {String}    obj.type.range        值输入范围
  *
  *
  * @apiErrorExample Response (example):
@@ -58,7 +59,8 @@ function updataMedicalInformationResult() { return; }
  *                      "unit":'kg',
  *                      "inputType": 1,
  *                      "items": null,
- *                      "value": 75
+ *                      "value": 75,
+ *                      "range": "30~200"
  *                  },
  *                  ...
  *              ],
@@ -69,7 +71,8 @@ function updataMedicalInformationResult() { return; }
  *                      "unit": null,
  *                      "inputType": 3,
  *                      "items": ["正常", "色弱", "色盲"],
- *                      "value": 175
+ *                      "value": 175,
+ *                      "range": "30~200"
  *                  },
  *                  ...
  *              ]
